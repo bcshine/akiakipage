@@ -1795,7 +1795,127 @@
         }
     </style>
 
+    <!-- PWA 설치 프롬프트 -->
+    <div class="pwa-install-prompt" id="pwaInstallPrompt">
+        <div class="pwa-prompt-content">
+            <img src="images/logo.png" alt="아키아키 로고" class="pwa-icon">
+            <div class="pwa-text">
+                <div class="pwa-title">아키아키 앱 설치하기</div>
+                <div class="pwa-description">홈 화면에 추가하여 앱처럼 사용하세요</div>
+            </div>
+        </div>
+        <div class="pwa-buttons">
+            <button class="pwa-install-btn" id="pwaInstallBtn">설치</button>
+            <button class="pwa-dismiss-btn" id="pwaDismissBtn">나중에</button>
+        </div>
+    </div>
+
+    <!-- PWA 업데이트 알림 -->
+    <div class="pwa-update-toast" id="pwaUpdateToast">
+        <div class="pwa-update-text">
+            <div class="pwa-update-title">앱 업데이트 완료</div>
+            <div class="pwa-update-description">새로운 버전을 사용할 수 있습니다</div>
+        </div>
+        <button class="pwa-update-btn" id="pwaUpdateBtn">새로고침</button>
+    </div>
+
+    <!-- 오프라인 상태 알림 -->
+    <div class="offline-notification" id="offlineNotification">
+        인터넷 연결이 끊겼습니다. 일부 기능이 제한될 수 있습니다.
+    </div>
+
+    <!-- 스플래시 화면 -->
+    <div class="splash-screen" id="splashScreen">
+        <img src="images/logo.png" alt="아키아키 로고" class="splash-logo">
+        <div class="splash-title">아키아키</div>
+        <div class="splash-loading"></div>
+    </div>
+
     <!-- 자바스크립트 파일 연결 -->
     <script src="script.js"></script>
+
+    <!-- Service Worker 등록 -->
+    <script>
+        // 서비스 워커 등록
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('서비스 워커 등록 성공:', registration.scope);
+                        
+                        // 서비스 워커 업데이트 확인
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // 새 버전이 설치됨 - 업데이트 알림 표시
+                                    const updateToast = document.getElementById('pwaUpdateToast');
+                                    updateToast.classList.add('show');
+                                    
+                                    // 업데이트 버튼 이벤트 리스너
+                                    document.getElementById('pwaUpdateBtn').addEventListener('click', () => {
+                                        window.location.reload();
+                                    });
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('서비스 워커 등록 실패:', error);
+                    });
+            });
+        }
+
+        // 스플래시 화면 처리
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splashScreen = document.getElementById('splashScreen');
+                splashScreen.classList.add('hide');
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // PWA 설치 프롬프트 처리
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            window.deferredPrompt = e;
+            
+            // 설치 프롬프트가 표시되었음을 로컬 스토리지에 저장
+            localStorage.setItem('pwaInstallPromptShown', 'true');
+            
+            // 3초 후에 설치 프롬프트 표시
+            setTimeout(() => {
+                const installPrompt = document.getElementById('pwaInstallPrompt');
+                installPrompt.classList.add('show');
+            }, 3000);
+        });
+
+        // 설치 버튼 클릭 이벤트
+        document.getElementById('pwaInstallBtn').addEventListener('click', () => {
+            const installPrompt = document.getElementById('pwaInstallPrompt');
+            installPrompt.classList.remove('show');
+            
+            if (window.deferredPrompt) {
+                window.deferredPrompt.prompt();
+                window.deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('사용자가 PWA 설치를 수락했습니다');
+                        localStorage.setItem('pwaInstalled', 'true');
+                    } else {
+                        console.log('사용자가 PWA 설치를 거부했습니다');
+                    }
+                    window.deferredPrompt = null;
+                });
+            }
+        });
+
+        // 나중에 버튼 클릭 이벤트
+        document.getElementById('pwaDismissBtn').addEventListener('click', () => {
+            const installPrompt = document.getElementById('pwaInstallPrompt');
+            installPrompt.classList.remove('show');
+        });
+    </script>
 </body>
-</html> 
+</html>
