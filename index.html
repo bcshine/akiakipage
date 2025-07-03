@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아키아키 - 청주 대표 일식 오마카세</title>
+    
+    <!-- 넥슨폰트 웹폰트 불러오기 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 헤더 영역 시작 -->
+    <header class="header">
+        <div class="header-container">
+            <!-- 왼쪽: 로고 이미지 -->
+            <div class="logo-section">
+                <img src="images/logo.png" alt="아키아키 로고" class="logo-img">
+                <!-- 브랜드 이름 -->
+                <h1 class="brand-name">청주 대표 일식 오마카세 아키아키</h1>
+            </div>
+            
+            <!-- 가운데: 네비게이션 메뉴 -->
+            <nav class="nav-menu">
+                <ul class="menu-list">
+                    <li><a href="#omakase">오마카세</a></li>
+                    <li><a href="#premium">프리미엄</a></li>
+                    <li><a href="#lunch">점심특선</a></li>
+                    <li><a href="#single">단품</a></li>
+                    <li><a href="#anniversary">기념일</a></li>
+                    <li><a href="#review">고객리뷰</a></li>
+                    <li><a href="#qa">Q&A</a></li>
+                </ul>
+            </nav>
+            
+            <!-- 오른쪽: 예약하기 버튼 -->
+            <div class="reservation-section">
+                <button class="reservation-btn" onclick="openReservation()">예약하기</button>
+            </div>
+            
+            <!-- 모바일용 햄버거 메뉴 버튼 -->
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <!-- 모바일용 메뉴 (숨김 상태) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-menu-list">
+                <li><a href="#omakase" onclick="closeMobileMenu()">오마카세</a></li>
+                <li><a href="#premium" onclick="closeMobileMenu()">프리미엄</a></li>
+                                    <li><a href="#lunch" onclick="closeMobileMenu()">점심특선</a></li>
+                    <li><a href="#single" onclick="closeMobileMenu()">단품</a></li>
+                    <li><a href="#anniversary" onclick="closeMobileMenu()">기념일</a></li>
+                <li><a href="#review" onclick="closeMobileMenu()">고객리뷰</a></li>
+                <li><a href="#qa" onclick="closeMobileMenu()">Q&A</a></li>
+                <li><button class="mobile-reservation-btn" onclick="openReservation()">예약하기</button></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- 히어로 섹션 시작 -->
+    <section class="hero-section">
+        <!-- 캐러셀 컨테이너 -->
+        <div class="carousel-container">
+            <!-- 슬라이드들 -->
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- 슬라이드 1: 아키아키 메인 -->
+                <div class="slide active" style="background-image: url('images/full.jpg')">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="slide-title">청주 대표 일식 오마카세 아키아키</h1>
+                        <h2 class="slide-slogan">프라이빗 룸에서 만나는 미식의 순간</h2>
+                        <p class="slide-description">예약은 네이버 스마트플레이스로 간편하게!</p>
+                        <button class="hero-reservation-btn" onclick="openNaverReservation()">예약하기</button>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 2: 눈꽃 대게 오마카세 -->
+                <div class="slide" style="background-image: url('images/crabsashimi.jpg')">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="slide-title">눈꽃 대게 오마카세 (雪の花)</h1>
+                        <h2 class="slide-slogan">트러플·캐비어·대게를 담은 청주 최초의 프리미엄 코스</h2>
+                        <p class="slide-description">시즌 한정 대게 오마카세를 경험해보세요</p>
+                        <button class="hero-reservation-btn" onclick="openNaverReservation()">예약하기</button>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 3: 특별한 날 서비스 -->
+                <div class="slide" style="background-image: url('images/seven.jpg')">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="slide-title">특별한 날, 아키아키에서</h1>
+                        <h2 class="slide-slogan">첫돌부터 프로포즈, 상견례, 고희연까지 프라이빗하게</h2>
+                        <p class="slide-description">생일상, 돌상, 칠순·팔순까지 전용 코스 완비</p>
+                        <button class="hero-reservation-btn" onclick="openNaverReservation()">예약하기</button>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 4: 프라이빗 공간 -->
+                <div class="slide" style="background-image: url('images/cover.jpg')">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1 class="slide-title">프라이빗한 공간, 아키아키</h1>
+                        <h2 class="slide-slogan">청주의 조용하고 고급스러운 미식 장소</h2>
+                        <p class="slide-description">단체모임, 상견례, 가족 외식까지 완벽한 공간</p>
+                        <button class="hero-reservation-btn" onclick="openNaverReservation()">예약하기</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 좌우 화살표 네비게이션 -->
+            <button class="carousel-nav prev" onclick="prevSlide()">
+                <span>&#8249;</span>
+            </button>
+            <button class="carousel-nav next" onclick="nextSlide()">
+                <span>&#8250;</span>
+            </button>
+            
+            <!-- 슬라이드 인디케이터 (점들) -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+                <span class="indicator" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 오마카세 코스 섹션 시작 -->
+    <section class="omakase-section" id="omakase">
+        <div class="omakase-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title">오마카세 코스</h2>
+                <p class="section-subtitle">프라이빗한 공간에서 만나는 아키아키의 정수</p>
+            </div>
+            
+            <!-- 메뉴 카드 그리드 -->
+            <div class="menu-grid">
+                <!-- 카드 1: 시그니처 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/full.jpg" alt="시그니처 코스" loading="lazy">
+                        <div class="price-badge">250</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 시그니처 코스</h3>
+                        <p class="menu-description">
+                            아키아키의 정수가 모두 담긴 하이엔드 풀코스.<br>
+                            프라이빗한 공간에서 눈꽃 대게, 트러플, 성게, 푸아그라까지.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(0, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails0">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>고바찌, 과일 샐러드, 건강죽, 명태회무침</li>
+                                <li>계절 사시미, 참치 대뱃살, 모둠 해산물</li>
+                                <li>고노와다, 모주꾸, 성게 초밥, 독도새우</li>
+                                <li>도빙무시, 눈꽃 대게 사시미</li>
+                                <li>트러플 관자, 운피선, 푸아그라</li>
+                                <li>랍스터 스테이크, 대게 샤브샤브, 식사</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 2: 명 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/full2.jpg" alt="명 코스" loading="lazy">
+                        <div class="price-badge">150</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 명(明) 코스</h3>
+                        <p class="menu-description">
+                            트러플 관자, 오세트라 캐비어, 성게 초밥, 푸아그라 등<br>
+                            고급 재료를 조화롭게 담은 대표 코스.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(1, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails1">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>고바찌, 샐러드, 건강죽, 명태회무침</li>
+                                <li>계절 사시미, 참치 대뱃살, 해산물, 성게 초밥</li>
+                                <li>노인과 바다, 트러플 관자, 푸아그라, 운피선</li>
+                                <li>랍스터 스테이크, 하모 샤브샤브 또는 물회, 식사</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 3: 찬 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/chan.png" alt="찬 코스" loading="lazy">
+                        <div class="price-badge">115</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 찬(燦) 코스</h3>
+                        <p class="menu-description">
+                            랍스터와 와규, 트러플과 캐비어를<br>
+                            즐길 수 있는 프리미엄 미식 코스.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(2, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails2">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>고바찌, 샐러드, 건강죽, 명태회무침</li>
+                                <li>계절 사시미, 참치, 해산물, 성게 초밥</li>
+                                <li>트러플 관자, 운피선, 랍스터 스테이크</li>
+                                <li>와규 스테이크, 하모 샤브샤브 또는 물회, 식사</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 4: 욱 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/wook.png" alt="욱 코스" loading="lazy">
+                        <div class="price-badge">89</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 욱(旭) 코스</h3>
+                        <p class="menu-description">
+                            와규 스테이크와 트러플이 포함된,<br>
+                            합리적인 가격의 가성비 오마카세 코스.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(3, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails3">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>샐러드, 건강죽, 명태회무침</li>
+                                <li>계절 사시미, 참다랑어 뱃살, 해산물, 초밥</li>
+                                <li>운피선, 트러플 관자, 와규 스테이크</li>
+                                <li>황금두부, 하모 샤브샤브 또는 물회, 식사</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 5: 하루 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/haru.jpg" alt="하루 코스" loading="lazy">
+                        <div class="price-badge">69</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 하루(一) 코스</h3>
+                        <p class="menu-description">
+                            실속 있는 가격에 구성된 입문자용 오마카세.<br>
+                            부담 없이 즐길 수 있는 가벼운 프라이빗 코스.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(4, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails4">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>샐러드, 건강죽, 명태회무침</li>
+                                <li>계절 사시미, 참다랑어 노인과바다 스토리, 해산물, 초밥</li>
+                                <li>와규 스테이크, 황금두부, 볶음요리</li>
+                                <li>쑥갓 매운탕, 식사</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 6: 세미나 코스 -->
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="images/seminar.jpg" alt="세미나 코스" loading="lazy">
+                        <div class="price-badge">83</div>
+                        <div class="group-badge">4인 이상</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="menu-title">🍣 세미나 코스</h3>
+                        <p class="menu-description">
+                            병원, 학교, 기업 등 4인 이상 단체 전용 오리진 오마카세.<br>
+                            사전 예약 시 일부 구성 조정도 가능합니다.
+                        </p>
+                        <button class="more-btn" onclick="toggleMenuDetails(5, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="menu-details" id="menuDetails5">
+                            <h4>구성</h4>
+                            <ul class="menu-items">
+                                <li>사시미 또는 참치 코스</li>
+                                <li>샐러드, 건강죽, 명태회무침</li>
+                                <li>오리진 오마카세</li>
+                                <li>식사</li>
+                            </ul>
+                            <p class="special-note">※ 정중한 상차림과 계절 식재료로 신뢰를 더합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 예약 안내 -->
+            <div class="reservation-notice">
+                <p>예약우선제로 자리가 배정됩니다</p>
+                <button class="section-reservation-btn" onclick="openNaverReservation()">
+                    네이버로 예약하기
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 프리미엄 오마카세 섹션 시작 -->
+    <section class="premium-omakase-section" id="premium">
+        <div class="premium-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title premium-title">프리미엄 오마카세</h2>
+                <p class="section-subtitle">최고급 식재료로 완성하는 특별한 미식 경험</p>
+            </div>
+            
+            <!-- 프리미엄 메뉴 카드 그리드 -->
+            <div class="premium-menu-grid">
+                <!-- 카드 1: 대게 오마카세 -->
+                <div class="premium-menu-card">
+                    <div class="premium-card-image">
+                        <img src="images/crab.png" alt="대게 오마카세" loading="lazy">
+                        <div class="price-badge premium-price">시가</div>
+                        <div class="reservation-required-badge">예약 필수</div>
+                    </div>
+                    <div class="premium-card-content">
+                        <h3 class="premium-menu-title">🦀 대게 오마카세</h3>
+                        <p class="premium-menu-description">
+                            눈꽃 대게 사시미부터 대게 찜, 샤브샤브까지.<br>
+                            대게의 모든 부위를 가장 섬세하게 즐기는 오마카세.
+                        </p>
+                        <button class="premium-more-btn" onclick="togglePremiumMenuDetails(0, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="premium-menu-details" id="premiumMenuDetails0">
+                            <h4>구성</h4>
+                            <ul class="premium-menu-items">
+                                <li>고바찌 (수공예 미니어처 요리)</li>
+                                <li>계절 과일 샐러드</li>
+                                <li>오늘의 건강죽</li>
+                                <li>속초 명태회무침</li>
+                                <li>모둠 해산물 (가이모노)</li>
+                                <li>캐나다산 성게 초밥</li>
+                                <li>운피선 (雲貝仙)</li>
+                                <li>눈꽃 대게 사시미 (雪の花)</li>
+                                <li>트러플 캐비어 관자 요리</li>
+                                <li>대게 찜</li>
+                                <li>대게 샤브샤브</li>
+                                <li>식사 (쑥갓 매운탕 또는 계절 식사)</li>
+                            </ul>
+                            <div class="premium-special-notes">
+                                <p class="highlight-note">※ 대게 시세에 따라 가격이 변동됩니다</p>
+                                <p class="highlight-note">※ 반드시 사전 예약이 필요합니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 2: 랍스터 코스 -->
+                <div class="premium-menu-card">
+                    <div class="premium-card-image">
+                        <img src="images/lobster.jpg" alt="랍스터 코스" loading="lazy">
+                        <div class="price-badge">125</div>
+                    </div>
+                    <div class="premium-card-content">
+                        <h3 class="premium-menu-title">🦞 랍스터 코스</h3>
+                        <p class="premium-menu-description">
+                            사시미부터 스테이크, 매운탕까지 랍스터 한 마리를 다채롭게 즐기는 프리미엄 코스.<br>
+                            와규, 관자, 관자튀김까지 함께 곁들여 완성도를 높였습니다.
+                        </p>
+                        <button class="premium-more-btn" onclick="togglePremiumMenuDetails(1, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="premium-menu-details" id="premiumMenuDetails1">
+                            <h4>구성</h4>
+                            <ul class="premium-menu-items">
+                                <li>고바찌 (수공예 미니어처 요리)</li>
+                                <li>과일 샐러드</li>
+                                <li>오늘의 건강죽</li>
+                                <li>속초 명태회무침</li>
+                                <li>모둠 해산물 (가이모노)</li>
+                                <li>캐나다산 성게 초밥</li>
+                                <li>운피선 (雲貝仙)</li>
+                                <li>트러플 캐비어 관자 요리</li>
+                                <li>랍스터 사시미</li>
+                                <li>랍스터 스테이크 (흑백요리사 ver)</li>
+                                <li>추성훈 와규 스테이크</li>
+                                <li>랍스터 매운탕</li>
+                                <li>식사 (쑥갓 매운탕 또는 계절 식사)</li>
+                            </ul>
+                            <div class="premium-special-notes">
+                                <p class="portion-note">※ 2~3인: 랍스터 사시미 1마리 / 스테이크 1인 1마리</p>
+                                <p class="portion-note">※ 4인: 랍스터 사시미 2마리 / 스테이크 1인 1마리</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 프리미엄 메뉴 자리 (향후 확장용) -->
+                <div class="premium-menu-card coming-soon">
+                    <div class="premium-card-image">
+                        <img src="images/cover.jpg" alt="준비중인 프리미엄 메뉴" loading="lazy">
+                        <div class="coming-soon-badge">COMING SOON</div>
+                    </div>
+                    <div class="premium-card-content">
+                        <h3 class="premium-menu-title">🍱 시즌 스페셜</h3>
+                        <p class="premium-menu-description">
+                            계절별 최고급 식재료로 구성되는<br>
+                            아키아키만의 특별한 프리미엄 코스가 준비 중입니다.
+                        </p>
+                        <div class="coming-soon-text">
+                            <p>🎌 곧 만나볼 수 있습니다</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 특별 이벤트 카드 -->
+                <div class="premium-menu-card special-event">
+                    <div class="premium-card-image">
+                        <img src="images/caviar.jpg" alt="캐비어 스페셜" loading="lazy">
+                        <div class="event-badge">SPECIAL</div>
+                    </div>
+                    <div class="premium-card-content">
+                        <h3 class="premium-menu-title">🥄 트러플 캐비어 애드온</h3>
+                        <p class="premium-menu-description">
+                            모든 프리미엄 코스에 추가 가능한<br>
+                            오세트라캐비어와 트러플을 추가 가능한 서비스입니다.
+                        </p>
+                        <div class="addon-info">
+                            <p class="addon-price">1인 2만원</p>
+                            <p class="addon-note">코스 주문 시 추가 가능</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 프리미엄 예약 안내 -->
+            <div class="premium-reservation-notice">
+                <div class="premium-notice-content">
+                    <div class="notice-icon">👑</div>
+                    <div class="notice-text">
+                        <h3>프리미엄 오마카세 예약 안내</h3>
+                        <p>대게 오마카세는 최소 <strong>24시간 전 예약</strong>이 필요합니다.</p>
+                        <p>망설이는 순간, 시가는 올라갈 수 있습니다.</p>
+                    </div>
+                </div>
+                <button class="premium-reservation-btn" onclick="openNaverReservation()">
+                    프리미엄 예약하기
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 점심특선 섹션 시작 -->
+    <section class="lunch-special-section" id="lunch">
+        <div class="lunch-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title lunch-title">점심특선</h2>
+                <p class="section-subtitle">점심시간에도 느끼는 프리미엄 일식의 품격</p>
+            </div>
+            
+            <!-- 점심특선 메뉴 카드 그리드 -->
+            <div class="lunch-menu-grid">
+                <!-- 카드 1: 점심특선 A코스 -->
+                <div class="lunch-menu-card">
+                    <div class="lunch-card-image">
+                        <img src="images/A.jpg" alt="점심특선 A코스" loading="lazy">
+                        <div class="price-badge lunch-price">50</div>
+                        <div class="lunch-badge premium-lunch">PREMIUM</div>
+                    </div>
+                    <div class="lunch-card-content">
+                        <h3 class="lunch-menu-title">🍱 점심특선 A코스</h3>
+                        <p class="lunch-menu-description">
+                            사시미, 초밥, 와규 스테이크, 관자튀김까지 포함된 아키아키의 대표 점심 코스.<br>
+                            점심시간에도 프리미엄을 느끼고 싶은 분께 추천드립니다.
+                        </p>
+                        <button class="lunch-more-btn" onclick="toggleLunchMenuDetails(0, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="lunch-menu-details" id="lunchMenuDetails0">
+                            <h4>구성</h4>
+                            <ul class="lunch-menu-items">
+                                <li>과일 샐러드</li>
+                                <li>오늘의 건강죽</li>
+                                <li>속초 명태회무침</li>
+                                <li>계절 사시미, 참치</li>
+                                <li>모둠 해산물 (가이모노)</li>
+                                <li>초밥 (네기도로)</li>
+                                <li>추성훈 와규 스테이크</li>
+                                <li>볶음 요리</li>
+                                <li>수제 관자튀김</li>
+                                <li>쑥갓 매운탕</li>
+                                <li>식사</li>
+                            </ul>
+                            <div class="lunch-special-notes">
+                                <p class="highlight-note">※ 점심 한정 11시30분~ 14시30분까지 라스트 오더 13시 30분</p>
+                                <p class="highlight-note">※ 와규 스테이크 포함된 프리미엄 코스</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 2: 점심특선 B코스 -->
+                <div class="lunch-menu-card">
+                    <div class="lunch-card-image">
+                        <img src="images/B.jpg" alt="점심특선 B코스" loading="lazy">
+                        <div class="price-badge">39</div>
+                        <div class="lunch-badge bestseller">BEST</div>
+                    </div>
+                    <div class="lunch-card-content">
+                        <h3 class="lunch-menu-title">🍱 점심특선 B코스</h3>
+                        <p class="lunch-menu-description">
+                            사시미, 황금두부, 관자튀김까지 균형 잡힌 구성으로<br>
+                            실속 있는 점심을 찾는 분들께 추천드리는 베스트셀러.
+                        </p>
+                        <button class="lunch-more-btn" onclick="toggleLunchMenuDetails(1, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="lunch-menu-details" id="lunchMenuDetails1">
+                            <h4>구성</h4>
+                            <ul class="lunch-menu-items">
+                                <li>과일 샐러드</li>
+                                <li>오늘의 건강죽</li>
+                                <li>속초 명태회무침</li>
+                                <li>계절 사시미, 참치</li>
+                                <li>모둠 해산물 (가이모노)</li>
+                                <li>초밥</li>
+                                <li>볶음 요리</li>
+                                <li>정지선 셰프의 황금두부</li>
+                                <li>수제 관자튀김</li>
+                                <li>쑥갓 매운탕</li>
+                                <li>식사</li>
+                            </ul>
+                            <div class="lunch-special-notes">
+                                <p class="highlight-note">※ 점심 한정 11시30분~ 14시30분까지 라스트 오더 13시 30분</p>
+                                <p class="highlight-note">※ 정지선 셰프 특제 황금두부 포함</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 3: 점심특선 C코스 -->
+                <div class="lunch-menu-card">
+                    <div class="lunch-card-image">
+                        <img src="images/C.jpg" alt="점심특선 C코스" loading="lazy">
+                        <div class="price-badge">29</div>
+                        <div class="lunch-badge value">VALUE</div>
+                    </div>
+                    <div class="lunch-card-content">
+                        <h3 class="lunch-menu-title">🍱 점심특선 C코스</h3>
+                        <p class="lunch-menu-description">
+                            부담 없이 즐길 수 있는 경량 구성의 점심 코스.<br>
+                            사시미와 초밥, 관자튀김, 쑥갓 매운탕까지 알차게 담았습니다.
+                        </p>
+                        <button class="lunch-more-btn" onclick="toggleLunchMenuDetails(2, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="lunch-menu-details" id="lunchMenuDetails2">
+                            <h4>구성</h4>
+                            <ul class="lunch-menu-items">
+                                <li>과일 샐러드</li>
+                                <li>오늘의 건강죽</li>
+                                <li>속초 명태회무침</li>
+                                <li>계절 사시미, 참치</li>
+                                <li>초밥</li>
+                                <li>볶음 요리</li>
+                                <li>수제 관자튀김</li>
+                                <li>쑥갓 매운탕</li>
+                                <li>식사</li>
+                            </ul>
+                            <div class="lunch-special-notes">
+                                <p class="highlight-note">※ 점심 한정 11시30분~ 14시30분까지 라스트 오더 13시 30분</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 정보 카드 -->
+                <div class="lunch-info-card">
+                    <div class="lunch-info-content">
+                        <div class="info-icon">⏰</div>
+                        <h3>점심특선 운영안내</h3>
+                        <div class="info-details">
+                            <p><strong>운영시간:</strong> 11시30분~14시 30분 라스트오더 13시 30분</p>
+                            <p><strong>주문안내:</strong> 점심특선은 하나의 코스로 동일하게 주문해주셔야합니다</p>
+                            <p><strong>예약:</strong> 전화또는 네이버예약</p>
+                            <p><strong>소요시간:</strong> 30~60분</p>
+                        </div>
+                        <button class="lunch-reservation-btn" onclick="openNaverReservation()">
+                            점심 예약하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 점심특선 혜택 안내 -->
+            <div class="lunch-benefits-section">
+                <h3>점심특선만의 특별한 혜택</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <h4>합리적인 가격</h4>
+                        <p>합리적인 가격에 즐기는 아키아키 점심 코스요리</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <h4>빠른 서빙</h4>
+                        <p>바쁜 점심시간을 고려하여 효율적인 서빙으로 30분~50분 내에 모든 코스를 제공합니다.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🍱</div>
+                        <h4>균형잡힌 구성</h4>
+                        <p>오후 업무에 지장이 없도록 적당한 양과 영양 균형을 고려한 메뉴 구성입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 단품 메뉴 섹션 시작 -->
+    <section class="single-menu-section" id="single">
+        <div class="single-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title single-title">단품 메뉴</h2>
+                <p class="section-subtitle">언제든 부담 없이 즐기는 아키아키의 맛</p>
+            </div>
+            
+            <!-- 단품 메뉴 카드 그리드 -->
+            <div class="single-menu-grid">
+                <!-- 카드 1: 해산물 물회 -->
+                <div class="single-menu-card">
+                    <div class="single-card-image">
+                        <img src="images/mulhoe.jpg" alt="해산물 물회" loading="lazy">
+                        <div class="price-badge">25</div>
+
+                    </div>
+                    <div class="single-card-content">
+                        <h3 class="single-menu-title">🥗 해산물 물회</h3>
+                        <p class="single-menu-description">
+                            국내산 신고배를 베이스로 생선회, 멍게, 전복, 명태회까지.<br>
+                            오마카세급 화려한 비주얼과 달콤새콤한 맛으로 완성된<br>
+                            아키아키의 자존심을 건 여름 대표 메뉴입니다.
+                        </p>
+                        <button class="single-more-btn" onclick="toggleSingleMenuDetails(0, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="single-menu-details" id="singleMenuDetails0">
+                            <h4>구성 안내</h4>
+                            <div class="single-menu-info">
+                                <p><strong>육수:</strong> 국내산 신고배 베이스의 특제 육수</p>
+                                <p><strong>해산물:</strong> 참치, 성게, 가리비, 전복, 멍게</p>
+                                <p><strong>회:</strong> 당일 입고 생선회 + 명태회</p>
+                                <p><strong>야채:</strong> 오이, 무, 상추, 미나리, 콩나물</p>
+                                <p><strong>특징:</strong> 시원하고 깊은 맛의 여름 별미</p>
+                            </div>
+                            <div class="single-special-notes">
+                                <p class="highlight-note">※ 무더운 여름철 한정 운영 (6월~8월)</p>
+                                <p class="highlight-note">※ 고급 재료가 아낌없이 들어간 인기 메뉴</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 2: 보리굴비 정식 -->
+                <div class="single-menu-card">
+                    <div class="single-card-image">
+                        <img src="images/gulbi.jpg" alt="보리굴비 정식" loading="lazy">
+                        <div class="price-badge">29</div>
+
+                    </div>
+                    <div class="single-card-content">
+                        <h3 class="single-menu-title">🐟 보리굴비 정식</h3>
+                        <p class="single-menu-description">
+                            전통 방식으로 손질하고 정성껏 말린 보리굴비.<br>
+                            구수한 된장국과 제철 반찬으로 구성된 따뜻한 한상 정식입니다.
+                        </p>
+                        <button class="single-more-btn" onclick="toggleSingleMenuDetails(1, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="single-menu-details" id="singleMenuDetails1">
+                            <h4>구성 안내</h4>
+                            <div class="single-menu-info">
+                                <p><strong>주메뉴:</strong> 법성포 전통방식으로 만든 보리굴비 (중간 사이즈)</p>
+                                <p><strong>국물:</strong> 얼큰한 매운탕이 함께 제공됩니다</p>
+
+
+                                <p><strong>특징:</strong> 바람이 말리고, 시간이 숙성시킨 그 맛 — 오마카세에서 만나는 찬란한 굴비</p>
+                            </div>
+                            <div class="single-special-notes">
+                                <p class="highlight-note">※ 법성포 전통방식으로 만든 최상급 보리굴비 사용</p>
+                                <p class="highlight-note">※ 모든 반찬은 매일 직접 만드는 자체 제조</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 3: 복어지리탕 -->
+                <div class="single-menu-card">
+                    <div class="single-card-image">
+                        <img src="images/bok.jpg" alt="복어지리탕" loading="lazy">
+                        <div class="price-badge single-price">19</div>
+
+                    </div>
+                    <div class="single-card-content">
+                        <h3 class="single-menu-title">🐡 복어지리탕</h3>
+                        <p class="single-menu-description">
+                            쫄깃한 복어살과 시원한 맑은 육수의 조화.<br>
+                            은은한 감칠맛으로 해장부터 정식 한끼까지 완벽하게 어울리는 보양 메뉴.
+                        </p>
+                        <button class="single-more-btn" onclick="toggleSingleMenuDetails(2, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="single-menu-details" id="singleMenuDetails2">
+                            <h4>구성 안내</h4>
+                            <div class="single-menu-info">
+                                <p><strong>주재료:</strong> 국내산 복어</p>
+                                <p><strong>육수:</strong> 복어뼈로 우린 진한 맑은 국물</p>
+                                <p><strong>부재료:</strong> 무, 대파, 콩나물, 미나리</p>
+                                <p><strong>제공방식:</strong> 탕 + 밥 + 기본반찬</p>
+                                <p><strong>추천:</strong> 해장, 보양식, 든든한 한끼</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 4: 아키아키 회덮밥 -->
+                <div class="single-menu-card">
+                    <div class="single-card-image">
+                        <img src="images/hwedup.jpg" alt="아키아키 회덮밥" loading="lazy">
+                        <div class="price-badge single-price">19</div>
+
+                    </div>
+                    <div class="single-card-content">
+                        <h3 class="single-menu-title">🍚 아키아키 회덮밥</h3>
+                        <p class="single-menu-description">
+                            명태회, 그날 잡은 숙성회, 과일샐러드, 매운탕으로 구성된<br>
+                            간단하지만 간단하지 않은, 아키아키의 풀 한상 구성.
+                        </p>
+                        <button class="single-more-btn" onclick="toggleSingleMenuDetails(3, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="single-menu-details" id="singleMenuDetails3">
+                            <h4>구성 안내</h4>
+                            <div class="single-menu-info">
+                                <p><strong>회덮밥:</strong> 명태회 + 당일 숙성회 + 계절 야채</p>
+                                <p><strong>과일샐러드:</strong> 신선한 계절 과일 믹스</p>
+                                <p><strong>매운탕:</strong> 생선뼈로 우린 시원한 국물</p>
+                                <p><strong>특제소스:</strong> 아키아키만의 비법 초고추장</p>
+                                <p><strong>특징:</strong> 오마카세 퀄리티의 단품 메뉴</p>
+                            </div>
+                            <div class="single-special-notes">
+                                <p class="highlight-note">※ 회는 매일 아침 신선하게 입고되는 자연산 사용</p>
+                                <p class="highlight-note">※ 과일샐러드는 계절에 따라 구성이 변경됩니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- 기념일 서비스 섹션 시작 -->
+    <section class="anniversary-section" id="anniversary">
+        <div class="anniversary-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title anniversary-title">기념일 서비스</h2>
+                <p class="section-subtitle">소중한 순간을 더욱 특별하게 만들어드립니다</p>
+            </div>
+            
+            <!-- 기념일 서비스 카드 그리드 -->
+            <div class="anniversary-grid">
+                <!-- 카드 1: 프로포즈 패키지 -->
+                <div class="anniversary-card">
+                    <div class="anniversary-card-image">
+                        <img src="images/propose.jpg" alt="프로포즈 패키지" loading="lazy">
+                        <div class="anniversary-badge romantic">ROMANTIC</div>
+                    </div>
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">💝 프로포즈 패키지</h3>
+                        <p class="anniversary-description">
+                            사랑을 전하는 결정적인 순간.<br>
+                            꽃, 촛불, 프라이빗한 코스로 완성되는 아키아키의 특별한 제안 서비스.
+                        </p>
+                        <button class="anniversary-more-btn" onclick="toggleAnniversaryDetails(0, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="anniversary-details" id="anniversaryDetails0">
+                            <h4>제공 내용</h4>
+                            <div class="anniversary-info">
+                                <p><strong>전용 룸 제공</strong></p>
+                                <p><strong>패키지 구성:</strong> 프로포즈 플라워 장식 + 캔들 테이블 세팅 + 오마카세 코스</p>
+                                <p><strong>서프라이즈 지원:</strong> 미리 협의 시 반지 박스, 케이크 등 서프라이즈 동선 지원</p>
+                            </div>
+                            <div class="anniversary-brand-point">
+                                <h5>브랜드 포인트</h5>
+                                <p class="highlight-text">"한 끼의 식사가 영원한 순간으로"</p>
+                                <p>잊지 못할 고백을 위한 미식과 연출</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 2: 돌상/백일상 -->
+                <div class="anniversary-card">
+                    <div class="anniversary-card-image">
+                        <img src="images/1st.jpg" alt="돌상 백일상" loading="lazy">
+                        <div class="anniversary-badge family">FAMILY</div>
+                    </div>
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">🍼 돌상 / 백일상</h3>
+                        <p class="anniversary-description">
+                            사랑스러운 아기의 첫 기념일.<br>
+                            조용하고 품격 있는 룸에서 따뜻한 가족만의 자리를 준비해드립니다.
+                        </p>
+                        <button class="anniversary-more-btn" onclick="toggleAnniversaryDetails(1, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="anniversary-details" id="anniversaryDetails1">
+                            <h4>제공 내용</h4>
+                            <div class="anniversary-info">
+                                <p><strong>예약 조건:</strong> 4인 이상 코스 예약 시 세팅 지원</p>
+                                <p><strong>세팅 지원:</strong> 돌잡이 세트 / 플라워 테이블 데코 가능 (문의 필수)</p>
+                                <p><strong>포토존:</strong> 촛불 / 포토존 등 사전 협의 가능</p>
+                                <p><strong>공간:</strong> 가족석 독립 룸 제공</p>
+                            </div>
+                            <div class="anniversary-brand-point">
+                                <h5>브랜드 포인트</h5>
+                                <p class="highlight-text">"가족의 첫 축하, 아키아키에서 특별하게"</p>
+                                <p>따뜻한 음식과 정성스러운 공간이 함께하는 날</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 3: 상견례 -->
+                <div class="anniversary-card">
+                    <div class="anniversary-card-image">
+                        <img src="images/wedding.jpg" alt="상견례" loading="lazy">
+                        <div class="anniversary-badge formal">FORMAL</div>
+                    </div>
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">💍 상견례</h3>
+                        <p class="anniversary-description">
+                            가족 간의 첫 만남, 중요한 순간을 위한 완벽한 공간과 상차림.<br>
+                            격식과 편안함을 모두 갖춘 상견례 전용 서비스입니다.
+                        </p>
+                        <button class="anniversary-more-btn" onclick="toggleAnniversaryDetails(2, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="anniversary-details" id="anniversaryDetails2">
+                            <h4>제공 내용</h4>
+                            <div class="anniversary-info">
+                                <p><strong>공간:</strong> 전용 룸 예약 가능 (프라이빗 공간)</p>
+                                <p><strong>상차림:</strong> 4인~12인 구성에 적합한 맞춤형 상차림</p>
+                                <p><strong>특별 세트:</strong> 행복한 가정을 상징하는 원앙세트 마련</p>
+                                <p><strong>특별 서비스:</strong> '천년의 약속' 상황버섯주 서비스 포함</p>
+                                <p><strong>사전 상담:</strong> 양가 부모님을 위한 사전 자리 배치 상담</p>
+
+                            </div>
+                            <div class="anniversary-brand-point">
+                                <h5>브랜드 포인트</h5>
+                                <p class="highlight-text">"가장 아름다운 시작, 아키아키에서"</p>
+                                <p>품격과 배려가 느껴지는 공간 연출</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 4: 고희연/환갑/칠순/팔순 -->
+                <div class="anniversary-card">
+                    <div class="anniversary-card-image">
+                        <img src="images/seven.jpg" alt="고희연 환갑 칠순 팔순" loading="lazy">
+                        <div class="anniversary-badge respect">RESPECT</div>
+                    </div>
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">🎊 고희연 / 환갑 / 칠순 / 팔순</h3>
+                        <p class="anniversary-description">
+                            부모님과 어르신을 위한 특별한 하루.<br>
+                            정중한 상차림과 프라이빗한 공간으로 품격 있는 자리를 준비해드립니다.
+                        </p>
+                        <button class="anniversary-more-btn" onclick="toggleAnniversaryDetails(3, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="anniversary-details" id="anniversaryDetails3">
+                            <h4>제공 내용</h4>
+                            <div class="anniversary-info">
+                                <p><strong>예약 조건:</strong> 4인 이상 코스 예약 시 맞춤 상차림 제공</p>
+                                <p><strong>장식 서비스:</strong> 테이블 플라워 장식 및 환갑/칠순 스탠드 대여 가능 (문의 필요)</p>
+                                <p><strong>공간:</strong> 별도 공간 예약 가능 (룸 보유)</p>
+                            </div>
+                            <div class="anniversary-brand-point">
+                                <h5>브랜드 포인트</h5>
+                                <p class="highlight-text">"감사의 마음을 전하는 자리, 그 이상"</p>
+                                <p>정성 어린 요리와 공간으로 마음을 나누는 하루</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 5: 생일상 서비스 -->
+                <div class="anniversary-card">
+                    <div class="anniversary-card-image">
+                        <img src="images/birthday_placeholder.jpg" alt="생일상 서비스" loading="lazy">
+                        <div class="anniversary-badge special">SPECIAL</div>
+                    </div>
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">🎂 생일상 서비스</h3>
+                        <p class="anniversary-description">
+                            특별한 날, 아키아키가 준비하는 정성 가득한 생일상.<br>
+                            장어덮밥과 미역국으로 따뜻한 한 끼를 정성껏 준비하였습니다.
+                        </p>
+                        <button class="anniversary-more-btn" onclick="toggleAnniversaryDetails(4, event)">
+                            <span class="btn-text">더보기</span>
+                            <span class="btn-icon">▼</span>
+                        </button>
+                        <div class="anniversary-details" id="anniversaryDetails4">
+                            <h4>제공 내용</h4>
+                            <div class="anniversary-info">
+                                <p><strong>예약:</strong> 사전 예약 필수 (당일 불가)</p>
+                                <p><strong>제공 조건:</strong> 오마카세 코스 주문 고객에 한해 제공</p>
+                                <p><strong>구성:</strong> 장어덮밥 + 미역국 기본 제공</p>
+                            </div>
+                            <div class="anniversary-brand-point">
+                                <h5>브랜드 포인트</h5>
+                                <p class="highlight-text">"한 그릇에 담긴 정성과 축하"</p>
+                                <p>생일을 기억하는 공간, 아키아키</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 카드 6: 기념일 서비스 예약 안내 -->
+                <div class="anniversary-card anniversary-notice-card">
+                    <div class="anniversary-card-content">
+                        <h3 class="anniversary-title">🎉 기념일 서비스 예약 안내</h3>
+                        <p class="anniversary-description">
+                            모든 기념일 서비스는 <strong>사전 예약이 필수</strong>입니다.<br>
+                            최소 <strong>3일 전 예약</strong>을 권장하며, 상세한 상담을 통해 준비해드립니다.<br>
+                            특별한 날을 위한 맞춤 서비스로 소중한 순간을 더욱 특별하게 만들어드립니다.
+                        </p>
+                        <div class="anniversary-notice-buttons">
+                            <button class="anniversary-reservation-btn" onclick="openNaverReservation()">
+                                기념일 예약 상담
+                            </button>
+                            <button class="anniversary-inquiry-btn" onclick="alert('전화 상담: 043-123-4567')">
+                                전화 상담
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 고객 리뷰 섹션 시작 -->
+    <section class="reviews-section" id="review">
+        <div class="reviews-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title reviews-title">고객 리뷰</h2>
+                <p class="section-subtitle">아키아키를 사랑해주시는 고객님들의 소중한 후기입니다</p>
+            </div>
+            
+            <!-- 고객 리뷰 카드 그리드 -->
+            <div class="reviews-grid">
+                <!-- 리뷰 1: 프로포즈 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">💍</span>
+                        <span class="category-text">프로포즈</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "플라워 장식이랑 캔들 테이블 정말 감동이었어요.
+                        꽃도 생화로 준비해주셔서 식사 마치고 가져갈 수 있었어요.
+                        분위기 덕분에 고백 성공했답니다!"
+                    </blockquote>
+                    <div class="review-author">— 김지은</div>
+                </div>
+                
+                <!-- 리뷰 2: 부모님 모시고 가기 좋은 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">👪</span>
+                        <span class="category-text">부모님 모시고 가기 좋은</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "아버지 환갑에 모셨는데 룸도 조용하고 음식도 정갈했어요.
+                        장어덮밥과 미역국까지 서비스로 챙겨주셔서 따뜻한 마음이 느껴졌습니다."
+                    </blockquote>
+                    <div class="review-author">— 박수정</div>
+                </div>
+                
+                <!-- 리뷰 3: 부모님 모시고 가기 좋은 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">👪</span>
+                        <span class="category-text">부모님 모시고 가기 좋은</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "청주에서 이렇게 정성스런 오마카세를 부모님과 즐길 수 있는 곳은 드뭅니다.
+                        다음엔 칠순 때 꼭 다시 오려구요."
+                    </blockquote>
+                    <div class="review-author">— 송도현</div>
+                </div>
+                
+                <!-- 리뷰 4: 청주 1등 일식 오마카세 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🥇</span>
+                        <span class="category-text">청주 1등 일식 오마카세</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "광어 삼합부터 시그니처 코스까지, 청주에서 이 정도 퀄리티면 진짜 탑입니다.
+                        미식의 깊이가 달라요."
+                    </blockquote>
+                    <div class="review-author">— 민서연</div>
+                </div>
+                
+                <!-- 리뷰 5: 청주 1등 일식 오마카세 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🥇</span>
+                        <span class="category-text">청주 1등 일식 오마카세</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "여긴 그냥 스시집이 아니라, 진짜 셰프가 운영하는 오마카세 집이에요.
+                        한입 한입이 예술이더라고요."
+                    </blockquote>
+                    <div class="review-author">— 익명</div>
+                </div>
+                
+                <!-- 리뷰 6: 상견례 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">💍</span>
+                        <span class="category-text">상견례</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "상견례로 방문했는데 원앙 세트며 상황버섯주며
+                        의미 있는 소품들까지 준비되어 있어 감동이었어요.
+                        룸도 프라이빗하고 정중했어요."
+                    </blockquote>
+                    <div class="review-author">— 조민경</div>
+                </div>
+                
+                <!-- 리뷰 7: 물회 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🥗</span>
+                        <span class="category-text">물회</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "여름엔 무조건 여기 물회 먹어야 해요.
+                        신고배 베이스라 그런가 상큼하면서 깊은 단맛이 있어요."
+                    </blockquote>
+                    <div class="review-author">— 양지현</div>
+                </div>
+                
+                <!-- 리뷰 8: 물회 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🥗</span>
+                        <span class="category-text">물회</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "물회에 멍게, 전복, 명태회까지 들어간 거 처음 봤어요.
+                        한입 한입이 정말 신선하고 화려합니다."
+                    </blockquote>
+                    <div class="review-author">— 정승우</div>
+                </div>
+                
+                <!-- 리뷰 9: 프라이빗 회식 장소 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🧑‍💼</span>
+                        <span class="category-text">프라이빗 회식 장소</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "팀 회식으로 갔는데 룸이 완벽히 분리돼서 너무 좋았어요.
+                        코스도 다양해서 누구든 만족할 구성입니다."
+                    </blockquote>
+                    <div class="review-author">— 이형진</div>
+                </div>
+                
+                <!-- 리뷰 10: 프라이빗 회식 장소 -->
+                <div class="review-card">
+                    <div class="review-category">
+                        <span class="category-icon">🧑‍💼</span>
+                        <span class="category-text">프라이빗 회식 장소</span>
+                    </div>
+                    <blockquote class="review-content">
+                        "상견례 아니면 회식으로 최고!
+                        조용하게 고급스럽게 식사할 수 있어서 외부 접대에도 강추예요."
+                    </blockquote>
+                    <div class="review-author">— 김태수</div>
+                </div>
+            </div>
+            
+            <!-- 리뷰 작성 안내 -->
+            <div class="review-notice">
+                <div class="review-notice-content">
+                    <div class="notice-icon">✨</div>
+                    <div class="notice-text">
+                        <h3>소중한 후기를 남겨주세요</h3>
+                        <p>아키아키에서의 특별한 경험을 다른 고객님들과 공유해주세요.</p>
+                        <p>여러분의 후기가 아키아키를 더욱 발전시키는 힘이 됩니다.</p>
+                    </div>
+                </div>
+                <div class="review-notice-buttons">
+                    <button class="review-write-btn" onclick="openNaverReservation()">
+                        네이버 리뷰 작성
+                    </button>
+                    <button class="review-more-btn" onclick="alert('더 많은 리뷰는 네이버 예약 페이지에서 확인하실 수 있습니다.')">
+                        더 많은 리뷰 보기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Q&A 섹션 시작 -->
+    <section class="qa-section" id="qa">
+        <div class="qa-container">
+            <!-- 섹션 제목 -->
+            <div class="section-header">
+                <h2 class="section-title qa-title">자주 묻는 질문</h2>
+                <p class="section-subtitle">아키아키를 방문하기 전, 궁금한 점들을 미리 확인해보세요</p>
+            </div>
+            
+            <!-- Q&A 아코디언 리스트 -->
+            <div class="qa-accordion">
+                <!-- Q&A 1: 예약 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">❓</span>
+                            <span class="question-text">Q. 예약은 꼭 해야 하나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 아키아키는 전 좌석 예약제로 운영되며, 당일 예약은 가능하지만 사전 예약을 권장드립니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 2: 룸 이용 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">🏠</span>
+                            <span class="question-text">Q. 룸은 몇 명부터 사용할 수 있나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 최소 2인부터 이용 가능한 프라이빗 룸이 준비되어 있으며, 10명, 20명 단체 구성은 물론 최대 40명까지 수용 가능한 공간이 마련되어 있습니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 3: 주차 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">🚗</span>
+                            <span class="question-text">Q. 주차는 가능한가요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 매장 정문 앞에 150평 규모의 전용 주차장이 마련되어 있어 편리하게 이용하실 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 4: 소요 시간 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">⏰</span>
+                            <span class="question-text">Q. 코스는 얼마나 걸리나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 오마카세 기준 1시간 30분~2시간, 점심 특선 및 단품은 40분~1시간 정도 소요됩니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 5: 기념일 서비스 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">🎂</span>
+                            <span class="question-text">Q. 생일상이나 기념일 서비스는 누구나 받을 수 있나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 오마카세 코스 주문 시 사전 예약 고객에 한해 장어덮밥 + 미역국을 제공해드립니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 6: 어린이 메뉴 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">👶</span>
+                            <span class="question-text">Q. 어린이가 먹을 메뉴가 있나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 있습니다. 미취학 어린이에게는 주먹밥을 서비스로 제공하며, 추가 금액을 내시면 와규 살치살 주먹밥으로 업그레이드해드립니다. 초등학생 저학년을 위한 어린이 정식(돈가스, 새우튀김, 과일 구성)과 함께, 아이들도 오마카세를 경험할 수 있도록 쥬니어 오마카세도 준비되어 있습니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 7: 알레르기 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">⚠️</span>
+                            <span class="question-text">Q. 알레르기나 식재료 변경이 가능한가요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 사전 예약 시 알려주시면 가능한 범위 내에서 조정해드립니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 8: 예약 방법 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">📞</span>
+                            <span class="question-text">Q. 예약은 어떻게 하나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 홈페이지에 있는 예약 버튼 또는 매장 번호 <strong>043-262-2113</strong>으로 예약이 가능합니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 9: 코스 주문 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">🍽️</span>
+                            <span class="question-text">Q. 코스를 종류별로 주문할 수 있나요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 모든 코스는 하나로 통일하여야 합니다. 대신 단품 메뉴는 각자의 취향에 따라 자유롭게 주문하실 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <!-- Q&A 10: 추가 질문 -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleQAAnswer(this)">
+                        <div class="question-content">
+                            <span class="question-icon">🤖</span>
+                            <span class="question-text">Q. 이곳에 없는 질문은 어떻게 하면 될까요?</span>
+                        </div>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p><strong>A.</strong> 우측 하단에 위치한 ChatGPT 기반 챗봇을 이용하시면, 대부분 만족하실만한 답변을 빠르게 얻으실 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q&A 추가 안내 -->
+            <div class="qa-notice">
+                <div class="qa-notice-content">
+                    <div class="notice-icon">💬</div>
+                    <div class="notice-text">
+                        <h3>더 궁금한 점이 있으신가요?</h3>
+                        <p>전화 상담을 통해 더 자세한 정보를 확인하실 수 있습니다.</p>
+                        <p>친절한 직원이 언제든 도움을 드리겠습니다.</p>
+                    </div>
+                </div>
+                <div class="qa-notice-buttons">
+                    <button class="qa-call-btn" onclick="alert('043-262-2113으로 연결됩니다.')">
+                        📞 전화 상담 (043-262-2113)
+                    </button>
+                    <button class="qa-reservation-btn" onclick="openNaverReservation()">
+                        온라인 예약하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 푸터 섹션 시작 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 푸터 메인 콘텐츠 -->
+            <div class="footer-content">
+                <!-- 매장 정보 섹션 -->
+                <div class="footer-section store-info">
+                    <h3 class="footer-title">매장 정보</h3>
+                    <div class="info-item">
+                        <div class="info-details">
+                            <strong>아키아키</strong>
+                            <p>충청북도 청주시 흥덕구 봉명동 1409번지</p>
+                            <p class="sub-info">(봉명동 스타벅스·맥도날드 옆)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-details">
+                            <strong>전화번호</strong>
+                            <p><a href="tel:043-262-2113">043-262-2113</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-details">
+                            <strong>영업시간</strong>
+                            <p>매일 11:30 ~ 21:30</p>
+                            <p class="sub-info">브레이크타임 14:30 ~ 16:30</p>
+                            <p class="sub-info">런치 라스트오더 13:30</p>
+                            <p class="sub-info">디너 라스트오더 20:30</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 네비게이션 링크 섹션 -->
+                <div class="footer-section navigation-links">
+                    <h3 class="footer-title">빠른 링크</h3>
+                    <div class="nav-links-grid">
+                        <div class="nav-column">
+                            <a href="#hero" onclick="scrollToSection('hero')">홈</a>
+                            <a href="#omakase" onclick="scrollToSection('omakase')">오마카세</a>
+                            <a href="#premium" onclick="scrollToSection('premium')">프리미엄</a>
+                        </div>
+                        <div class="nav-column">
+                            <a href="#lunch" onclick="scrollToSection('lunch')">점심특선</a>
+                            <a href="#single" onclick="scrollToSection('single')">단품</a>
+                            <a href="#anniversary" onclick="scrollToSection('anniversary')">기념일</a>
+                        </div>
+                        <div class="nav-column">
+                            <a href="#review" onclick="scrollToSection('review')">고객리뷰</a>
+                            <a href="#qa" onclick="scrollToSection('qa')">Q&A</a>
+                            <button class="footer-reservation-btn" onclick="openNaverReservation()">예약하기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNS 및 연락처 섹션 -->
+                <div class="footer-section social-contact">
+                    <h3 class="footer-title">예약 및 문의</h3>
+                    <div class="contact-links">
+                        <a href="https://m.place.naver.com/restaurant/12027905/home?entry=pll" target="_blank" class="contact-link naver">
+                            <div class="contact-icon naver-icon"></div>
+                            <div class="contact-info">
+                                <strong>네이버 예약</strong>
+                                <span>온라인 예약하기</span>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/akiaki_japanese_restaurant?igsh=MXNqMjgyNXhyOGUyeQ==" target="_blank" class="contact-link instagram">
+                            <div class="contact-icon instagram-icon"></div>
+                            <div class="contact-info">
+                                <strong>인스타그램</strong>
+                                <span>@akiaki_japanese_restaurant</span>
+                            </div>
+                        </a>
+                        <a href="https://youtube.com/@myungwookjang?si=jo-IbcVB00z4J5F1" target="_blank" class="contact-link youtube">
+                            <div class="contact-icon youtube-icon"></div>
+                            <div class="contact-info">
+                                <strong>유튜브</strong>
+                                <span>@myungwookjang</span>
+                            </div>
+                        </a>
+                        <div class="contact-link chatbot">
+                            <div class="contact-icon chatgpt-icon"></div>
+                            <div class="contact-info">
+                                <strong>ChatGPT 챗봇</strong>
+                                <span>화면 우측 하단 채팅창 이용</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 푸터 하단 정보 -->
+            <div class="footer-bottom">
+                <div class="business-info">
+                    <div class="business-details">
+                        <span><strong>상호:</strong> 아키아키</span>
+                        <span><strong>대표자:</strong> 장명욱</span>
+                        <span><strong>사업자등록번호:</strong> 301-30-24106</span>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© AkiAki All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 아키아키 GPT 챗봇 고정 버튼 -->
+    <div class="chatbot-container">
+        <button class="chatbot-btn" onclick="openAkiakiChatbot()" title="아키아키 GPT 챗봇">
+            <div class="chatbot-icon">
+                <span class="chat-icon">💬</span>
+            </div>
+            <div class="chatbot-text">
+                <span class="chatbot-label">아키아키에 대해<br>물어보세요!</span>
+            </div>
+        </button>
+    </div>
+    
+    <!-- 자바스크립트 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html> 

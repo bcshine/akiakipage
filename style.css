@@ -1,0 +1,4608 @@
+/* 전체 기본 설정 - 모든 요소에 적용되는 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 몸체 스타일 - 페이지 전체 설정 */
+body {
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 넥슨폰트 및 백업 폰트 설정 */
+    background-color: white; /* 배경색상: 흰색 */
+    line-height: 1.6; /* 줄 간격 설정 */
+}
+
+/* 헤더 전체 영역 스타일 */
+.header {
+    background-color: white; /* 헤더 배경색: 흰색 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 헤더 아래쪽에 그림자 효과 */
+    position: sticky; /* 스크롤해도 헤더가 상단에 고정 */
+    top: 0; /* 상단에서 0px 위치에 고정 */
+    width: 100%; /* 전체 가로 크기 */
+    z-index: 1000; /* 다른 요소보다 위에 표시 */
+}
+
+/* 헤더 내부 컨테이너 - 내용물을 가로로 배치 */
+.header-container {
+    max-width: 1200px; /* 최대 가로 크기 제한 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
+    padding: 15px 20px; /* 위아래 15px, 좌우 20px 여백 */
+    display: flex; /* 가로로 나란히 정렬 */
+    align-items: center; /* 세로 가운데로 정렬 */
+    justify-content: space-between; /* 양쪽 끝과 가운데로 정렬 */
+    gap: 10px; /* 요소 사이 간격 10px */
+}
+
+/* 로고 섹션 - 로고와 브랜드명을 담는 영역 */
+.logo-section {
+    display: flex; /* 로고와 브랜드명을 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 15px; /* 로고와 브랜드명 사이 간격 */
+}
+
+/* 로고 이미지 스타일 */
+.logo-img {
+    height: 50px; /* 로고 높이 50px */
+    width: auto; /* 가로는 비율에 맞게 자동 조정 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+/* 브랜드 이름 스타일 */
+.brand-name {
+    font-size: 18px; /* 글자 크기 */
+    font-weight: 700; /* 굵은 글씨 */
+    color: #333; /* 글자 색상 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+/* 네비게이션 메뉴 영역 */
+.nav-menu {
+    flex: 1; /* 남은 공간을 모두 차지 */
+    display: flex; /* 메뉴를 가로로 배치 */
+    justify-content: center; /* 메뉴를 가운데 정렬 */
+}
+
+/* 메뉴 리스트 스타일 */
+.menu-list {
+    display: flex; /* 메뉴 항목들을 가로로 배치 */
+    list-style: none; /* 목록 점 제거 */
+    gap: 10px; /* 메뉴 사이 간격 10px */
+    align-items: center; /* 세로 가운데 정렬 */
+}
+
+/* 메뉴 링크 스타일 */
+.menu-list a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: #333; /* 글자 색상 */
+    font-weight: 500; /* 중간 굵기 */
+    padding: 8px 16px; /* 위아래 8px, 좌우 16px 여백 */
+    border-radius: 20px; /* 모서리 둥글게 */
+    transition: all 0.3s ease; /* 색상 변화 애니메이션 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+/* 메뉴 링크에 마우스 올렸을 때 효과 */
+.menu-list a:hover {
+    background-color: #f5f5f5; /* 배경색 변경 */
+    color: #000; /* 글자색 진하게 */
+}
+
+/* 예약하기 버튼 영역 */
+.reservation-section {
+    display: flex; /* 버튼을 정렬하기 위해 flex 사용 */
+    align-items: center; /* 세로 가운데 정렬 */
+}
+
+/* 예약하기 버튼 스타일 */
+.reservation-btn {
+    background-color: white; /* 흰색 배경 */
+    color: #333; /* 글자 색상 */
+    border: 2px solid #333; /* 검정 테두리 */
+    border-radius: 25px; /* 모서리 둥글게 25px */
+    padding: 10px 20px; /* 위아래 10px, 좌우 20px 여백 */
+    font-size: 14px; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 효과 변화 애니메이션 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 예약하기 버튼에 마우스 올렸을 때 효과 */
+.reservation-btn:hover {
+    background-color: #333; /* 배경색을 검정으로 변경 */
+    color: white; /* 글자색을 흰색으로 변경 */
+}
+
+/* 모바일용 햄버거 메뉴 버튼 (기본적으로 숨김) */
+.mobile-menu-btn {
+    display: none; /* 기본적으로 숨김 */
+    flex-direction: column; /* 세로로 배치 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    gap: 4px; /* 선 사이 간격 */
+}
+
+/* 햄버거 메뉴 선 스타일 */
+.mobile-menu-btn span {
+    width: 25px; /* 선 가로 길이 */
+    height: 3px; /* 선 두께 */
+    background-color: #333; /* 선 색상 */
+    transition: all 0.3s ease; /* 애니메이션 효과 */
+    border-radius: 2px; /* 선 모서리 둥글게 */
+}
+
+/* 모바일용 메뉴 (기본적으로 숨김) */
+.mobile-menu {
+    display: none; /* 기본적으로 숨김 */
+    background-color: white; /* 배경색 흰색 */
+    border-top: 1px solid #eee; /* 위쪽에 연한 회색 테두리 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 모바일 메뉴가 보일 때 스타일 */
+.mobile-menu.active {
+    display: block; /* 메뉴 보이기 */
+}
+
+/* 모바일 메뉴 리스트 스타일 */
+.mobile-menu-list {
+    list-style: none; /* 목록 점 제거 */
+    padding: 20px; /* 전체 여백 */
+}
+
+/* 모바일 메뉴 항목 스타일 */
+.mobile-menu-list li {
+    margin-bottom: 15px; /* 항목 사이 간격 */
+}
+
+/* 모바일 메뉴 링크 스타일 */
+.mobile-menu-list a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: #333; /* 글자 색상 */
+    font-weight: 500; /* 글자 굵기 */
+    font-size: 16px; /* 글자 크기 */
+    display: block; /* 블록 요소로 만들어 클릭 영역 확대 */
+    padding: 10px 0; /* 위아래 여백 */
+}
+
+/* 모바일용 예약 버튼 스타일 */
+.mobile-reservation-btn {
+    background-color: white; /* 흰색 배경 */
+    color: #333; /* 글자 색상 */
+    border: 2px solid #333; /* 검정 테두리 */
+    border-radius: 25px; /* 모서리 둥글게 */
+    padding: 12px 24px; /* 여백 */
+    font-size: 16px; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 */
+    width: 100%; /* 전체 가로 크기 */
+    margin-top: 10px; /* 위쪽 여백 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 모바일용 예약 버튼 호버 효과 */
+.mobile-reservation-btn:hover {
+    background-color: #333; /* 배경색 변경 */
+    color: white; /* 글자색 변경 */
+}
+
+/* ================== 히어로 섹션 스타일 ================== */
+
+/* 히어로 섹션 전체 영역 - 화면 가로 너비를 꽉 채움 */
+.hero-section {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100vh; /* 화면 전체 높이 */
+    position: relative; /* 내부 요소들의 기준점 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 캐러셀 컨테이너 - 슬라이드들을 담는 큰 상자 */
+.carousel-container {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    position: relative; /* 내부 요소들의 기준점 */
+}
+
+/* 캐러셀 슬라이드들이 들어가는 영역 */
+.carousel-slides {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    position: relative; /* 슬라이드들이 겹쳐서 배치되도록 */
+}
+
+/* 각각의 슬라이드 스타일 */
+.slide {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    position: absolute; /* 절대 위치로 겹쳐서 배치 */
+    top: 0; /* 상단에서 0px */
+    left: 0; /* 왼쪽에서 0px */
+    background-size: cover; /* 이미지가 영역을 꽉 채우도록 */
+    background-position: center; /* 이미지를 가운데 정렬 */
+    background-repeat: no-repeat; /* 이미지 반복 안함 */
+    display: flex; /* 내용물을 정렬하기 위해 flex 사용 */
+    align-items: center; /* 세로 가운데 정렬 (실제로는 위쪽 1/4 지점으로 조정) */
+    justify-content: center; /* 가로 가운데 정렬 */
+    opacity: 0; /* 기본적으로 투명하게 숨김 */
+    transition: opacity 1s ease-in-out; /* 부드러운 나타나기/사라지기 효과 */
+    z-index: 1; /* 다른 요소들 위에 표시 */
+}
+
+/* 활성화된(현재 보이는) 슬라이드 */
+.slide.active {
+    opacity: 1; /* 완전히 보이게 함 */
+    z-index: 2; /* 다른 슬라이드들보다 위에 표시 */
+}
+
+/* 슬라이드 위에 어두운 오버레이 - 텍스트 가독성을 높임 */
+.slide-overlay {
+    position: absolute; /* 절대 위치 */
+    top: 0; /* 상단에서 0px */
+    left: 0; /* 왼쪽에서 0px */
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    background: rgba(0, 0, 0, 0.1); /* 검정색 10% 매우 연한 오버레이 */
+    z-index: 1; /* 이미지 위, 텍스트 아래에 표시 */
+}
+
+/* 슬라이드 내용물 (텍스트와 버튼) 컨테이너 */
+.slide-content {
+    position: relative; /* 오버레이 위에 표시하기 위해 */
+    z-index: 3; /* 모든 것 위에 표시 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    color: white; /* 흰색 글자 */
+    max-width: 800px; /* 최대 가로 크기 제한 */
+    padding: 40px 20px; /* 위아래 40px, 좌우 20px 여백 */
+    background: transparent; /* 완전히 투명한 배경 */
+    border-radius: 20px; /* 모서리 둥글게 */
+    backdrop-filter: none; /* 배경 흐림 효과 제거 */
+    box-shadow: none; /* 그림자 효과 제거 */
+    margin-top: -15vh; /* 위쪽으로 올려서 화면 위 1/4 지점에 배치 */
+}
+
+/* 슬라이드 제목 스타일 */
+.slide-title {
+    font-size: 2.5rem; /* 글자 크기 큰 제목용 */
+    font-weight: 700; /* 굵은 글씨 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6); /* 강화된 글자 그림자 */
+    line-height: 1.2; /* 줄 간격 */
+}
+
+/* 슬라이드 슬로건 스타일 */
+.slide-slogan {
+    font-size: 1.3rem; /* 중간 크기 글자 */
+    font-weight: 500; /* 중간 굵기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    color: #f0f0f0; /* 연한 회색 */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6); /* 강화된 글자 그림자 */
+    line-height: 1.4; /* 줄 간격 */
+}
+
+/* 슬라이드 설명문 스타일 */
+.slide-description {
+    font-size: 1.1rem; /* 설명용 글자 크기 */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+    color: #e0e0e0; /* 연한 회색 */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6); /* 강화된 글자 그림자 */
+    line-height: 1.5; /* 줄 간격 */
+}
+
+/* 히어로 섹션의 예약 버튼 스타일 */
+.hero-reservation-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 주황색 그라데이션 배경 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 30px; /* 둥근 모서리 */
+    padding: 15px 35px; /* 위아래 15px, 좌우 35px 여백 */
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 모든 변화에 부드러운 효과 */
+    text-transform: uppercase; /* 영문을 대문자로 (한글에는 영향 없음) */
+    letter-spacing: 1px; /* 글자 간격 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); /* 버튼 그림자 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 히어로 예약 버튼에 마우스 올렸을 때 효과 */
+.hero-reservation-btn:hover {
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6); /* 그림자 더 진하게 */
+    background: linear-gradient(45deg, #ff8c00, #ff6b35); /* 더 밝은 주황색 */
+}
+
+/* 좌우 화살표 네비게이션 공통 스타일 */
+.carousel-nav {
+    position: absolute; /* 절대 위치 */
+    top: 50%; /* 세로 가운데 */
+    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 */
+    background: rgba(255, 255, 255, 0.8); /* 흰색 80% 투명 배경 */
+    border: none; /* 테두리 없음 */
+    border-radius: 50%; /* 동그란 모양 */
+    width: 50px; /* 가로 크기 */
+    height: 50px; /* 세로 크기 */
+    display: flex; /* 화살표를 가운데 정렬하기 위해 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    font-size: 20px; /* 화살표 크기 */
+    color: #333; /* 화살표 색상 */
+    transition: all 0.3s ease; /* 변화 효과 */
+    z-index: 5; /* 모든 것 위에 표시 */
+    backdrop-filter: blur(5px); /* 배경 흐림 효과 */
+}
+
+/* 이전 버튼 위치 (왼쪽) */
+.carousel-nav.prev {
+    left: 30px; /* 왼쪽에서 30px */
+}
+
+/* 다음 버튼 위치 (오른쪽) */
+.carousel-nav.next {
+    right: 30px; /* 오른쪽에서 30px */
+}
+
+/* 화살표 버튼에 마우스 올렸을 때 효과 */
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 1); /* 완전히 흰색 배경 */
+    transform: translateY(-50%) scale(1.1); /* 세로 가운데 유지하면서 10% 크게 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+/* 슬라이드 인디케이터(점들) 컨테이너 */
+.carousel-indicators {
+    position: absolute; /* 절대 위치 */
+    bottom: 30px; /* 아래에서 30px */
+    left: 50%; /* 가로 가운데 */
+    transform: translateX(-50%); /* 정확한 가로 가운데 정렬 */
+    display: flex; /* 점들을 가로로 배치 */
+    gap: 15px; /* 점 사이 간격 */
+    z-index: 5; /* 모든 것 위에 표시 */
+}
+
+/* 각각의 인디케이터 점 스타일 */
+.indicator {
+    width: 12px; /* 점 가로 크기 */
+    height: 12px; /* 점 세로 크기 */
+    border-radius: 50%; /* 동그란 모양 */
+    background: rgba(255, 255, 255, 0.5); /* 흰색 50% 투명 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 변화 효과 */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* 흰색 테두리 */
+}
+
+/* 활성화된(현재 슬라이드) 인디케이터 */
+.indicator.active {
+    background: white; /* 완전히 흰색 */
+    border-color: white; /* 흰색 테두리 */
+    transform: scale(1.2); /* 20% 크게 */
+}
+
+/* 인디케이터에 마우스 올렸을 때 효과 */
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.8); /* 더 밝게 */
+    transform: scale(1.1); /* 10% 크게 */
+}
+
+/* ================== 오마카세 코스 섹션 스타일 ================== */
+
+/* 오마카세 섹션 전체 영역 */
+.omakase-section {
+    padding: 80px 0; /* 위아래 80px 여백 */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* 연한 회색 그라데이션 배경 */
+    min-height: 100vh; /* 최소 화면 전체 높이 */
+}
+
+/* 오마카세 섹션 컨테이너 - 내용물을 가운데 정렬 */
+.omakase-container {
+    max-width: 1200px; /* 최대 가로 크기 제한 */
+    margin: 0 auto; /* 수평 가운데 정렬 */
+    padding: 0 20px; /* 좌우 여백 */
+}
+
+/* 섹션 헤더 (제목과 부제목) */
+.section-header {
+    text-align: center; /* 텍스트 가운데 정렬 */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 섹션 메인 제목 스타일 */
+.section-title {
+    font-size: 2.5rem; /* 큰 제목 글자 크기 */
+    font-weight: 700; /* 굵은 글씨 */
+    color: #333; /* 어두운 회색 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    position: relative; /* 꾸밈 요소를 위한 위치 설정 */
+}
+
+/* 섹션 제목 아래에 장식 선 추가 */
+.section-title::after {
+    content: ''; /* 빈 내용 */
+    display: block; /* 블록 요소로 만들기 */
+    width: 80px; /* 선의 가로 길이 */
+    height: 3px; /* 선의 두께 */
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 주황색 그라데이션 */
+    margin: 20px auto; /* 위아래 20px 여백, 가로 가운데 정렬 */
+    border-radius: 2px; /* 모서리 살짝 둥글게 */
+}
+
+/* 섹션 부제목 스타일 */
+.section-subtitle {
+    font-size: 1.2rem; /* 부제목 글자 크기 */
+    color: #666; /* 중간 회색 */
+    font-weight: 400; /* 보통 굵기 */
+    line-height: 1.6; /* 줄 간격 */
+}
+
+/* 메뉴 카드들을 배치하는 그리드 컨테이너 */
+.menu-grid {
+    display: grid; /* 그리드 레이아웃 사용 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 (각 열은 동일한 크기) */
+    gap: 30px; /* 카드 사이 간격 30px */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 각각의 메뉴 카드 스타일 */
+.menu-card {
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    transition: all 0.3s ease; /* 모든 변화에 부드러운 효과 */
+    position: relative; /* 가격 배지를 위한 위치 설정 */
+}
+
+/* 메뉴 카드에 마우스 올렸을 때 효과 */
+.menu-card:hover {
+    transform: translateY(-8px); /* 위로 8px 올라가는 효과 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* 그림자 더 진하게 */
+}
+
+/* 카드 이미지 영역 */
+.card-image {
+    position: relative; /* 가격 배지를 위한 위치 설정 */
+    width: 100%; /* 전체 가로 크기 */
+    height: 250px; /* 이미지 영역 높이 고정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 카드 내 이미지 스타일 */
+.card-image img {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    object-fit: cover; /* 이미지 비율 유지하면서 영역 채우기 */
+    transition: transform 0.3s ease; /* 확대 효과를 위한 애니메이션 */
+}
+
+/* 이미지에 마우스 올렸을 때 확대 효과 */
+.menu-card:hover .card-image img {
+    transform: scale(1.05); /* 5% 확대 */
+}
+
+/* 가격 배지 스타일 */
+.price-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    right: 15px; /* 오른쪽에서 15px */
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 주황색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    padding: 8px 15px; /* 위아래 8px, 좌우 15px 여백 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    font-size: 0.9rem; /* 글자 크기 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); /* 그림자 */
+}
+
+/* 가격 배지 뒤에 '천원' 단위 표시 */
+.price-badge::after {
+    content: '천원'; /* '천원' 텍스트 추가 */
+    font-size: 0.8rem; /* 조금 더 작은 글자 */
+    margin-left: 3px; /* 왼쪽 여백 */
+}
+
+/* 단체 코스용 배지 (4인 이상) */
+.group-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    left: 15px; /* 왼쪽에서 15px */
+    background: rgba(0, 0, 0, 0.7); /* 검정색 70% 투명 */
+    color: white; /* 흰색 글자 */
+    padding: 6px 12px; /* 위아래 6px, 좌우 12px 여백 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 0.8rem; /* 작은 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+}
+
+/* 카드 내용 영역 (텍스트와 버튼) */
+.card-content {
+    padding: 25px; /* 전체 여백 25px */
+}
+
+/* 메뉴 제목 스타일 */
+.menu-title {
+    font-size: 1.4rem; /* 제목 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #333; /* 어두운 회색 */
+    margin-bottom: 12px; /* 아래쪽 여백 */
+    line-height: 1.3; /* 줄 간격 */
+}
+
+/* 메뉴 설명 텍스트 스타일 */
+.menu-description {
+    font-size: 1rem; /* 설명 글자 크기 */
+    color: #666; /* 중간 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 더보기 버튼 스타일 */
+.more-btn {
+    width: 100%; /* 전체 가로 크기 */
+    background: #f8f9fa; /* 연한 회색 배경 */
+    border: 2px solid #e9ecef; /* 연한 회색 테두리 */
+    border-radius: 12px; /* 둥근 모서리 */
+    padding: 12px 20px; /* 위아래 12px, 좌우 20px 여백 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    color: #333; /* 글자 색상 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 모든 변화에 부드러운 효과 */
+    display: flex; /* 텍스트와 아이콘을 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 양쪽 끝으로 정렬 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 더보기 버튼에 마우스 올렸을 때 효과 */
+.more-btn:hover {
+    background: #e9ecef; /* 배경색 조금 더 어둡게 */
+    border-color: #dee2e6; /* 테두리색 조금 더 어둡게 */
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+}
+
+/* 더보기 버튼의 아이콘 스타일 */
+.btn-icon {
+    transition: transform 0.3s ease; /* 회전 효과를 위한 애니메이션 */
+    font-size: 0.9rem; /* 아이콘 크기 */
+}
+
+/* 메뉴 상세 정보가 열렸을 때 아이콘 회전 */
+.more-btn.active .btn-icon {
+    transform: rotate(180deg); /* 180도 회전 */
+}
+
+/* 메뉴 상세 정보 영역 (기본적으로 숨김) */
+.menu-details {
+    max-height: 0; /* 높이 0으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: max-height 0.4s ease; /* 부드러운 펼침/접힘 효과 */
+    margin-top: 15px; /* 위쪽 여백 */
+    padding: 0 15px; /* 좌우 여백 */
+    background: #f8f9fa; /* 연한 회색 배경 */
+    border-radius: 12px; /* 둥근 모서리 */
+}
+
+/* 메뉴 상세 정보가 열렸을 때 스타일 */
+.menu-details.active {
+    max-height: 500px; /* 충분한 높이로 설정 */
+    padding: 20px 15px; /* 위아래 여백 추가 */
+}
+
+/* 메뉴 상세 정보 제목 (구성) */
+.menu-details h4 {
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #333; /* 글자 색상 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 메뉴 구성 목록 스타일 */
+.menu-items {
+    list-style: none; /* 기본 목록 점 제거 */
+    padding: 0; /* 여백 제거 */
+    margin: 0; /* 여백 제거 */
+}
+
+/* 메뉴 구성 각 항목 스타일 */
+.menu-items li {
+    padding: 8px 0; /* 위아래 8px 여백 */
+    border-bottom: 1px solid #e9ecef; /* 아래쪽에 연한 회색 선 */
+    color: #555; /* 글자 색상 */
+    font-size: 0.95rem; /* 글자 크기 */
+    line-height: 1.5; /* 줄 간격 */
+    position: relative; /* 불릿 포인트를 위한 위치 설정 */
+    padding-left: 20px; /* 왼쪽 여백 (불릿 공간) */
+}
+
+/* 메뉴 구성 항목 앞에 불릿 포인트 추가 */
+.menu-items li::before {
+    content: '•'; /* 불릿 점 */
+    color: #ff6b35; /* 주황색 */
+    font-weight: bold; /* 굵게 */
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 끝 */
+    top: 8px; /* 위에서 8px */
+}
+
+/* 마지막 메뉴 항목은 아래 선 제거 */
+.menu-items li:last-child {
+    border-bottom: none; /* 아래 선 제거 */
+}
+
+/* 특별 안내 문구 스타일 (세미나 코스용) */
+.special-note {
+    margin-top: 15px; /* 위쪽 여백 */
+    padding: 12px; /* 전체 여백 */
+    background: rgba(255, 107, 53, 0.1); /* 연한 주황색 배경 */
+    border-radius: 8px; /* 둥근 모서리 */
+    color: #d63384; /* 분홍색 글자 */
+    font-size: 0.9rem; /* 작은 글자 크기 */
+    text-align: center; /* 가운데 정렬 */
+    font-weight: 500; /* 글자 굵기 */
+}
+
+/* 예약 안내 영역 */
+.reservation-notice {
+    text-align: center; /* 가운데 정렬 */
+    padding: 40px 30px; /* 위아래 40px, 좌우 30px 여백 */
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+}
+
+/* 예약 안내 텍스트 */
+.reservation-notice p {
+    font-size: 1.1rem; /* 글자 크기 */
+    color: #333; /* 글자 색상 */
+    margin-bottom: 25px; /* 아래쪽 여백 */
+    font-weight: 500; /* 글자 굵기 */
+}
+
+/* 섹션 예약 버튼 스타일 */
+.section-reservation-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 주황색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 25px; /* 둥근 모서리 */
+    padding: 15px 35px; /* 위아래 15px, 좌우 35px 여백 */
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 모든 변화에 부드러운 효과 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); /* 그림자 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 섹션 예약 버튼에 마우스 올렸을 때 효과 */
+.section-reservation-btn:hover {
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6); /* 그림자 더 진하게 */
+    background: linear-gradient(45deg, #ff8c00, #ff6b35); /* 더 밝은 주황색 */
+}
+
+/* 메인 컨텐츠 영역 스타일 */
+.main-content {
+    padding-top: 20px; /* 헤더와의 간격 */
+}
+
+/* 태블릿 크기에서의 반응형 스타일 (768px 이하) */
+@media (max-width: 768px) {
+    /* 헤더 컨테이너 여백 조정 */
+    .header-container {
+        padding: 10px 15px; /* 여백 줄이기 */
+    }
+    
+    /* 브랜드명 글자 크기 줄이기 */
+    .brand-name {
+        font-size: 14px; /* 글자 크기 작게 */
+    }
+    
+    /* 로고 크기 줄이기 */
+    .logo-img {
+        height: 40px; /* 로고 높이 줄이기 */
+    }
+    
+    /* 데스크톱 메뉴 숨기기 */
+    .nav-menu {
+        display: none; /* 네비게이션 메뉴 숨김 */
+    }
+    
+    /* 데스크톱 예약 버튼 숨기기 */
+    .reservation-section {
+        display: none; /* 예약 버튼 숨김 */
+    }
+    
+    /* 모바일 햄버거 메뉴 버튼 보이기 */
+    .mobile-menu-btn {
+        display: flex; /* 햄버거 메뉴 버튼 보이기 */
+    }
+}
+
+/* 작은 모바일 크기에서의 반응형 스타일 (480px 이하) */
+@media (max-width: 480px) {
+    /* 로고 섹션 간격 줄이기 */
+    .logo-section {
+        gap: 10px; /* 간격 더 줄이기 */
+    }
+    
+    /* 브랜드명 더 작게 */
+    .brand-name {
+        font-size: 12px; /* 글자 크기 더 작게 */
+    }
+    
+    /* 로고 더 작게 */
+    .logo-img {
+        height: 35px; /* 로고 높이 더 줄이기 */
+    }
+}
+
+/* ================== 히어로 섹션 반응형 스타일 ================== */
+
+/* 태블릿 크기에서의 히어로 섹션 반응형 (768px 이하) */
+@media (max-width: 768px) {
+    /* 히어로 섹션 높이 조정 */
+    .hero-section {
+        height: 70vh; /* 화면 높이의 70%로 줄이기 */
+        min-height: 500px; /* 최소 높이 보장 */
+    }
+    
+    /* 슬라이드 내용물 조정 */
+    .slide-content {
+        max-width: 90%; /* 가로 크기를 90%로 조정 */
+        padding: 30px 15px; /* 여백 줄이기 */
+        margin-top: -10vh; /* 위치 조정 */
+    }
+    
+    /* 슬라이드 제목 크기 줄이기 */
+    .slide-title {
+        font-size: 2rem; /* 글자 크기 줄이기 */
+        margin-bottom: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 슬라이드 슬로건 크기 줄이기 */
+    .slide-slogan {
+        font-size: 1.1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 슬라이드 설명문 크기 줄이기 */
+    .slide-description {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 25px; /* 여백 줄이기 */
+    }
+    
+    /* 히어로 예약 버튼 크기 조정 */
+    .hero-reservation-btn {
+        padding: 12px 25px; /* 여백 줄이기 */
+        font-size: 1rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 화살표 네비게이션 크기 줄이기 */
+    .carousel-nav {
+        width: 40px; /* 크기 줄이기 */
+        height: 40px; /* 크기 줄이기 */
+        font-size: 16px; /* 화살표 크기 줄이기 */
+    }
+    
+    /* 화살표 위치 조정 */
+    .carousel-nav.prev {
+        left: 15px; /* 왼쪽 여백 줄이기 */
+    }
+    
+    .carousel-nav.next {
+        right: 15px; /* 오른쪽 여백 줄이기 */
+    }
+    
+    /* 인디케이터 크기 조정 */
+    .indicator {
+        width: 10px; /* 크기 줄이기 */
+        height: 10px; /* 크기 줄이기 */
+    }
+    
+    /* 인디케이터 컨테이너 위치 조정 */
+    .carousel-indicators {
+        bottom: 20px; /* 아래 여백 줄이기 */
+        gap: 10px; /* 간격 줄이기 */
+    }
+}
+
+/* 작은 모바일에서의 히어로 섹션 반응형 (480px 이하) */
+@media (max-width: 480px) {
+    /* 히어로 섹션 높이 더 줄이기 */
+    .hero-section {
+        height: 60vh; /* 화면 높이의 60%로 더 줄이기 */
+        min-height: 450px; /* 최소 높이 조정 */
+    }
+    
+    /* 슬라이드 내용물 더 조정 */
+    .slide-content {
+        max-width: 95%; /* 가로 크기를 95%로 조정 */
+        padding: 20px 10px; /* 여백 더 줄이기 */
+        margin-top: -5vh; /* 위치 더 조정 */
+        border-radius: 15px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 슬라이드 제목 더 작게 */
+    .slide-title {
+        font-size: 1.5rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 10px; /* 여백 더 줄이기 */
+        line-height: 1.3; /* 줄 간격 조정 */
+    }
+    
+    /* 슬라이드 슬로건 더 작게 */
+    .slide-slogan {
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 8px; /* 여백 더 줄이기 */
+        line-height: 1.3; /* 줄 간격 조정 */
+    }
+    
+    /* 슬라이드 설명문 더 작게 */
+    .slide-description {
+        font-size: 0.85rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 20px; /* 여백 더 줄이기 */
+        line-height: 1.4; /* 줄 간격 조정 */
+    }
+    
+    /* 히어로 예약 버튼 더 작게 */
+    .hero-reservation-btn {
+        padding: 10px 20px; /* 여백 더 줄이기 */
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        border-radius: 25px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 화살표 네비게이션 더 작게 */
+    .carousel-nav {
+        width: 35px; /* 크기 더 줄이기 */
+        height: 35px; /* 크기 더 줄이기 */
+        font-size: 14px; /* 화살표 크기 더 줄이기 */
+    }
+    
+    /* 화살표 위치 더 조정 */
+    .carousel-nav.prev {
+        left: 10px; /* 왼쪽 여백 더 줄이기 */
+    }
+    
+    .carousel-nav.next {
+        right: 10px; /* 오른쪽 여백 더 줄이기 */
+    }
+    
+    /* 인디케이터 더 작게 */
+    .indicator {
+        width: 8px; /* 크기 더 줄이기 */
+        height: 8px; /* 크기 더 줄이기 */
+    }
+    
+    /* 인디케이터 컨테이너 위치 더 조정 */
+    .carousel-indicators {
+        bottom: 15px; /* 아래 여백 더 줄이기 */
+        gap: 8px; /* 간격 더 줄이기 */
+    }
+}
+
+/* ================== 오마카세 섹션 반응형 스타일 ================== */
+
+/* 태블릿 크기에서의 오마카세 섹션 반응형 (768px 이하) */
+@media (max-width: 768px) {
+    /* 오마카세 섹션 여백 조정 */
+    .omakase-section {
+        padding: 60px 0; /* 위아래 여백 줄이기 */
+    }
+    
+    /* 오마카세 컨테이너 여백 조정 */
+    .omakase-container {
+        padding: 0 15px; /* 좌우 여백 줄이기 */
+    }
+    
+    /* 섹션 제목 크기 조정 */
+    .section-title {
+        font-size: 2rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 섹션 부제목 크기 조정 */
+    .section-subtitle {
+        font-size: 1.1rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 메뉴 그리드를 1열로 변경 (모바일용) */
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 20px; /* 간격 줄이기 */
+        margin-bottom: 40px; /* 아래쪽 여백 줄이기 */
+    }
+    
+    /* 카드 이미지 높이 조정 */
+    .card-image {
+        height: 200px; /* 높이 줄이기 */
+    }
+    
+    /* 카드 내용 여백 조정 */
+    .card-content {
+        padding: 20px; /* 여백 줄이기 */
+    }
+    
+    /* 메뉴 제목 크기 조정 */
+    .menu-title {
+        font-size: 1.3rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 메뉴 설명 크기 조정 */
+    .menu-description {
+        font-size: 0.95rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 더보기 버튼 여백 조정 */
+    .more-btn {
+        padding: 10px 16px; /* 여백 줄이기 */
+        font-size: 0.95rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 예약 안내 영역 여백 조정 */
+    .reservation-notice {
+        padding: 30px 20px; /* 여백 줄이기 */
+    }
+    
+    /* 섹션 예약 버튼 크기 조정 */
+    .section-reservation-btn {
+        padding: 12px 28px; /* 여백 줄이기 */
+        font-size: 1rem; /* 글자 크기 줄이기 */
+    }
+}
+
+/* 작은 모바일에서의 오마카세 섹션 반응형 (480px 이하) */
+@media (max-width: 480px) {
+    /* 오마카세 섹션 여백 더 조정 */
+    .omakase-section {
+        padding: 40px 0; /* 위아래 여백 더 줄이기 */
+    }
+    
+    /* 섹션 헤더 여백 조정 */
+    .section-header {
+        margin-bottom: 40px; /* 아래쪽 여백 줄이기 */
+    }
+    
+    /* 섹션 제목 더 작게 */
+    .section-title {
+        font-size: 1.8rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 장식 선 크기 조정 */
+    .section-title::after {
+        width: 60px; /* 선 길이 줄이기 */
+        margin: 15px auto; /* 여백 줄이기 */
+    }
+    
+    /* 섹션 부제목 더 작게 */
+    .section-subtitle {
+        font-size: 1rem; /* 글자 크기 더 줄이기 */
+    }
+    
+    /* 메뉴 그리드 간격 더 조정 */
+    .menu-grid {
+        gap: 15px; /* 간격 더 줄이기 */
+        margin-bottom: 30px; /* 아래쪽 여백 더 줄이기 */
+    }
+    
+    /* 카드 이미지 높이 더 조정 */
+    .card-image {
+        height: 180px; /* 높이 더 줄이기 */
+    }
+    
+    /* 가격 배지 크기 조정 */
+    .price-badge {
+        padding: 6px 12px; /* 여백 줄이기 */
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        right: 10px; /* 위치 조정 */
+    }
+    
+    /* 단체 배지 크기 조정 */
+    .group-badge {
+        padding: 5px 10px; /* 여백 줄이기 */
+        font-size: 0.7rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        left: 10px; /* 위치 조정 */
+    }
+    
+    /* 카드 내용 여백 더 조정 */
+    .card-content {
+        padding: 15px; /* 여백 더 줄이기 */
+    }
+    
+    /* 메뉴 제목 더 작게 */
+    .menu-title {
+        font-size: 1.2rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 10px; /* 여백 줄이기 */
+    }
+    
+    /* 메뉴 설명 더 작게 */
+    .menu-description {
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 더보기 버튼 더 작게 */
+    .more-btn {
+        padding: 8px 12px; /* 여백 더 줄이기 */
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 메뉴 상세 정보 여백 조정 */
+    .menu-details {
+        padding: 0 10px; /* 좌우 여백 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 메뉴 상세 정보가 열렸을 때 여백 조정 */
+    .menu-details.active {
+        padding: 15px 10px; /* 여백 줄이기 */
+    }
+    
+    /* 메뉴 상세 정보 제목 크기 조정 */
+    .menu-details h4 {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 메뉴 구성 항목 크기 조정 */
+    .menu-items li {
+        padding: 6px 0; /* 위아래 여백 줄이기 */
+        font-size: 0.85rem; /* 글자 크기 줄이기 */
+        padding-left: 15px; /* 왼쪽 여백 줄이기 */
+    }
+    
+    /* 불릿 포인트 위치 조정 */
+    .menu-items li::before {
+        top: 6px; /* 위치 조정 */
+    }
+    
+    /* 특별 안내 문구 크기 조정 */
+    .special-note {
+        padding: 10px; /* 여백 줄이기 */
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+        margin-top: 12px; /* 위쪽 여백 줄이기 */
+    }
+    
+    /* 예약 안내 영역 더 조정 */
+    .reservation-notice {
+        padding: 25px 15px; /* 여백 더 줄이기 */
+        border-radius: 15px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 예약 안내 텍스트 크기 조정 */
+    .reservation-notice p {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 20px; /* 여백 줄이기 */
+    }
+    
+    /* 섹션 예약 버튼 더 작게 */
+    .section-reservation-btn {
+        padding: 10px 24px; /* 여백 더 줄이기 */
+        font-size: 0.95rem; /* 글자 크기 더 줄이기 */
+        border-radius: 20px; /* 모서리 둥글기 줄이기 */
+    }
+}
+
+/* ================== 프리미엄 오마카세 섹션 스타일 ================== */
+
+/* 프리미엄 오마카세 섹션 전체 영역 */
+.premium-omakase-section {
+    padding: 80px 0; /* 위아래 80px 여백 */
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); /* 어두운 프리미엄 배경 */
+    min-height: 100vh; /* 최소 화면 전체 높이 */
+    color: #ffffff; /* 흰색 글자 */
+}
+
+/* 프리미엄 섹션 컨테이너 */
+.premium-container {
+    max-width: 1200px; /* 최대 가로 크기 제한 */
+    margin: 0 auto; /* 수평 가운데 정렬 */
+    padding: 0 20px; /* 좌우 여백 */
+}
+
+/* 프리미엄 섹션 제목 스타일 */
+.premium-title {
+    color: #ffffff; /* 흰색 글자 */
+}
+
+/* 프리미엄 섹션 제목 아래 장식 선 - 골드 색상 */
+.premium-title::after {
+    background: linear-gradient(45deg, #ffd700, #ffb347); /* 골드 그라데이션 */
+}
+
+/* 프리미엄 메뉴 그리드 */
+.premium-menu-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+    gap: 30px; /* 카드 사이 간격 */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 프리미엄 메뉴 카드 스타일 */
+.premium-menu-card {
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e); /* 어두운 그라데이션 배경 */
+    border: 1px solid #444; /* 어두운 테두리 */
+    border-radius: 20px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* 진한 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    position: relative; /* 배지를 위한 위치 설정 */
+}
+
+/* 프리미엄 메뉴 카드 호버 효과 */
+.premium-menu-card:hover {
+    transform: translateY(-10px); /* 위로 10px 올라가는 효과 */
+    box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2); /* 골드 색상의 그림자 */
+    border-color: #ffd700; /* 골드 테두리 */
+}
+
+/* 프리미엄 카드 이미지 영역 */
+.premium-card-image {
+    position: relative; /* 배지를 위한 위치 설정 */
+    width: 100%; /* 전체 가로 크기 */
+    height: 250px; /* 이미지 영역 높이 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 프리미엄 카드 이미지 스타일 */
+.premium-card-image img {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    object-fit: cover; /* 이미지 비율 유지하면서 영역 채우기 */
+    transition: transform 0.3s ease; /* 확대 효과 */
+    filter: brightness(0.9); /* 살짝 어둡게 (프리미엄 느낌) */
+}
+
+/* 프리미엄 이미지 호버 효과 */
+.premium-menu-card:hover .premium-card-image img {
+    transform: scale(1.05); /* 5% 확대 */
+    filter: brightness(1); /* 원래 밝기로 복원 */
+}
+
+/* 프리미엄 가격 배지 (시가용) */
+.premium-price {
+    background: linear-gradient(45deg, #ffd700, #ffb347) !important; /* 골드 그라데이션 */
+    color: #1a1a1a !important; /* 어두운 글자 */
+    font-weight: 700; /* 굵은 글씨 */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* 골드 그림자 */
+}
+
+/* 시가 배지는 '천원' 단위 표시 안함 */
+.premium-price::after {
+    content: ''; /* 빈 내용 */
+}
+
+/* 예약 필수 배지 */
+.reservation-required-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    left: 15px; /* 왼쪽에서 15px */
+    background: linear-gradient(45deg, #dc3545, #c82333); /* 빨간색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    padding: 6px 12px; /* 위아래 6px, 좌우 12px 여백 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 0.8rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    box-shadow: 0 3px 10px rgba(220, 53, 69, 0.4); /* 빨간색 그림자 */
+    z-index: 3; /* 다른 배지들 위에 표시 */
+}
+
+/* COMING SOON 배지 */
+.coming-soon-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    right: 15px; /* 오른쪽에서 15px */
+    background: linear-gradient(45deg, #6c757d, #495057); /* 회색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    padding: 8px 15px; /* 위아래 8px, 좌우 15px 여백 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 0.8rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    letter-spacing: 1px; /* 글자 간격 */
+}
+
+/* SPECIAL 이벤트 배지 */
+.event-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    right: 15px; /* 오른쪽에서 15px */
+    background: linear-gradient(45deg, #e83e8c, #d63384); /* 핑크 그라데이션 */
+    color: white; /* 흰색 글자 */
+    padding: 8px 15px; /* 위아래 8px, 좌우 15px 여백 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 0.8rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    letter-spacing: 1px; /* 글자 간격 */
+    box-shadow: 0 4px 15px rgba(232, 62, 140, 0.4); /* 핑크 그림자 */
+}
+
+/* 프리미엄 카드 내용 영역 */
+.premium-card-content {
+    padding: 25px; /* 전체 여백 */
+}
+
+/* 프리미엄 메뉴 제목 */
+.premium-menu-title {
+    font-size: 1.4rem; /* 제목 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #ffd700; /* 골드 색상 */
+    margin-bottom: 12px; /* 아래쪽 여백 */
+    line-height: 1.3; /* 줄 간격 */
+}
+
+/* 프리미엄 메뉴 설명 */
+.premium-menu-description {
+    font-size: 1rem; /* 설명 글자 크기 */
+    color: #cccccc; /* 연한 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 프리미엄 더보기 버튼 */
+.premium-more-btn {
+    width: 100%; /* 전체 가로 크기 */
+    background: linear-gradient(45deg, #333333, #1a1a1a); /* 어두운 그라데이션 */
+    border: 2px solid #ffd700; /* 골드 테두리 */
+    border-radius: 12px; /* 둥근 모서리 */
+    padding: 12px 20px; /* 위아래 12px, 좌우 20px 여백 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    color: #ffd700; /* 골드 글자 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    display: flex; /* 텍스트와 아이콘을 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 양쪽 끝으로 정렬 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 프리미엄 더보기 버튼 호버 효과 */
+.premium-more-btn:hover {
+    background: linear-gradient(45deg, #ffd700, #ffb347); /* 골드 그라데이션 배경 */
+    color: #1a1a1a; /* 어두운 글자 */
+    border-color: #ffd700; /* 골드 테두리 */
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); /* 골드 그림자 */
+}
+
+/* 프리미엄 메뉴 상세 정보 영역 */
+.premium-menu-details {
+    max-height: 0; /* 높이 0으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: max-height 0.4s ease; /* 부드러운 펼침/접힘 효과 */
+    margin-top: 15px; /* 위쪽 여백 */
+    padding: 0 15px; /* 좌우 여백 */
+    background: linear-gradient(145deg, #333333, #1e1e1e); /* 어두운 그라데이션 배경 */
+    border-radius: 12px; /* 둥근 모서리 */
+    border: 1px solid #444; /* 어두운 테두리 */
+}
+
+/* 프리미엄 메뉴 상세 정보가 열렸을 때 */
+.premium-menu-details.active {
+    max-height: 600px; /* 충분한 높이 */
+    padding: 20px 15px; /* 위아래 여백 추가 */
+}
+
+/* 프리미엄 메뉴 상세 정보 제목 */
+.premium-menu-details h4 {
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #ffd700; /* 골드 색상 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 프리미엄 메뉴 구성 목록 */
+.premium-menu-items {
+    list-style: none; /* 기본 목록 점 제거 */
+    padding: 0; /* 여백 제거 */
+    margin: 0; /* 여백 제거 */
+}
+
+/* 프리미엄 메뉴 구성 각 항목 */
+.premium-menu-items li {
+    padding: 8px 0; /* 위아래 8px 여백 */
+    border-bottom: 1px solid #444; /* 아래쪽에 어두운 회색 선 */
+    color: #cccccc; /* 연한 회색 글자 */
+    font-size: 0.95rem; /* 글자 크기 */
+    line-height: 1.5; /* 줄 간격 */
+    position: relative; /* 불릿 포인트를 위한 위치 설정 */
+    padding-left: 20px; /* 왼쪽 여백 */
+}
+
+/* 프리미엄 메뉴 구성 항목 앞에 골드 불릿 포인트 */
+.premium-menu-items li::before {
+    content: '◆'; /* 다이아몬드 모양 불릿 */
+    color: #ffd700; /* 골드 색상 */
+    font-weight: bold; /* 굵게 */
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 끝 */
+    top: 8px; /* 위에서 8px */
+}
+
+/* 마지막 메뉴 항목은 아래 선 제거 */
+.premium-menu-items li:last-child {
+    border-bottom: none; /* 아래 선 제거 */
+}
+
+/* 프리미엄 특별 안내 영역 */
+.premium-special-notes {
+    margin-top: 20px; /* 위쪽 여백 */
+    padding: 15px; /* 전체 여백 */
+    background: rgba(255, 215, 0, 0.1); /* 연한 골드 배경 */
+    border: 1px solid rgba(255, 215, 0, 0.3); /* 골드 테두리 */
+    border-radius: 8px; /* 둥근 모서리 */
+}
+
+/* 하이라이트 노트 스타일 */
+.highlight-note {
+    color: #ffd700; /* 골드 글자 */
+    font-size: 0.9rem; /* 작은 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    margin: 5px 0; /* 위아래 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 인원수별 안내 노트 */
+.portion-note {
+    color: #ffb347; /* 연한 골드 글자 */
+    font-size: 0.9rem; /* 작은 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    margin: 5px 0; /* 위아래 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 준비중 카드 특별 스타일 */
+.coming-soon {
+    opacity: 0.8; /* 살짝 투명하게 */
+}
+
+.coming-soon-text {
+    text-align: center; /* 가운데 정렬 */
+    padding: 20px 0; /* 위아래 여백 */
+}
+
+.coming-soon-text p {
+    color: #999; /* 회색 글자 */
+    font-style: italic; /* 기울임체 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+/* 스페셜 이벤트 카드 스타일 */
+.addon-info {
+    text-align: center; /* 가운데 정렬 */
+    padding: 20px 0; /* 위아래 여백 */
+}
+
+.addon-price {
+    color: #e83e8c; /* 핑크 색상 */
+    font-size: 1.5rem; /* 큰 글자 크기 */
+    font-weight: 700; /* 굵은 글씨 */
+    margin-bottom: 8px; /* 아래쪽 여백 */
+}
+
+.addon-note {
+    color: #cccccc; /* 연한 회색 */
+    font-size: 0.9rem; /* 작은 글자 크기 */
+}
+
+/* 프리미엄 예약 안내 영역 */
+.premium-reservation-notice {
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e); /* 어두운 그라데이션 배경 */
+    border: 2px solid #ffd700; /* 골드 테두리 */
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 40px 30px; /* 위아래 40px, 좌우 30px 여백 */
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2); /* 골드 그림자 */
+}
+
+/* 프리미엄 안내 내용 */
+.premium-notice-content {
+    display: flex; /* 아이콘과 텍스트를 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+    gap: 20px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+/* 안내 아이콘 */
+.notice-icon {
+    font-size: 3rem; /* 큰 아이콘 크기 */
+    flex-shrink: 0; /* 크기 고정 */
+}
+
+/* 안내 텍스트 영역 */
+.notice-text h3 {
+    color: #ffd700; /* 골드 제목 */
+    font-size: 1.4rem; /* 제목 글자 크기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+.notice-text p {
+    color: #cccccc; /* 연한 회색 */
+    font-size: 1rem; /* 글자 크기 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 8px; /* 아래쪽 여백 */
+}
+
+.notice-text strong {
+    color: #ffd700; /* 강조 텍스트 골드 색상 */
+    font-weight: 600; /* 굵은 글씨 */
+}
+
+/* 프리미엄 예약 버튼 */
+.premium-reservation-btn {
+    background: linear-gradient(45deg, #ffd700, #ffb347); /* 골드 그라데이션 */
+    color: #1a1a1a; /* 어두운 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 25px; /* 둥근 모서리 */
+    padding: 15px 35px; /* 위아래 15px, 좌우 35px 여백 */
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* 골드 그림자 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+    display: block; /* 블록 요소 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 프리미엄 예약 버튼 호버 효과 */
+.premium-reservation-btn:hover {
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6); /* 그림자 더 진하게 */
+         background: linear-gradient(45deg, #fff700, #ffd700); /* 더 밝은 골드 */
+}
+
+/* ================== 프리미엄 오마카세 섹션 반응형 스타일 ================== */
+
+/* 태블릿 크기에서의 프리미엄 오마카세 섹션 반응형 (768px 이하) */
+@media (max-width: 768px) {
+    /* 프리미엄 오마카세 섹션 여백 조정 */
+    .premium-omakase-section {
+        padding: 60px 0; /* 위아래 여백 줄이기 */
+    }
+    
+    /* 프리미엄 컨테이너 여백 조정 */
+    .premium-container {
+        padding: 0 15px; /* 좌우 여백 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 그리드를 1열로 변경 (모바일용) */
+    .premium-menu-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 20px; /* 간격 줄이기 */
+        margin-bottom: 40px; /* 아래쪽 여백 줄이기 */
+    }
+    
+    /* 프리미엄 카드 이미지 높이 조정 */
+    .premium-card-image {
+        height: 200px; /* 높이 줄이기 */
+    }
+    
+    /* 프리미엄 카드 내용 여백 조정 */
+    .premium-card-content {
+        padding: 20px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 제목 크기 조정 */
+    .premium-menu-title {
+        font-size: 1.3rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 설명 크기 조정 */
+    .premium-menu-description {
+        font-size: 0.95rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 프리미엄 더보기 버튼 여백 조정 */
+    .premium-more-btn {
+        padding: 10px 16px; /* 여백 줄이기 */
+        font-size: 0.95rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 프리미엄 예약 안내 여백 조정 */
+    .premium-reservation-notice {
+        padding: 30px 20px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 안내 내용 레이아웃 조정 */
+    .premium-notice-content {
+        flex-direction: column; /* 세로로 배치 */
+        text-align: center; /* 가운데 정렬 */
+        gap: 15px; /* 간격 줄이기 */
+    }
+    
+    /* 안내 텍스트 크기 조정 */
+    .notice-text h3 {
+        font-size: 1.2rem; /* 글자 크기 줄이기 */
+    }
+    
+    .notice-text p {
+        font-size: 0.95rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 프리미엄 예약 버튼 크기 조정 */
+    .premium-reservation-btn {
+        padding: 12px 28px; /* 여백 줄이기 */
+        font-size: 1rem; /* 글자 크기 줄이기 */
+    }
+}
+
+/* 작은 모바일에서의 프리미엄 오마카세 섹션 반응형 (480px 이하) */
+@media (max-width: 480px) {
+    /* 프리미엄 오마카세 섹션 여백 더 조정 */
+    .premium-omakase-section {
+        padding: 40px 0; /* 위아래 여백 더 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 그리드 간격 더 조정 */
+    .premium-menu-grid {
+        gap: 15px; /* 간격 더 줄이기 */
+        margin-bottom: 30px; /* 아래쪽 여백 더 줄이기 */
+    }
+    
+    /* 프리미엄 카드 이미지 높이 더 조정 */
+    .premium-card-image {
+        height: 180px; /* 높이 더 줄이기 */
+    }
+    
+    /* 프리미엄 가격 배지 크기 조정 */
+    .premium-price {
+        padding: 6px 12px; /* 여백 줄이기 */
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        right: 10px; /* 위치 조정 */
+    }
+    
+    /* 예약 필수 배지 크기 조정 */
+    .reservation-required-badge {
+        padding: 5px 10px; /* 여백 줄이기 */
+        font-size: 0.7rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        left: 10px; /* 위치 조정 */
+    }
+    
+    /* 기타 배지들 크기 조정 */
+    .coming-soon-badge,
+    .event-badge {
+        padding: 6px 12px; /* 여백 줄이기 */
+        font-size: 0.7rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        right: 10px; /* 위치 조정 */
+    }
+    
+    /* 프리미엄 카드 내용 여백 더 조정 */
+    .premium-card-content {
+        padding: 15px; /* 여백 더 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 제목 더 작게 */
+    .premium-menu-title {
+        font-size: 1.2rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 10px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 설명 더 작게 */
+    .premium-menu-description {
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 더보기 버튼 더 작게 */
+    .premium-more-btn {
+        padding: 8px 12px; /* 여백 더 줄이기 */
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 상세 정보 여백 조정 */
+    .premium-menu-details {
+        padding: 0 10px; /* 좌우 여백 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 상세 정보가 열렸을 때 여백 조정 */
+    .premium-menu-details.active {
+        padding: 15px 10px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 상세 정보 제목 크기 조정 */
+    .premium-menu-details h4 {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 메뉴 구성 항목 크기 조정 */
+    .premium-menu-items li {
+        padding: 6px 0; /* 위아래 여백 줄이기 */
+        font-size: 0.85rem; /* 글자 크기 줄이기 */
+        padding-left: 15px; /* 왼쪽 여백 줄이기 */
+    }
+    
+    /* 프리미엄 불릿 포인트 위치 조정 */
+    .premium-menu-items li::before {
+        top: 6px; /* 위치 조정 */
+    }
+    
+    /* 프리미엄 특별 안내 영역 크기 조정 */
+    .premium-special-notes {
+        padding: 12px; /* 여백 줄이기 */
+        margin-top: 15px; /* 위쪽 여백 줄이기 */
+    }
+    
+    /* 하이라이트 노트 크기 조정 */
+    .highlight-note,
+    .portion-note {
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 준비중 텍스트 크기 조정 */
+    .coming-soon-text {
+        padding: 15px 0; /* 여백 줄이기 */
+    }
+    
+    .coming-soon-text p {
+        font-size: 0.85rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 애드온 정보 크기 조정 */
+    .addon-info {
+        padding: 15px 0; /* 여백 줄이기 */
+    }
+    
+    .addon-price {
+        font-size: 1.3rem; /* 글자 크기 줄이기 */
+        margin-bottom: 6px; /* 여백 줄이기 */
+    }
+    
+    .addon-note {
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 프리미엄 예약 안내 영역 더 조정 */
+    .premium-reservation-notice {
+        padding: 25px 15px; /* 여백 더 줄이기 */
+        border-radius: 15px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 안내 아이콘 크기 조정 */
+    .notice-icon {
+        font-size: 2.5rem; /* 아이콘 크기 줄이기 */
+    }
+    
+    /* 안내 텍스트 더 작게 */
+    .notice-text h3 {
+        font-size: 1.1rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    .notice-text p {
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 6px; /* 여백 줄이기 */
+    }
+    
+    /* 프리미엄 예약 버튼 더 작게 */
+    .premium-reservation-btn {
+        padding: 10px 24px; /* 여백 더 줄이기 */
+        font-size: 0.95rem; /* 글자 크기 더 줄이기 */
+        border-radius: 20px; /* 모서리 둥글기 줄이기 */
+    }
+}
+
+/* ================== 점심특선 섹션 스타일 ================== */
+
+/* 점심특선 섹션 전체 영역 */
+.lunch-special-section {
+    padding: 80px 0; /* 위아래 80px 여백 */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%); /* 밝은 회색 그라데이션 배경 */
+    min-height: 100vh; /* 최소 화면 전체 높이 */
+    color: #333333; /* 어두운 회색 글자 */
+}
+
+/* 점심특선 섹션 컨테이너 */
+.lunch-container {
+    max-width: 1200px; /* 최대 가로 크기 제한 */
+    margin: 0 auto; /* 수평 가운데 정렬 */
+    padding: 0 20px; /* 좌우 여백 */
+}
+
+/* 점심특선 섹션 제목 스타일 */
+.lunch-title {
+    color: #333333; /* 어두운 회색 글자 */
+}
+
+/* 점심특선 섹션 제목 아래 장식 선 - 오렌지 색상 */
+.lunch-title::after {
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 오렌지 그라데이션 */
+}
+
+/* 점심특선 메뉴 그리드 - 2×2 배치 */
+.lunch-menu-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+    gap: 25px; /* 카드 사이 간격 */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 점심특선 메뉴 카드 스타일 */
+.lunch-menu-card {
+    background: #ffffff; /* 흰색 배경 */
+    border: 1px solid #e9ecef; /* 연한 회색 테두리 */
+    border-radius: 15px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 연한 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    position: relative; /* 배지를 위한 위치 설정 */
+}
+
+/* 점심특선 메뉴 카드 호버 효과 */
+.lunch-menu-card:hover {
+    transform: translateY(-8px); /* 위로 8px 올라가는 효과 */
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2); /* 오렌지 색상의 그림자 */
+    border-color: #ff6b35; /* 오렌지 테두리 */
+}
+
+/* 점심특선 카드 이미지 영역 */
+.lunch-card-image {
+    position: relative; /* 배지를 위한 위치 설정 */
+    width: 100%; /* 전체 가로 크기 */
+    height: 220px; /* 이미지 영역 높이 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 점심특선 카드 이미지 스타일 */
+.lunch-card-image img {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    object-fit: cover; /* 이미지 비율 유지하면서 영역 채우기 */
+    transition: transform 0.3s ease; /* 확대 효과 */
+    filter: brightness(1.05); /* 살짝 밝게 (점심 느낌) */
+}
+
+/* 점심특선 이미지 호버 효과 */
+.lunch-menu-card:hover .lunch-card-image img {
+    transform: scale(1.05); /* 5% 확대 */
+    filter: brightness(1.1); /* 더 밝게 */
+}
+
+/* 점심특선 가격 배지 */
+.lunch-price {
+    background: linear-gradient(45deg, #ff6b35, #f7931e) !important; /* 오렌지 그라데이션 */
+    color: white !important; /* 흰색 글자 */
+    font-weight: 700; /* 굵은 글씨 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); /* 오렌지 그림자 */
+}
+
+/* 점심특선 배지들 */
+.lunch-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    left: 15px; /* 왼쪽에서 15px */
+    padding: 6px 12px; /* 위아래 6px, 좌우 12px 여백 */
+    border-radius: 12px; /* 둥근 모서리 */
+    font-size: 0.75rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    letter-spacing: 0.5px; /* 글자 간격 */
+    z-index: 2; /* 다른 요소들 위에 표시 */
+}
+
+/* PREMIUM 배지 */
+.premium-lunch {
+    background: linear-gradient(45deg, #6f42c1, #5a32a3); /* 보라색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    box-shadow: 0 3px 10px rgba(111, 66, 193, 0.4); /* 보라색 그림자 */
+}
+
+/* BEST 배지 */
+.bestseller {
+    background: linear-gradient(45deg, #28a745, #20c997); /* 초록색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    box-shadow: 0 3px 10px rgba(40, 167, 69, 0.4); /* 초록색 그림자 */
+}
+
+/* VALUE 배지 */
+.value {
+    background: linear-gradient(45deg, #ffc107, #ffca2c); /* 노란색 그라데이션 */
+    color: #333; /* 어두운 글자 */
+    box-shadow: 0 3px 10px rgba(255, 193, 7, 0.4); /* 노란색 그림자 */
+}
+
+/* 점심특선 카드 내용 영역 */
+.lunch-card-content {
+    padding: 25px; /* 전체 여백 */
+}
+
+/* 점심특선 메뉴 제목 */
+.lunch-menu-title {
+    font-size: 1.3rem; /* 제목 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #333333; /* 어두운 회색 색상 */
+    margin-bottom: 12px; /* 아래쪽 여백 */
+    line-height: 1.3; /* 줄 간격 */
+}
+
+/* 점심특선 메뉴 설명 */
+.lunch-menu-description {
+    font-size: 0.95rem; /* 설명 글자 크기 */
+    color: #666666; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 점심특선 더보기 버튼 */
+.lunch-more-btn {
+    width: 100%; /* 전체 가로 크기 */
+    background: linear-gradient(45deg, #ffffff, #f8f9fa); /* 흰색 그라데이션 */
+    border: 2px solid #ff6b35; /* 오렌지 테두리 */
+    border-radius: 10px; /* 둥근 모서리 */
+    padding: 12px 20px; /* 위아래 12px, 좌우 20px 여백 */
+    font-size: 0.95rem; /* 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    color: #ff6b35; /* 오렌지 글자 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    display: flex; /* 텍스트와 아이콘을 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 양쪽 끝으로 정렬 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 점심특선 더보기 버튼 호버 효과 */
+.lunch-more-btn:hover {
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 오렌지 그라데이션 배경 */
+    color: white; /* 흰색 글자 */
+    border-color: #ff6b35; /* 오렌지 테두리 */
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3); /* 오렌지 그림자 */
+}
+
+/* 점심특선 메뉴 상세 정보 영역 */
+.lunch-menu-details {
+    max-height: 0; /* 높이 0으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: max-height 0.4s ease; /* 부드러운 펼침/접힘 효과 */
+    margin-top: 15px; /* 위쪽 여백 */
+    padding: 0 15px; /* 좌우 여백 */
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef); /* 연한 회색 그라데이션 배경 */
+    border-radius: 10px; /* 둥근 모서리 */
+    border: 1px solid #dee2e6; /* 연한 회색 테두리 */
+}
+
+/* 점심특선 메뉴 상세 정보가 열렸을 때 */
+.lunch-menu-details.active {
+    max-height: 500px; /* 충분한 높이 */
+    padding: 20px 15px; /* 위아래 여백 추가 */
+}
+
+/* 점심특선 메뉴 상세 정보 제목 */
+.lunch-menu-details h4 {
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #ff6b35; /* 오렌지 색상 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 점심특선 메뉴 구성 목록 */
+.lunch-menu-items {
+    list-style: none; /* 기본 목록 점 제거 */
+    padding: 0; /* 여백 제거 */
+    margin: 0; /* 여백 제거 */
+}
+
+/* 점심특선 메뉴 구성 각 항목 */
+.lunch-menu-items li {
+    padding: 6px 0; /* 위아래 6px 여백 */
+    border-bottom: 1px solid #dee2e6; /* 아래쪽에 연한 회색 선 */
+    color: #495057; /* 어두운 회색 글자 */
+    font-size: 0.9rem; /* 글자 크기 */
+    line-height: 1.5; /* 줄 간격 */
+    position: relative; /* 불릿 포인트를 위한 위치 설정 */
+    padding-left: 18px; /* 왼쪽 여백 */
+}
+
+/* 점심특선 메뉴 구성 항목 앞에 오렌지 불릿 포인트 */
+.lunch-menu-items li::before {
+    content: '●'; /* 원 모양 불릿 */
+    color: #ff6b35; /* 오렌지 색상 */
+    font-weight: bold; /* 굵게 */
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 끝 */
+    top: 6px; /* 위에서 6px */
+}
+
+/* 마지막 메뉴 항목은 아래 선 제거 */
+.lunch-menu-items li:last-child {
+    border-bottom: none; /* 아래 선 제거 */
+}
+
+/* 점심특선 특별 안내 영역 */
+.lunch-special-notes {
+    margin-top: 15px; /* 위쪽 여백 */
+    padding: 12px; /* 전체 여백 */
+    background: rgba(255, 107, 53, 0.1); /* 연한 오렌지 배경 */
+    border: 1px solid rgba(255, 107, 53, 0.3); /* 오렌지 테두리 */
+    border-radius: 8px; /* 둥근 모서리 */
+}
+
+/* 점심특선 하이라이트 노트 스타일 */
+.lunch-special-notes .highlight-note {
+    color: #ff6b35; /* 오렌지 글자 */
+    font-size: 0.85rem; /* 작은 글자 크기 */
+    font-weight: 500; /* 글자 굵기 */
+    margin: 4px 0; /* 위아래 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 점심특선 정보 카드 */
+.lunch-info-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa); /* 흰색 그라데이션 배경 */
+    border: 2px solid #ff6b35; /* 오렌지 테두리 */
+    border-radius: 15px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15); /* 오렌지 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+}
+
+/* 점심특선 정보 카드 호버 효과 */
+.lunch-info-card:hover {
+    transform: translateY(-5px); /* 위로 5px 올라가는 효과 */
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.25); /* 그림자 더 진하게 */
+}
+
+/* 점심특선 정보 내용 */
+.lunch-info-content {
+    padding: 30px; /* 전체 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 정보 아이콘 */
+.info-icon {
+    font-size: 2.5rem; /* 큰 아이콘 크기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+/* 점심특선 정보 제목 */
+.lunch-info-content h3 {
+    color: #333333; /* 어두운 회색 */
+    font-size: 1.3rem; /* 제목 글자 크기 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 정보 상세 내용 */
+.info-details {
+    text-align: left; /* 왼쪽 정렬 */
+    margin-bottom: 25px; /* 아래쪽 여백 */
+}
+
+.info-details p {
+    color: #1976d2 !important; /* 굵은 파란색으로 변경 */
+    font-size: 0.95rem; /* 글자 크기 */
+    font-weight: 700 !important; /* 더 굵은 글씨 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 8px; /* 아래쪽 여백 */
+}
+
+.info-details strong {
+    color: #ff6b35; /* 강조 텍스트 오렌지 색상 */
+    font-weight: 600; /* 굵은 글씨 */
+}
+
+/* 점심특선 예약 버튼 */
+.lunch-reservation-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e); /* 오렌지 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 12px 30px; /* 위아래 12px, 좌우 30px 여백 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); /* 오렌지 그림자 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+}
+
+/* 점심특선 예약 버튼 호버 효과 */
+.lunch-reservation-btn:hover {
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4); /* 그림자 더 진하게 */
+    background: linear-gradient(45deg, #f7931e, #ff6b35); /* 그라데이션 순서 바뀜 */
+}
+
+/* 점심특선 혜택 섹션 */
+.lunch-benefits-section {
+    margin-top: 50px; /* 위쪽 여백 */
+    padding: 40px 30px; /* 위아래 40px, 좌우 30px 여백 */
+    background: linear-gradient(145deg, #ffffff, #f8f9fa); /* 흰색 그라데이션 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 연한 그림자 */
+}
+
+/* 혜택 섹션 제목 */
+.lunch-benefits-section h3 {
+    text-align: center; /* 가운데 정렬 */
+    color: #333333; /* 어두운 회색 */
+    font-size: 1.4rem; /* 제목 글자 크기 */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 혜택 그리드 */
+.benefits-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(3, 1fr); /* 3열로 배치 */
+    gap: 25px; /* 항목 사이 간격 */
+}
+
+/* 혜택 항목 */
+.benefit-item {
+    text-align: center; /* 가운데 정렬 */
+    padding: 20px; /* 전체 여백 */
+    background: #ffffff; /* 흰색 배경 */
+    border-radius: 12px; /* 둥근 모서리 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* 연한 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+}
+
+/* 혜택 항목 호버 효과 */
+.benefit-item:hover {
+    transform: translateY(-5px); /* 위로 5px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15); /* 오렌지 그림자 */
+}
+
+/* 혜택 아이콘 */
+.benefit-icon {
+    font-size: 2rem; /* 아이콘 크기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+/* 혜택 제목 */
+.benefit-item h4 {
+    color: #ff6b35; /* 오렌지 색상 */
+    font-size: 1.1rem; /* 글자 크기 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 혜택 설명 */
+.benefit-item p {
+    color: #666666; /* 회색 */
+    font-size: 0.9rem; /* 글자 크기 */
+    line-height: 1.5; /* 줄 간격 */
+}
+
+/* ================== 점심특선 섹션 반응형 스타일 ================== */
+
+/* 태블릿 크기에서의 점심특선 섹션 반응형 (768px 이하) */
+@media (max-width: 768px) {
+    /* 점심특선 섹션 여백 조정 */
+    .lunch-special-section {
+        padding: 60px 0; /* 위아래 여백 줄이기 */
+    }
+    
+    /* 점심특선 컨테이너 여백 조정 */
+    .lunch-container {
+        padding: 0 15px; /* 좌우 여백 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 그리드를 1열로 변경 (모바일용) */
+    .lunch-menu-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 20px; /* 간격 줄이기 */
+        margin-bottom: 40px; /* 아래쪽 여백 줄이기 */
+    }
+    
+    /* 점심특선 카드 이미지 높이 조정 */
+    .lunch-card-image {
+        height: 200px; /* 높이 줄이기 */
+    }
+    
+    /* 점심특선 카드 내용 여백 조정 */
+    .lunch-card-content {
+        padding: 20px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 제목 크기 조정 */
+    .lunch-menu-title {
+        font-size: 1.2rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 설명 크기 조정 */
+    .lunch-menu-description {
+        font-size: 0.9rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 점심특선 더보기 버튼 여백 조정 */
+    .lunch-more-btn {
+        padding: 10px 16px; /* 여백 줄이기 */
+        font-size: 0.9rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 점심특선 정보 카드 여백 조정 */
+    .lunch-info-content {
+        padding: 25px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 정보 제목 크기 조정 */
+    .lunch-info-content h3 {
+        font-size: 1.2rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 점심특선 혜택 섹션 여백 조정 */
+    .lunch-benefits-section {
+        padding: 30px 20px; /* 여백 줄이기 */
+    }
+    
+    /* 혜택 그리드를 1열로 변경 */
+    .benefits-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 20px; /* 간격 줄이기 */
+    }
+    
+    /* 혜택 섹션 제목 크기 조정 */
+    .lunch-benefits-section h3 {
+        font-size: 1.3rem; /* 글자 크기 줄이기 */
+    }
+}
+
+/* 작은 모바일에서의 점심특선 섹션 반응형 (480px 이하) */
+@media (max-width: 480px) {
+    /* 점심특선 섹션 여백 더 조정 */
+    .lunch-special-section {
+        padding: 40px 0; /* 위아래 여백 더 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 그리드 간격 더 조정 */
+    .lunch-menu-grid {
+        gap: 15px; /* 간격 더 줄이기 */
+        margin-bottom: 30px; /* 아래쪽 여백 더 줄이기 */
+    }
+    
+    /* 점심특선 카드 이미지 높이 더 조정 */
+    .lunch-card-image {
+        height: 180px; /* 높이 더 줄이기 */
+    }
+    
+    /* 점심특선 배지 크기 조정 */
+    .lunch-badge {
+        padding: 5px 10px; /* 여백 줄이기 */
+        font-size: 0.7rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        left: 10px; /* 위치 조정 */
+    }
+    
+    /* 점심특선 가격 배지 크기 조정 */
+    .lunch-price {
+        padding: 6px 12px; /* 여백 줄이기 */
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+        top: 10px; /* 위치 조정 */
+        right: 10px; /* 위치 조정 */
+    }
+    
+    /* 점심특선 카드 내용 여백 더 조정 */
+    .lunch-card-content {
+        padding: 15px; /* 여백 더 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 제목 더 작게 */
+    .lunch-menu-title {
+        font-size: 1.1rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 10px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 설명 더 작게 */
+    .lunch-menu-description {
+        font-size: 0.85rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 더보기 버튼 더 작게 */
+    .lunch-more-btn {
+        padding: 8px 12px; /* 여백 더 줄이기 */
+        font-size: 0.85rem; /* 글자 크기 더 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 상세 정보 여백 조정 */
+    .lunch-menu-details {
+        padding: 0 10px; /* 좌우 여백 줄이기 */
+        border-radius: 8px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 상세 정보가 열렸을 때 여백 조정 */
+    .lunch-menu-details.active {
+        padding: 15px 10px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 상세 정보 제목 크기 조정 */
+    .lunch-menu-details h4 {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 메뉴 구성 항목 크기 조정 */
+    .lunch-menu-items li {
+        padding: 5px 0; /* 위아래 여백 줄이기 */
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+        padding-left: 15px; /* 왼쪽 여백 줄이기 */
+    }
+    
+    /* 점심특선 불릿 포인트 위치 조정 */
+    .lunch-menu-items li::before {
+        top: 5px; /* 위치 조정 */
+    }
+    
+    /* 점심특선 특별 안내 영역 크기 조정 */
+    .lunch-special-notes {
+        padding: 10px; /* 여백 줄이기 */
+        margin-top: 12px; /* 위쪽 여백 줄이기 */
+    }
+    
+    /* 점심특선 하이라이트 노트 크기 조정 */
+    .lunch-special-notes .highlight-note {
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+    }
+    
+    /* 점심특선 정보 카드 더 조정 */
+    .lunch-info-content {
+        padding: 20px; /* 여백 더 줄이기 */
+    }
+    
+    /* 정보 아이콘 크기 조정 */
+    .info-icon {
+        font-size: 2rem; /* 아이콘 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 정보 제목 더 작게 */
+    .lunch-info-content h3 {
+        font-size: 1.1rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 정보 상세 내용 크기 조정 */
+    .info-details p {
+        color: #1976d2 !important; /* 굵은 파란색으로 변경 */
+        font-size: 0.85rem; /* 글자 크기 줄이기 */
+        font-weight: 700 !important; /* 더 굵은 글씨 */
+        margin-bottom: 6px; /* 여백 줄이기 */
+    }
+    
+    /* 점심특선 예약 버튼 더 작게 */
+    .lunch-reservation-btn {
+        padding: 10px 24px; /* 여백 더 줄이기 */
+        font-size: 0.9rem; /* 글자 크기 더 줄이기 */
+        border-radius: 15px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 점심특선 혜택 섹션 더 조정 */
+    .lunch-benefits-section {
+        padding: 25px 15px; /* 여백 더 줄이기 */
+        margin-top: 30px; /* 위쪽 여백 줄이기 */
+        border-radius: 15px; /* 모서리 둥글기 줄이기 */
+    }
+    
+    /* 혜택 섹션 제목 더 작게 */
+    .lunch-benefits-section h3 {
+        font-size: 1.2rem; /* 글자 크기 더 줄이기 */
+        margin-bottom: 20px; /* 여백 줄이기 */
+    }
+    
+    /* 혜택 항목 여백 조정 */
+    .benefit-item {
+        padding: 15px; /* 여백 줄이기 */
+    }
+    
+    /* 혜택 아이콘 크기 조정 */
+    .benefit-icon {
+        font-size: 1.8rem; /* 아이콘 크기 줄이기 */
+        margin-bottom: 12px; /* 여백 줄이기 */
+    }
+    
+    /* 혜택 제목 크기 조정 */
+    .benefit-item h4 {
+        font-size: 1rem; /* 글자 크기 줄이기 */
+        margin-bottom: 8px; /* 여백 줄이기 */
+    }
+    
+    /* 혜택 설명 크기 조정 */
+    .benefit-item p {
+        font-size: 0.8rem; /* 글자 크기 줄이기 */
+    }
+}
+
+/* ========== 단품 메뉴 섹션 스타일 시작 ========== */
+
+/* 단품 메뉴 섹션 전체 배경 - 파란색 그라데이션 */
+.single-menu-section {
+    padding: 80px 0; /* 위아래 80px 여백 */
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa, #e8f4fd); /* 연한 파란색 그라데이션 배경 */
+    position: relative; /* 위치 기준점 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 단품 메뉴 컨테이너 - 반응형 중앙 정렬 */
+.single-container {
+    max-width: 1200px; /* 최대 가로 크기 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 20px 여백 */
+}
+
+/* 단품 메뉴 섹션 제목 스타일 */
+.single-title {
+    color: #1976d2; /* 메인 파란색 */
+    font-size: 2.5rem; /* 제목 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    text-align: center; /* 가운데 정렬 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+    position: relative; /* 밑줄 장식을 위한 위치 설정 */
+}
+
+/* 단품 메뉴 제목에 밑줄 장식 */
+.single-title::after {
+    content: ''; /* 내용 없음 */
+    position: absolute; /* 절대 위치 */
+    bottom: -10px; /* 제목 아래 10px */
+    left: 50%; /* 왼쪽에서 50% */
+    transform: translateX(-50%); /* 중앙 정렬 */
+    width: 80px; /* 가로 80px */
+    height: 4px; /* 세로 4px */
+    background: linear-gradient(90deg, #1976d2, #2196f3); /* 파란색 그라데이션 */
+    border-radius: 2px; /* 둥근 모서리 */
+}
+
+/* 단품 메뉴 카드 그리드 레이아웃 */
+.single-menu-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+    gap: 30px; /* 카드 간격 30px */
+    margin-top: 60px; /* 위쪽 여백 */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 각각의 단품 메뉴 카드 스타일 */
+.single-menu-card {
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 8px 25px rgba(25, 118, 210, 0.1); /* 파란색 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    position: relative; /* 위치 기준점 설정 */
+}
+
+/* 단품 메뉴 카드 호버 효과 */
+.single-menu-card:hover {
+    transform: translateY(-8px); /* 위로 8px 올라가는 효과 */
+    box-shadow: 0 20px 40px rgba(25, 118, 210, 0.2); /* 그림자 더 진하게 */
+}
+
+/* 단품 메뉴 카드 이미지 컨테이너 */
+.single-card-image {
+    position: relative; /* 배지를 위한 위치 설정 */
+    height: 300px; /* 이미지 높이 (250px → 300px로 증가) */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 단품 메뉴 카드 이미지 */
+.single-card-image img {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    object-fit: cover; /* 이미지 비율 유지하며 크기 맞춤 */
+    object-position: center 55%; /* 이미지의 55% 지점을 중심으로 표시 */
+    transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+}
+
+/* 단품 메뉴 카드 이미지 호버 효과 */
+.single-menu-card:hover .single-card-image img {
+    transform: scale(1.05); /* 1.05배 확대 효과 */
+}
+
+/* 단품 메뉴 가격 배지 */
+.single-card-image .price-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    right: 15px; /* 오른쪽에서 15px */
+    background: linear-gradient(135deg, #1976d2, #2196f3); /* 파란색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    padding: 8px 16px; /* 위아래 8px, 좌우 16px 여백 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-weight: 700; /* 글자 굵기 */
+    font-size: 1.1rem; /* 글자 크기 */
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3); /* 파란색 그림자 */
+}
+
+/* 단품 메뉴 가격 배지에 천원 단위 표시 */
+.single-card-image .price-badge::after {
+    content: '천원'; /* 천원 텍스트 추가 */
+    font-size: 0.8rem; /* 작은 글자 크기 */
+    margin-left: 2px; /* 왼쪽 여백 */
+    opacity: 0.9; /* 투명도 */
+}
+
+/* 단품 메뉴 특별 가격 배지 (19천원) */
+.single-card-image .single-price {
+    background: linear-gradient(135deg, #42a5f5, #64b5f6); /* 밝은 파란색 그라데이션 */
+}
+
+/* 단품 메뉴 카테고리 배지 */
+.single-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    left: 15px; /* 왼쪽에서 15px */
+    padding: 6px 12px; /* 위아래 6px, 좌우 12px 여백 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 0.75rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    text-transform: uppercase; /* 대문자로 변환 */
+    letter-spacing: 0.5px; /* 글자 간격 */
+}
+
+/* 계절 메뉴 배지 */
+.single-badge.seasonal {
+    background: linear-gradient(135deg, #ff9800, #ffb74d); /* 오렌지 그라데이션 */
+    color: white; /* 흰색 글자 */
+}
+
+/* 전통 메뉴 배지 */
+.single-badge.traditional {
+    background: linear-gradient(135deg, #8bc34a, #aed581); /* 초록색 그라데이션 */
+    color: white; /* 흰색 글자 */
+}
+
+/* 시그니처 메뉴 배지 */
+.single-badge.signature {
+    background: linear-gradient(135deg, #e91e63, #f06292); /* 분홍색 그라데이션 */
+    color: white; /* 흰색 글자 */
+}
+
+/* 여름 메뉴 배지 */
+.single-badge.summer {
+    background: linear-gradient(135deg, #00bcd4, #4dd0e1); /* 청록색 그라데이션 */
+    color: white; /* 흰색 글자 */
+}
+
+/* 단품 메뉴 카드 내용 부분 */
+.single-card-content {
+    padding: 30px; /* 전체 여백 */
+}
+
+/* 단품 메뉴 제목 */
+.single-menu-title {
+    font-size: 1.4rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    color: #1976d2; /* 파란색 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    line-height: 1.3; /* 줄 간격 */
+}
+
+/* 단품 메뉴 설명 */
+.single-menu-description {
+    color: #555; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+/* 단품 메뉴 더보기 버튼 */
+.single-more-btn {
+    background: linear-gradient(135deg, #1976d2, #2196f3); /* 파란색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    padding: 12px 24px; /* 위아래 12px, 좌우 24px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 8px; /* 텍스트와 아이콘 간격 */
+    width: 100%; /* 전체 가로 크기 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+/* 단품 메뉴 더보기 버튼 호버 효과 */
+.single-more-btn:hover {
+    background: linear-gradient(135deg, #1565c0, #1976d2); /* 더 진한 파란색 그라데이션 */
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3); /* 파란색 그림자 */
+}
+
+/* 단품 메뉴 더보기 버튼 아이콘 */
+.single-more-btn .btn-icon {
+    transition: transform 0.3s ease; /* 부드러운 회전 효과 */
+    font-size: 0.8rem; /* 아이콘 크기 */
+}
+
+/* 단품 메뉴 더보기 버튼 활성화 시 아이콘 회전 */
+.single-more-btn.active .btn-icon {
+    transform: rotate(180deg); /* 180도 회전 */
+}
+
+/* 단품 메뉴 상세 정보 (숨겨진 상태) */
+.single-menu-details {
+    max-height: 0; /* 높이 0으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: all 0.4s ease; /* 부드러운 펼침/접힘 효과 */
+    margin-top: 0; /* 위쪽 여백 없음 */
+    opacity: 0; /* 투명하게 숨김 */
+}
+
+/* 단품 메뉴 상세 정보 (보여지는 상태) */
+.single-menu-details.show {
+    max-height: 800px; /* 충분한 높이 */
+    margin-top: 25px; /* 위쪽 여백 */
+    opacity: 1; /* 완전히 보임 */
+    padding-top: 20px; /* 위쪽 여백 */
+    border-top: 2px solid #e3f2fd; /* 위쪽에 파란색 선 */
+}
+
+/* 단품 메뉴 상세 정보 제목 */
+.single-menu-details h4 {
+    color: #1976d2; /* 파란색 */
+    font-size: 1.2rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 8px; /* 텍스트와 아이콘 간격 */
+}
+
+/* 단품 메뉴 상세 정보 제목에 아이콘 */
+.single-menu-details h4::before {
+    content: '📋'; /* 클립보드 이모지 */
+    font-size: 1rem; /* 아이콘 크기 */
+}
+
+/* 단품 메뉴 정보 컨테이너 */
+.single-menu-info {
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 단품 메뉴 정보 각 항목 */
+.single-menu-info p {
+    margin-bottom: 8px; /* 아래쪽 여백 */
+    padding-left: 15px; /* 왼쪽 여백 */
+    position: relative; /* 불릿 포인트를 위한 위치 설정 */
+    line-height: 1.5; /* 줄 간격 */
+    color: #333; /* 어두운 회색 */
+}
+
+/* 단품 메뉴 정보 항목에 불릿 포인트 */
+.single-menu-info p::before {
+    content: '•'; /* 원 모양 불릿 */
+    color: #1976d2; /* 파란색 */
+    font-weight: bold; /* 굵게 */
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 끝 */
+}
+
+/* 단품 메뉴 특별 안내 사항 */
+.single-special-notes {
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa); /* 연한 파란색 그라데이션 배경 */
+    padding: 15px; /* 전체 여백 */
+    border-radius: 10px; /* 둥근 모서리 */
+    border-left: 4px solid #1976d2; /* 왼쪽에 파란색 선 */
+}
+
+/* 단품 메뉴 특별 안내 텍스트 */
+.single-special-notes .highlight-note {
+    color: #1976d2; /* 파란색 글자 */
+    font-size: 0.9rem; /* 글자 크기 */
+    margin-bottom: 5px; /* 아래쪽 여백 */
+    font-weight: 500; /* 글자 굵기 */
+}
+
+.single-special-notes .highlight-note:last-child {
+    margin-bottom: 0; /* 마지막 항목은 아래 여백 제거 */
+}
+
+/* 단품 메뉴 이용 안내 섹션 */
+.single-menu-notice {
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 40px; /* 전체 여백 */
+    text-align: center; /* 가운데 정렬 */
+    box-shadow: 0 8px 25px rgba(25, 118, 210, 0.1); /* 파란색 그림자 */
+    border: 2px solid #e3f2fd; /* 연한 파란색 테두리 */
+    margin-top: 40px; /* 위쪽 여백 */
+}
+
+/* 단품 메뉴 안내 내용 */
+.single-notice-content {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: flex-start; /* 위쪽 정렬 */
+    gap: 20px; /* 아이콘과 텍스트 간격 */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 단품 메뉴 안내 아이콘 */
+.notice-icon {
+    font-size: 3rem; /* 큰 아이콘 크기 */
+    line-height: 1; /* 줄 간격 */
+    flex-shrink: 0; /* 크기 축소 방지 */
+}
+
+/* 단품 메뉴 안내 텍스트 */
+.notice-text h3 {
+    color: #1976d2; /* 파란색 */
+    font-size: 1.4rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+.notice-text p {
+    color: #555; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 8px; /* 아래쪽 여백 */
+}
+
+.notice-text strong {
+    color: #1976d2; /* 강조 텍스트 파란색 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 단품 메뉴 안내 버튼 컨테이너 */
+.single-notice-buttons {
+    display: flex; /* 플렉스 레이아웃 */
+    gap: 20px; /* 버튼 간격 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+/* 단품 주문 버튼 */
+.single-order-btn {
+    background: linear-gradient(135deg, #1976d2, #2196f3); /* 파란색 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    font-size: 1rem; /* 글자 크기 */
+}
+
+.single-order-btn:hover {
+    background: linear-gradient(135deg, #1565c0, #1976d2); /* 더 진한 파란색 그라데이션 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.3); /* 파란색 그림자 */
+}
+
+/* 오마카세 + 단품 버튼 */
+.single-combo-btn {
+    background: white; /* 흰색 배경 */
+    color: #1976d2; /* 파란색 글자 */
+    border: 2px solid #1976d2; /* 파란색 테두리 */
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    font-size: 1rem; /* 글자 크기 */
+}
+
+.single-combo-btn:hover {
+    background: #1976d2; /* 파란색 배경 */
+    color: white; /* 흰색 글자 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.3); /* 파란색 그림자 */
+}
+
+/* ========== 단품 메뉴 반응형 디자인 ========== */
+
+/* 태블릿 크기 (768px 이하) */
+@media (max-width: 768px) {
+    /* 단품 메뉴 섹션 패딩 조정 */
+    .single-menu-section {
+        padding: 60px 0; /* 위아래 여백 줄임 */
+    }
+    
+    /* 단품 메뉴 컨테이너 패딩 조정 */
+    .single-container {
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* 단품 메뉴 제목 크기 조정 */
+    .single-title {
+        font-size: 2rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 단품 메뉴 그리드를 1열로 변경 */
+    .single-menu-grid {
+        grid-template-columns: 1fr; /* 1열로 배치 */
+        gap: 20px; /* 간격 줄임 */
+        margin-top: 40px; /* 위쪽 여백 줄임 */
+        margin-bottom: 40px; /* 아래쪽 여백 줄임 */
+    }
+    
+    /* 단품 메뉴 카드 이미지 높이 조정 */
+    .single-card-image {
+        height: 250px; /* 높이 증가 (200px → 250px) */
+    }
+    
+    /* 단품 메뉴 카드 내용 패딩 조정 */
+    .single-card-content {
+        padding: 25px; /* 여백 줄임 */
+    }
+    
+    /* 단품 메뉴 안내 섹션 패딩 조정 */
+    .single-menu-notice {
+        padding: 30px 20px; /* 여백 조정 */
+    }
+    
+    /* 단품 메뉴 안내 내용을 세로 배치 */
+    .single-notice-content {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 가운데 정렬 */
+        text-align: center; /* 가운데 정렬 */
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    /* 단품 메뉴 안내 버튼을 세로 배치 */
+    .single-notice-buttons {
+        flex-direction: column; /* 세로 배치 */
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    .single-order-btn,
+    .single-combo-btn {
+        width: 100%; /* 전체 가로 크기 */
+        padding: 15px 20px; /* 여백 조정 */
+    }
+}
+
+/* 모바일 크기 (480px 이하) */
+@media (max-width: 480px) {
+    /* 단품 메뉴 제목 더 작게 */
+    .single-title {
+        font-size: 1.8rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 단품 메뉴 카드 이미지 더 작게 */
+    .single-card-image {
+        height: 220px; /* 높이 증가 (180px → 220px) */
+    }
+    
+    /* 단품 메뉴 카드 내용 패딩 더 작게 */
+    .single-card-content {
+        padding: 20px; /* 여백 더 줄임 */
+    }
+    
+    /* 단품 메뉴 제목 크기 조정 */
+    .single-menu-title {
+        font-size: 1.3rem; /* 글자 크기 조정 */
+    }
+    
+    /* 단품 메뉴 설명 크기 조정 */
+    .single-menu-description {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 단품 메뉴 안내 섹션 패딩 더 작게 */
+    .single-menu-notice {
+        padding: 25px 15px; /* 여백 더 줄임 */
+    }
+    
+    /* 안내 텍스트 크기 조정 */
+    .notice-text h3 {
+        font-size: 1.2rem; /* 글자 크기 조정 */
+    }
+    
+    .notice-text p {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+}
+
+/* ========== 단품 메뉴 섹션 스타일 끝 ========== */
+
+/* ========== 기념일 서비스 섹션 스타일 시작 ========== */
+
+/* 기념일 서비스 섹션 전체 배경 - 로즈골드 그라데이션 */
+.anniversary-section {
+    padding: 80px 0; /* 위아래 80px 여백 */
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3, #f9fafb); /* 연한 핑크 그라데이션 배경 */
+    position: relative; /* 위치 기준점 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 기념일 서비스 컨테이너 - 반응형 중앙 정렬 */
+.anniversary-container {
+    max-width: 1200px; /* 최대 가로 크기 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 20px 여백 */
+}
+
+/* 기념일 서비스 섹션 제목 스타일 */
+.anniversary-title {
+    color: #be185d; /* 메인 로즈 색상 */
+    font-size: 2.5rem; /* 제목 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    text-align: center; /* 가운데 정렬 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+    position: relative; /* 밑줄 장식을 위한 위치 설정 */
+}
+
+/* 기념일 서비스 제목에 밑줄 장식 */
+.anniversary-title::after {
+    content: ''; /* 내용 없음 */
+    position: absolute; /* 절대 위치 */
+    bottom: -10px; /* 제목 아래 10px */
+    left: 50%; /* 왼쪽에서 50% */
+    transform: translateX(-50%); /* 중앙 정렬 */
+    width: 80px; /* 가로 80px */
+    height: 4px; /* 세로 4px */
+    background: linear-gradient(90deg, #be185d, #ec4899); /* 로즈 그라데이션 */
+    border-radius: 2px; /* 둥근 모서리 */
+}
+
+/* 기념일 서비스 카드 그리드 레이아웃 */
+.anniversary-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+    gap: 20px; /* 카드 간격 20px */
+    margin-top: 60px; /* 위쪽 여백 */
+    margin-bottom: 60px; /* 아래쪽 여백 */
+}
+
+/* 각각의 기념일 서비스 카드 스타일 */
+.anniversary-card {
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    box-shadow: 0 8px 25px rgba(190, 24, 93, 0.1); /* 로즈 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    position: relative; /* 위치 기준점 설정 */
+}
+
+/* 기념일 서비스 카드 호버 효과 */
+.anniversary-card:hover {
+    transform: translateY(-8px); /* 위로 8px 올라가는 효과 */
+    box-shadow: 0 20px 40px rgba(190, 24, 93, 0.2); /* 그림자 더 진하게 */
+}
+
+/* 기념일 서비스 카드 이미지 컨테이너 */
+.anniversary-card-image {
+    position: relative; /* 배지를 위한 위치 설정 */
+    height: 250px; /* 이미지 높이 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 기념일 서비스 카드 이미지 */
+.anniversary-card-image img {
+    width: 100%; /* 전체 가로 크기 */
+    height: 100%; /* 전체 세로 크기 */
+    object-fit: cover; /* 이미지 비율 유지하며 크기 맞춤 */
+    transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+}
+
+/* 기념일 서비스 카드 이미지 호버 효과 */
+.anniversary-card:hover .anniversary-card-image img {
+    transform: scale(1.05); /* 1.05배 확대 효과 */
+}
+
+/* 기념일 서비스 카테고리 배지 */
+.anniversary-badge {
+    position: absolute; /* 절대 위치 */
+    top: 15px; /* 위에서 15px */
+    left: 15px; /* 왼쪽에서 15px */
+    padding: 6px 12px; /* 위아래 6px, 좌우 12px 여백 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 0.75rem; /* 작은 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    text-transform: uppercase; /* 대문자로 변환 */
+    letter-spacing: 0.5px; /* 글자 간격 */
+    color: white; /* 흰색 글자 */
+}
+
+/* 로맨틱 배지 */
+.anniversary-badge.romantic {
+    background: linear-gradient(135deg, #ec4899, #f472b6); /* 핑크 그라데이션 */
+}
+
+/* 가족 배지 */
+.anniversary-badge.family {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24); /* 따뜻한 노란색 그라데이션 */
+}
+
+/* 격식 배지 */
+.anniversary-badge.formal {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6); /* 보라색 그라데이션 */
+}
+
+/* 존경 배지 */
+.anniversary-badge.respect {
+    background: linear-gradient(135deg, #059669, #10b981); /* 초록색 그라데이션 */
+}
+
+/* 특별 배지 */
+.anniversary-badge.special {
+    background: linear-gradient(135deg, #dc2626, #ef4444); /* 빨간색 그라데이션 */
+}
+
+/* 기념일 서비스 카드 내용 부분 */
+.anniversary-card-content {
+    padding: 30px; /* 전체 여백 */
+}
+
+/* 기념일 서비스 제목 */
+.anniversary-card-content .anniversary-title {
+    font-size: 1.4rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    color: #be185d; /* 로즈 색상 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    line-height: 1.3; /* 줄 간격 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 기념일 서비스 제목의 밑줄 제거 */
+.anniversary-card-content .anniversary-title::after {
+    display: none; /* 카드 내 제목에는 밑줄 표시 안함 */
+}
+
+/* 기념일 서비스 설명 */
+.anniversary-description {
+    color: #555; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+/* 기념일 서비스 더보기 버튼 */
+.anniversary-more-btn {
+    background: linear-gradient(135deg, #be185d, #ec4899); /* 로즈 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    padding: 12px 24px; /* 위아래 12px, 좌우 24px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 8px; /* 텍스트와 아이콘 간격 */
+    width: 100%; /* 전체 가로 크기 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+/* 기념일 서비스 더보기 버튼 호버 효과 */
+.anniversary-more-btn:hover {
+    background: linear-gradient(135deg, #a21441, #be185d); /* 더 진한 로즈 그라데이션 */
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 8px 20px rgba(190, 24, 93, 0.3); /* 로즈 그림자 */
+}
+
+/* 기념일 서비스 더보기 버튼 아이콘 */
+.anniversary-more-btn .btn-icon {
+    transition: transform 0.3s ease; /* 부드러운 회전 효과 */
+    font-size: 0.8rem; /* 아이콘 크기 */
+}
+
+/* 기념일 서비스 더보기 버튼 활성화 시 아이콘 회전 */
+.anniversary-more-btn.active .btn-icon {
+    transform: rotate(180deg); /* 180도 회전 */
+}
+
+/* 기념일 서비스 상세 정보 (숨겨진 상태) */
+.anniversary-details {
+    max-height: 0; /* 높이 0으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: all 0.4s ease; /* 부드러운 펼침/접힘 효과 */
+    margin-top: 0; /* 위쪽 여백 없음 */
+    opacity: 0; /* 투명하게 숨김 */
+}
+
+/* 기념일 서비스 상세 정보 (보여지는 상태) */
+.anniversary-details.show {
+    max-height: 1000px; /* 충분한 높이 */
+    margin-top: 25px; /* 위쪽 여백 */
+    opacity: 1; /* 완전히 보임 */
+    padding-top: 20px; /* 위쪽 여백 */
+    border-top: 2px solid #fce7f3; /* 위쪽에 연한 핑크 선 */
+}
+
+/* 기념일 서비스 상세 정보 제목 */
+.anniversary-details h4 {
+    color: #be185d; /* 로즈 색상 */
+    font-size: 1.2rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 8px; /* 텍스트와 아이콘 간격 */
+}
+
+/* 기념일 서비스 상세 정보 제목에 아이콘 */
+.anniversary-details h4::before {
+    content: '🎁'; /* 선물 이모지 */
+    font-size: 1rem; /* 아이콘 크기 */
+}
+
+/* 기념일 서비스 정보 컨테이너 */
+.anniversary-info {
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 기념일 서비스 정보 각 항목 */
+.anniversary-info p {
+    margin-bottom: 8px; /* 아래쪽 여백 */
+    padding-left: 15px; /* 왼쪽 여백 */
+    position: relative; /* 불릿 포인트를 위한 위치 설정 */
+    line-height: 1.5; /* 줄 간격 */
+    color: #333; /* 어두운 회색 */
+}
+
+/* 기념일 서비스 정보 항목에 불릿 포인트 */
+.anniversary-info p::before {
+    content: '•'; /* 원 모양 불릿 */
+    color: #be185d; /* 로즈 색상 */
+    font-weight: bold; /* 굵게 */
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 왼쪽 끝 */
+}
+
+/* 기념일 서비스 브랜드 포인트 섹션 */
+.anniversary-brand-point {
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3); /* 연한 핑크 그라데이션 배경 */
+    padding: 15px; /* 전체 여백 */
+    border-radius: 10px; /* 둥근 모서리 */
+    border-left: 4px solid #be185d; /* 왼쪽에 로즈 선 */
+}
+
+/* 브랜드 포인트 제목 */
+.anniversary-brand-point h5 {
+    color: #be185d; /* 로즈 색상 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+}
+
+/* 브랜드 포인트 강조 텍스트 */
+.anniversary-brand-point .highlight-text {
+    color: #be185d; /* 로즈 색상 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    margin-bottom: 5px; /* 아래쪽 여백 */
+    display: block; /* 블록 요소로 표시 */
+}
+
+/* 브랜드 포인트 일반 텍스트 */
+.anniversary-brand-point p:not(.highlight-text) {
+    color: #555; /* 회색 */
+    font-size: 0.9rem; /* 글자 크기 */
+    margin-bottom: 0; /* 아래쪽 여백 제거 */
+}
+
+/* 기념일 서비스 예약 안내 카드 (그리드 내부) */
+.anniversary-notice-card {
+    background: linear-gradient(135deg, #fce7f3, #f3e8ff); /* 연한 핑크에서 라벤더 그라데이션 */
+    border: 2px solid #be185d; /* 로즈 테두리 */
+    display: flex; /* 플렉스 레이아웃 */
+    flex-direction: column; /* 세로 배치 */
+    align-items: center; /* 가운데 정렬 */
+    justify-content: center; /* 세로 가운데 정렬 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    padding: 30px; /* 여백 */
+    box-shadow: 0 8px 25px rgba(190, 24, 93, 0.15); /* 로즈 그림자 */
+}
+
+.anniversary-notice-card .anniversary-title {
+    font-size: 1.4rem; /* 글자 크기 */
+    color: #be185d; /* 로즈 색상 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+.anniversary-notice-card .anniversary-description {
+    color: #555; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 25px; /* 아래쪽 여백 */
+    font-size: 0.95rem; /* 글자 크기 */
+}
+
+.anniversary-notice-card .anniversary-description strong {
+    color: #be185d; /* 강조 텍스트 로즈 색상 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 기념일 서비스 예약 안내 섹션 (기존) */
+.anniversary-notice {
+    background: white; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 40px; /* 전체 여백 */
+    text-align: center; /* 가운데 정렬 */
+    box-shadow: 0 8px 25px rgba(190, 24, 93, 0.1); /* 로즈 그림자 */
+    border: 2px solid #fce7f3; /* 연한 핑크 테두리 */
+    margin-top: 40px; /* 위쪽 여백 */
+}
+
+/* 기념일 서비스 안내 내용 */
+.anniversary-notice-content {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: flex-start; /* 위쪽 정렬 */
+    gap: 20px; /* 아이콘과 텍스트 간격 */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 기념일 서비스 안내 아이콘 */
+.anniversary-notice .notice-icon {
+    font-size: 3rem; /* 큰 아이콘 크기 */
+    line-height: 1; /* 줄 간격 */
+    flex-shrink: 0; /* 크기 축소 방지 */
+}
+
+/* 기념일 서비스 안내 텍스트 */
+.anniversary-notice .notice-text h3 {
+    color: #be185d; /* 로즈 색상 */
+    font-size: 1.4rem; /* 글자 크기 */
+    font-weight: 700; /* 글자 굵기 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+.anniversary-notice .notice-text p {
+    color: #555; /* 회색 */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 8px; /* 아래쪽 여백 */
+}
+
+.anniversary-notice .notice-text strong {
+    color: #be185d; /* 강조 텍스트 로즈 색상 */
+    font-weight: 600; /* 글자 굵기 */
+}
+
+/* 기념일 서비스 안내 버튼 컨테이너 */
+.anniversary-notice-buttons {
+    display: flex; /* 플렉스 레이아웃 */
+    gap: 20px; /* 버튼 간격 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+/* 기념일 예약 상담 버튼 */
+.anniversary-reservation-btn {
+    background: linear-gradient(135deg, #be185d, #ec4899); /* 로즈 그라데이션 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    font-size: 1rem; /* 글자 크기 */
+}
+
+.anniversary-reservation-btn:hover {
+    background: linear-gradient(135deg, #a21441, #be185d); /* 더 진한 로즈 그라데이션 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 10px 25px rgba(190, 24, 93, 0.3); /* 로즈 그림자 */
+}
+
+/* 전화 상담 버튼 */
+.anniversary-inquiry-btn {
+    background: white; /* 흰색 배경 */
+    color: #be185d; /* 로즈 글자 */
+    border: 2px solid #be185d; /* 로즈 테두리 */
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 포인터 모양 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    font-size: 1rem; /* 글자 크기 */
+}
+
+.anniversary-inquiry-btn:hover {
+    background: #be185d; /* 로즈 배경 */
+    color: white; /* 흰색 글자 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 10px 25px rgba(190, 24, 93, 0.3); /* 로즈 그림자 */
+}
+
+/* ========== 기념일 서비스 반응형 디자인 ========== */
+
+/* 태블릿 크기 (768px 이하) */
+@media (max-width: 768px) {
+    /* 기념일 서비스 섹션 패딩 조정 */
+    .anniversary-section {
+        padding: 60px 0; /* 위아래 여백 줄임 */
+    }
+    
+    /* 기념일 서비스 컨테이너 패딩 조정 */
+    .anniversary-container {
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* 기념일 서비스 제목 크기 조정 */
+    .anniversary-title {
+        font-size: 2rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 기념일 서비스 그리드를 1열로 변경 */
+    .anniversary-grid {
+        grid-template-columns: 1fr; /* 1열로 배치 */
+        gap: 20px; /* 간격 유지 */
+        margin-top: 40px; /* 위쪽 여백 줄임 */
+        margin-bottom: 40px; /* 아래쪽 여백 줄임 */
+    }
+    
+    /* 기념일 서비스 카드 이미지 높이 조정 */
+    .anniversary-card-image {
+        height: 200px; /* 높이 줄임 */
+    }
+    
+    /* 기념일 서비스 카드 내용 패딩 조정 */
+    .anniversary-card-content {
+        padding: 25px; /* 여백 줄임 */
+    }
+    
+    /* 기념일 서비스 예약 안내 카드 반응형 */
+    .anniversary-notice-card {
+        padding: 25px; /* 여백 줄임 */
+    }
+    
+    .anniversary-notice-card .anniversary-title {
+        font-size: 1.2rem; /* 글자 크기 줄임 */
+    }
+    
+    .anniversary-notice-card .anniversary-description {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+        margin-bottom: 20px; /* 여백 줄임 */
+    }
+    
+    /* 기념일 서비스 안내 섹션 패딩 조정 (기존) */
+    .anniversary-notice {
+        padding: 30px 20px; /* 여백 조정 */
+    }
+    
+    /* 기념일 서비스 안내 내용을 세로 배치 */
+    .anniversary-notice-content {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 가운데 정렬 */
+        text-align: center; /* 가운데 정렬 */
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    /* 기념일 서비스 안내 버튼을 세로 배치 */
+    .anniversary-notice-buttons {
+        flex-direction: column; /* 세로 배치 */
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    .anniversary-reservation-btn,
+    .anniversary-inquiry-btn {
+        width: 100%; /* 전체 가로 크기 */
+        padding: 15px 20px; /* 여백 조정 */
+    }
+}
+
+/* 모바일 크기 (480px 이하) */
+@media (max-width: 480px) {
+    /* 기념일 서비스 제목 더 작게 */
+    .anniversary-title {
+        font-size: 1.8rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 기념일 서비스 카드 이미지 더 작게 */
+    .anniversary-card-image {
+        height: 180px; /* 높이 더 줄임 */
+    }
+    
+    /* 기념일 서비스 카드 내용 패딩 더 작게 */
+    .anniversary-card-content {
+        padding: 20px; /* 여백 더 줄임 */
+    }
+    
+    /* 기념일 서비스 제목 크기 조정 */
+    .anniversary-card-content .anniversary-title {
+        font-size: 1.3rem; /* 글자 크기 조정 */
+    }
+    
+    /* 기념일 서비스 설명 크기 조정 */
+    .anniversary-description {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 기념일 서비스 예약 안내 카드 모바일 반응형 */
+    .anniversary-notice-card {
+        padding: 20px; /* 여백 더 줄임 */
+    }
+    
+    .anniversary-notice-card .anniversary-title {
+        font-size: 1.1rem; /* 글자 크기 더 줄임 */
+    }
+    
+    .anniversary-notice-card .anniversary-description {
+        font-size: 0.85rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 기념일 서비스 안내 섹션 패딩 더 작게 (기존) */
+    .anniversary-notice {
+        padding: 25px 15px; /* 여백 더 줄임 */
+    }
+    
+    /* 안내 텍스트 크기 조정 */
+    .anniversary-notice .notice-text h3 {
+        font-size: 1.2rem; /* 글자 크기 조정 */
+    }
+    
+    .anniversary-notice .notice-text p {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+}
+
+/* ========== 기념일 서비스 섹션 스타일 끝 ========== */
+
+/* ========== 고객 리뷰 섹션 스타일 시작 ========== */
+
+/* 고객 리뷰 섹션 전체 배경 - 따뜻한 베이지 그라데이션 */
+.reviews-section {
+    background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%); /* 따뜻한 베이지 그라데이션 */
+    padding: 100px 0; /* 위아래 100px 여백 */
+    min-height: 100vh; /* 최소 화면 높이만큼 */
+    position: relative; /* 위치 기준점 설정 */
+}
+
+/* 고객 리뷰 컨테이너 - 반응형 중앙 정렬 */
+.reviews-container {
+    max-width: 1200px; /* 최대 가로 크기 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 20px 여백 */
+}
+
+/* 고객 리뷰 섹션 제목 스타일 - 브라운 그라데이션 */
+.reviews-title {
+    background: linear-gradient(135deg, #8B4513, #CD853F, #D2691E); /* 브라운 그라데이션 */
+    -webkit-background-clip: text; /* 웹킷 브라우저용 텍스트 클리핑 */
+    -webkit-text-fill-color: transparent; /* 웹킷 브라우저용 투명 텍스트 */
+    background-clip: text; /* 텍스트 클리핑 */
+    font-size: 3rem; /* 제목 글자 크기 */
+    font-weight: 800; /* 글자 굵기 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 고객 리뷰 그리드 레이아웃 */
+.reviews-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+    gap: 30px; /* 카드 간격 30px */
+    margin: 60px 0; /* 위아래 60px 여백 */
+}
+
+/* 각각의 고객 리뷰 카드 스타일 */
+.review-card {
+    background: #ffffff; /* 흰색 배경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 30px; /* 내부 여백 30px */
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1); /* 브라운 그림자 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    border: 1px solid rgba(205, 133, 63, 0.1); /* 연한 브라운 테두리 */
+    position: relative; /* 위치 기준점 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 리뷰 카드 상단 브라운 라인 */
+.review-card::before {
+    content: ''; /* 내용 없음 */
+    position: absolute; /* 절대 위치 */
+    top: 0; /* 맨 위 */
+    left: 0; /* 맨 왼쪽 */
+    right: 0; /* 맨 오른쪽 */
+    height: 4px; /* 높이 4px */
+    background: linear-gradient(90deg, #8B4513, #CD853F, #D2691E); /* 브라운 그라데이션 */
+}
+
+/* 고객 리뷰 카드 호버 효과 */
+.review-card:hover {
+    transform: translateY(-8px); /* 위로 8px 올라가는 효과 */
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15); /* 그림자 더 진하게 */
+}
+
+/* 고객 리뷰 카테고리 스타일 */
+.review-category {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 10px; /* 간격 10px */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    padding-bottom: 15px; /* 아래쪽 패딩 */
+    border-bottom: 1px solid rgba(205, 133, 63, 0.2); /* 연한 브라운 밑줄 */
+}
+
+/* 카테고리 아이콘 스타일 */
+.category-icon {
+    font-size: 1.5rem; /* 아이콘 크기 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    width: 40px; /* 가로 40px */
+    height: 40px; /* 세로 40px */
+    background: linear-gradient(135deg, #fff2e6, #ffe4cc); /* 연한 오렌지 그라데이션 */
+    border-radius: 50%; /* 원형 모양 */
+    box-shadow: 0 3px 10px rgba(139, 69, 19, 0.1); /* 연한 브라운 그림자 */
+}
+
+/* 카테고리 텍스트 스타일 */
+.category-text {
+    font-size: 0.95rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #8B4513; /* 브라운 색상 */
+    background: linear-gradient(135deg, #fff2e6, #ffe4cc); /* 연한 오렌지 그라데이션 배경 */
+    padding: 6px 15px; /* 위아래 6px, 좌우 15px 여백 */
+    border-radius: 20px; /* 둥근 모서리 */
+    border: 1px solid rgba(205, 133, 63, 0.3); /* 연한 브라운 테두리 */
+}
+
+/* 고객 리뷰 내용 스타일 */
+.review-content {
+    font-size: 1.1rem; /* 글자 크기 */
+    line-height: 1.7; /* 줄 간격 */
+    color: #2c2c2c; /* 진한 회색 글자 */
+    margin: 0 0 20px 0; /* 아래쪽 여백만 20px */
+    font-style: normal; /* 기본 폰트 스타일 */
+    position: relative; /* 따옴표를 위한 위치 설정 */
+    padding: 0 20px; /* 좌우 20px 여백 */
+}
+
+/* 리뷰 내용 앞 따옴표 */
+.review-content::before {
+    content: '"'; /* 여는 따옴표 */
+    position: absolute; /* 절대 위치 */
+    left: -5px; /* 왼쪽에서 -5px */
+    top: -10px; /* 위에서 -10px */
+    font-size: 3rem; /* 큰 글자 크기 */
+    color: #CD853F; /* 브라운 색상 */
+    font-family: Georgia, serif; /* 세리프 폰트 */
+    opacity: 0.3; /* 30% 투명도 */
+}
+
+/* 리뷰 내용 뒤 따옴표 */
+.review-content::after {
+    content: '"'; /* 닫는 따옴표 */
+    position: absolute; /* 절대 위치 */
+    right: -5px; /* 오른쪽에서 -5px */
+    bottom: -30px; /* 아래에서 -30px */
+    font-size: 3rem; /* 큰 글자 크기 */
+    color: #CD853F; /* 브라운 색상 */
+    font-family: Georgia, serif; /* 세리프 폰트 */
+    opacity: 0.3; /* 30% 투명도 */
+}
+
+/* 고객 리뷰 작성자 스타일 */
+.review-author {
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #8B4513; /* 브라운 색상 */
+    text-align: right; /* 오른쪽 정렬 */
+    margin-top: 15px; /* 위쪽 여백 */
+    font-style: italic; /* 이탤릭 스타일 */
+}
+
+/* 고객 리뷰 작성 안내 섹션 */
+.review-notice {
+    background: linear-gradient(135deg, #ffffff, #faf9f7); /* 흰색에서 베이지 그라데이션 */
+    border-radius: 25px; /* 둥근 모서리 */
+    padding: 40px; /* 내부 여백 40px */
+    margin-top: 60px; /* 위쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+    border: 2px solid rgba(205, 133, 63, 0.2); /* 연한 브라운 테두리 */
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.08); /* 연한 브라운 그림자 */
+}
+
+/* 리뷰 안내 내용 */
+.review-notice-content {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 30px; /* 간격 30px */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+}
+
+/* 안내 아이콘 스타일 */
+.notice-icon {
+    font-size: 3rem; /* 큰 아이콘 크기 */
+    background: linear-gradient(135deg, #fff2e6, #ffe4cc); /* 연한 오렌지 그라데이션 */
+    padding: 20px; /* 내부 여백 20px */
+    border-radius: 50%; /* 원형 모양 */
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1); /* 연한 브라운 그림자 */
+}
+
+/* 안내 텍스트 제목 스타일 */
+.notice-text h3 {
+    font-size: 1.5rem; /* 글자 크기 */
+    color: #8B4513; /* 브라운 색상 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+    font-weight: 700; /* 글자 굵기 */
+}
+
+/* 안내 텍스트 내용 스타일 */
+.notice-text p {
+    font-size: 1rem; /* 글자 크기 */
+    color: #666; /* 회색 글자 */
+    margin: 5px 0; /* 위아래 5px 여백 */
+    line-height: 1.6; /* 줄 간격 */
+}
+
+/* 고객 리뷰 관련 버튼 컨테이너 */
+.review-notice-buttons {
+    display: flex; /* 플렉스 레이아웃 */
+    gap: 20px; /* 간격 20px */
+    justify-content: center; /* 가로 가운데 정렬 */
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+}
+
+/* 리뷰 관련 버튼 공통 스타일 */
+.review-write-btn, .review-more-btn {
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    text-decoration: none; /* 밑줄 없음 */
+    display: inline-block; /* 인라인 블록 */
+    position: relative; /* 위치 기준점 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 리뷰 작성 버튼 스타일 */
+.review-write-btn {
+    background: linear-gradient(135deg, #8B4513, #CD853F); /* 브라운 그라데이션 */
+    color: white; /* 흰색 글자 */
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3); /* 브라운 그림자 */
+}
+
+/* 리뷰 작성 버튼 호버 효과 */
+.review-write-btn:hover {
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4); /* 그림자 더 진하게 */
+}
+
+/* 더 많은 리뷰 보기 버튼 스타일 */
+.review-more-btn {
+    background: #ffffff; /* 흰색 배경 */
+    color: #8B4513; /* 브라운 글자 */
+    border: 2px solid #CD853F; /* 브라운 테두리 */
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1); /* 연한 브라운 그림자 */
+}
+
+/* 더 많은 리뷰 보기 버튼 호버 효과 */
+.review-more-btn:hover {
+    background: #8B4513; /* 브라운 배경 */
+    color: white; /* 흰색 글자 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2); /* 그림자 더 진하게 */
+}
+
+/* 반응형 디자인 - 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+    /* 리뷰 그리드를 1열로 변경 */
+    .reviews-grid {
+        grid-template-columns: 1fr; /* 1열로 배치 */
+        gap: 25px; /* 간격 줄임 */
+    }
+    
+    /* 리뷰 제목 크기 조정 */
+    .reviews-title {
+        font-size: 2.2rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 리뷰 카드 패딩 조정 */
+    .review-card {
+        padding: 25px; /* 여백 줄임 */
+    }
+    
+    /* 리뷰 내용 글자 크기 조정 */
+    .review-content {
+        font-size: 1rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 리뷰 안내 내용을 세로 배치 */
+    .review-notice-content {
+        flex-direction: column; /* 세로 배치 */
+        gap: 20px; /* 간격 줄임 */
+        text-align: center; /* 가운데 정렬 */
+    }
+    
+    /* 안내 아이콘 크기 조정 */
+    .notice-icon {
+        font-size: 2.5rem; /* 아이콘 크기 줄임 */
+        padding: 15px; /* 여백 줄임 */
+    }
+}
+
+/* 반응형 디자인 - 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    /* 리뷰 섹션 패딩 조정 */
+    .reviews-section {
+        padding: 60px 0; /* 위아래 여백 줄임 */
+    }
+    
+    /* 리뷰 컨테이너 패딩 조정 */
+    .reviews-container {
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* 리뷰 제목 더 작게 */
+    .reviews-title {
+        font-size: 1.8rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 리뷰 카드 패딩 더 작게 */
+    .review-card {
+        padding: 20px; /* 여백 더 줄임 */
+        border-radius: 15px; /* 둥근 모서리 줄임 */
+    }
+    
+    /* 리뷰 내용 더 작게 */
+    .review-content {
+        font-size: 0.95rem; /* 글자 크기 더 줄임 */
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* 카테고리 텍스트 크기 조정 */
+    .category-text {
+        font-size: 0.85rem; /* 글자 크기 줄임 */
+        padding: 5px 12px; /* 여백 줄임 */
+    }
+    
+    /* 리뷰 안내 섹션 패딩 조정 */
+    .review-notice {
+        padding: 25px 20px; /* 여백 줄임 */
+        border-radius: 20px; /* 둥근 모서리 줄임 */
+    }
+    
+    /* 안내 텍스트 제목 크기 조정 */
+    .notice-text h3 {
+        font-size: 1.3rem; /* 글자 크기 조정 */
+    }
+    
+    /* 안내 텍스트 내용 크기 조정 */
+    .notice-text p {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 리뷰 버튼을 세로 배치 */
+    .review-notice-buttons {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 가운데 정렬 */
+    }
+    
+    /* 리뷰 버튼 크기 조정 */
+    .review-write-btn, .review-more-btn {
+        width: 100%; /* 전체 가로 크기 */
+        max-width: 280px; /* 최대 가로 크기 제한 */
+        padding: 12px 25px; /* 여백 조정 */
+        font-size: 0.95rem; /* 글자 크기 줄임 */
+    }
+}
+
+/* ========== 고객 리뷰 섹션 스타일 끝 ========== */
+
+/* ========== Q&A 섹션 스타일 시작 ========== */
+
+/* Q&A 섹션 전체 배경 - 연한 그레이 그라데이션 */
+.qa-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* 연한 그레이 그라데이션 */
+    padding: 100px 0; /* 위아래 100px 여백 */
+    min-height: 100vh; /* 최소 화면 높이만큼 */
+    position: relative; /* 위치 기준점 설정 */
+}
+
+/* Q&A 컨테이너 - 반응형 중앙 정렬 */
+.qa-container {
+    max-width: 900px; /* 최대 가로 크기 (다른 섹션보다 작게) */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 좌우 20px 여백 */
+}
+
+/* Q&A 섹션 제목 스타일 - 블루 그라데이션 */
+.qa-title {
+    background: linear-gradient(135deg, #0056b3, #007bff, #4dabf7); /* 블루 그라데이션 */
+    -webkit-background-clip: text; /* 웹킷 브라우저용 텍스트 클리핑 */
+    -webkit-text-fill-color: transparent; /* 웹킷 브라우저용 투명 텍스트 */
+    background-clip: text; /* 텍스트 클리핑 */
+    font-size: 3rem; /* 제목 글자 크기 */
+    font-weight: 800; /* 글자 굵기 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* Q&A 아코디언 컨테이너 */
+.qa-accordion {
+    margin: 60px 0; /* 위아래 60px 여백 */
+}
+
+/* 각각의 Q&A 아이템 */
+.qa-item {
+    background: #ffffff; /* 흰색 배경 */
+    border-radius: 15px; /* 둥근 모서리 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1); /* 블루 그림자 */
+    border: 1px solid rgba(0, 123, 255, 0.1); /* 연한 블루 테두리 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+}
+
+/* Q&A 아이템 호버 효과 */
+.qa-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.15); /* 그림자 더 진하게 */
+    transform: translateY(-2px); /* 살짝 위로 올라가는 효과 */
+}
+
+/* Q&A 질문 부분 */
+.qa-question {
+    display: flex; /* 플렉스 레이아웃 */
+    justify-content: space-between; /* 양쪽 끝 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    padding: 25px 30px; /* 위아래 25px, 좌우 30px 여백 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    border-bottom: 1px solid rgba(0, 123, 255, 0.1); /* 연한 블루 밑줄 */
+}
+
+/* 질문 부분 호버 효과 */
+.qa-question:hover {
+    background: linear-gradient(135deg, #f8f9ff, #e3f2fd); /* 연한 블루 그라데이션 */
+}
+
+/* 질문 내용 컨테이너 */
+.question-content {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 15px; /* 아이콘과 텍스트 간격 */
+}
+
+/* 질문 아이콘 스타일 */
+.question-icon {
+    font-size: 1.5rem; /* 아이콘 크기 */
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* 연한 블루 그라데이션 */
+    padding: 8px; /* 내부 여백 */
+    border-radius: 50%; /* 원형 모양 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    min-width: 40px; /* 최소 가로 크기 */
+    min-height: 40px; /* 최소 세로 크기 */
+    box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2); /* 블루 그림자 */
+}
+
+/* 질문 텍스트 스타일 */
+.question-text {
+    font-size: 1.1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #0056b3; /* 블루 색상 */
+    line-height: 1.4; /* 줄 간격 */
+}
+
+/* 토글 아이콘 (+/-) 스타일 */
+.toggle-icon {
+    font-size: 1.5rem; /* 아이콘 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    color: #007bff; /* 블루 색상 */
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* 연한 블루 그라데이션 */
+    width: 35px; /* 가로 크기 */
+    height: 35px; /* 세로 크기 */
+    border-radius: 50%; /* 원형 모양 */
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2); /* 블루 그림자 */
+}
+
+/* 토글 아이콘 호버 효과 */
+.toggle-icon:hover {
+    background: linear-gradient(135deg, #bbdefb, #90caf9); /* 더 진한 블루 그라데이션 */
+    transform: scale(1.1); /* 1.1배 확대 */
+}
+
+/* Q&A 답변 부분 */
+.qa-answer {
+    max-height: 0; /* 기본적으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* 부드러운 애니메이션 */
+    background: linear-gradient(135deg, #ffffff, #f8f9ff); /* 연한 블루 그라데이션 배경 */
+}
+
+/* 답변이 열린 상태 */
+.qa-answer.active {
+    max-height: 500px; /* 충분히 큰 값으로 설정 */
+    padding: 25px 30px; /* 위아래 25px, 좌우 30px 여백 */
+}
+
+/* 답변 내용 스타일 */
+.qa-answer p {
+    font-size: 1rem; /* 글자 크기 */
+    line-height: 1.7; /* 줄 간격 */
+    color: #2c2c2c; /* 진한 회색 글자 */
+    margin: 0; /* 여백 제거 */
+}
+
+/* 답변에서 "A." 부분 강조 */
+.qa-answer p strong {
+    color: #0056b3; /* 블루 색상 */
+    font-weight: 700; /* 글자 굵기 */
+    margin-right: 8px; /* 오른쪽 여백 */
+}
+
+/* 토글 아이콘 회전 효과 (답변이 열린 상태) */
+.qa-item.active .toggle-icon {
+    transform: rotate(45deg); /* 45도 회전 */
+    background: linear-gradient(135deg, #007bff, #0056b3); /* 진한 블루 그라데이션 */
+    color: white; /* 흰색 글자 */
+}
+
+/* Q&A 추가 안내 섹션 */
+.qa-notice {
+    background: linear-gradient(135deg, #ffffff, #f8f9ff); /* 흰색에서 연한 블루 그라데이션 */
+    border-radius: 25px; /* 둥근 모서리 */
+    padding: 40px; /* 내부 여백 40px */
+    margin-top: 60px; /* 위쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+    border: 2px solid rgba(0, 123, 255, 0.2); /* 연한 블루 테두리 */
+    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.1); /* 연한 블루 그림자 */
+}
+
+/* Q&A 안내 내용 */
+.qa-notice-content {
+    display: flex; /* 플렉스 레이아웃 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 30px; /* 간격 30px */
+    margin-bottom: 30px; /* 아래쪽 여백 */
+}
+
+/* Q&A 안내 아이콘 스타일 */
+.qa-notice .notice-icon {
+    font-size: 3rem; /* 큰 아이콘 크기 */
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* 연한 블루 그라데이션 */
+    padding: 20px; /* 내부 여백 20px */
+    border-radius: 50%; /* 원형 모양 */
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.2); /* 연한 블루 그림자 */
+}
+
+/* Q&A 안내 텍스트 제목 스타일 */
+.qa-notice .notice-text h3 {
+    font-size: 1.5rem; /* 글자 크기 */
+    color: #0056b3; /* 블루 색상 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+    font-weight: 700; /* 글자 굵기 */
+}
+
+/* Q&A 안내 텍스트 내용 스타일 */
+.qa-notice .notice-text p {
+    font-size: 1rem; /* 글자 크기 */
+    color: #666; /* 회색 글자 */
+    margin: 5px 0; /* 위아래 5px 여백 */
+    line-height: 1.6; /* 줄 간격 */
+}
+
+/* Q&A 관련 버튼 컨테이너 */
+.qa-notice-buttons {
+    display: flex; /* 플렉스 레이아웃 */
+    gap: 20px; /* 간격 20px */
+    justify-content: center; /* 가로 가운데 정렬 */
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+}
+
+/* Q&A 관련 버튼 공통 스타일 */
+.qa-call-btn, .qa-reservation-btn {
+    padding: 15px 30px; /* 위아래 15px, 좌우 30px 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 15px; /* 둥근 모서리 */
+    font-size: 1rem; /* 글자 크기 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    text-decoration: none; /* 밑줄 없음 */
+    display: inline-block; /* 인라인 블록 */
+    position: relative; /* 위치 기준점 설정 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 전화 상담 버튼 스타일 */
+.qa-call-btn {
+    background: linear-gradient(135deg, #0056b3, #007bff); /* 블루 그라데이션 */
+    color: white; /* 흰색 글자 */
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3); /* 블루 그림자 */
+}
+
+/* 전화 상담 버튼 호버 효과 */
+.qa-call-btn:hover {
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.4); /* 그림자 더 진하게 */
+}
+
+/* 온라인 예약 버튼 스타일 */
+.qa-reservation-btn {
+    background: #ffffff; /* 흰색 배경 */
+    color: #0056b3; /* 블루 글자 */
+    border: 2px solid #007bff; /* 블루 테두리 */
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1); /* 연한 블루 그림자 */
+}
+
+/* 온라인 예약 버튼 호버 효과 */
+.qa-reservation-btn:hover {
+    background: #0056b3; /* 블루 배경 */
+    color: white; /* 흰색 글자 */
+    transform: translateY(-3px); /* 위로 3px 올라가는 효과 */
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.2); /* 그림자 더 진하게 */
+}
+
+/* 반응형 디자인 - 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+    /* Q&A 컨테이너 패딩 조정 */
+    .qa-container {
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* Q&A 제목 크기 조정 */
+    .qa-title {
+        font-size: 2.2rem; /* 글자 크기 줄임 */
+    }
+    
+    /* Q&A 질문 패딩 조정 */
+    .qa-question {
+        padding: 20px 25px; /* 여백 줄임 */
+    }
+    
+    /* 질문 텍스트 크기 조정 */
+    .question-text {
+        font-size: 1rem; /* 글자 크기 줄임 */
+    }
+    
+    /* Q&A 답변 패딩 조정 */
+    .qa-answer.active {
+        padding: 20px 25px; /* 여백 줄임 */
+    }
+    
+    /* Q&A 안내 내용을 세로 배치 */
+    .qa-notice-content {
+        flex-direction: column; /* 세로 배치 */
+        gap: 20px; /* 간격 줄임 */
+        text-align: center; /* 가운데 정렬 */
+    }
+    
+    /* 안내 아이콘 크기 조정 */
+    .qa-notice .notice-icon {
+        font-size: 2.5rem; /* 아이콘 크기 줄임 */
+        padding: 15px; /* 여백 줄임 */
+    }
+}
+
+/* 반응형 디자인 - 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    /* Q&A 섹션 패딩 조정 */
+    .qa-section {
+        padding: 60px 0; /* 위아래 여백 줄임 */
+    }
+    
+    /* Q&A 제목 더 작게 */
+    .qa-title {
+        font-size: 1.8rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* Q&A 질문 패딩 더 작게 */
+    .qa-question {
+        padding: 18px 20px; /* 여백 더 줄임 */
+    }
+    
+    /* 질문 내용 간격 조정 */
+    .question-content {
+        gap: 12px; /* 간격 줄임 */
+    }
+    
+    /* 질문 아이콘 크기 조정 */
+    .question-icon {
+        font-size: 1.3rem; /* 아이콘 크기 줄임 */
+        min-width: 35px; /* 최소 가로 크기 줄임 */
+        min-height: 35px; /* 최소 세로 크기 줄임 */
+        padding: 6px; /* 여백 줄임 */
+    }
+    
+    /* 질문 텍스트 더 작게 */
+    .question-text {
+        font-size: 0.95rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 토글 아이콘 크기 조정 */
+    .toggle-icon {
+        width: 30px; /* 가로 크기 줄임 */
+        height: 30px; /* 세로 크기 줄임 */
+        font-size: 1.3rem; /* 아이콘 크기 줄임 */
+    }
+    
+    /* Q&A 답변 패딩 더 작게 */
+    .qa-answer.active {
+        padding: 18px 20px; /* 여백 더 줄임 */
+    }
+    
+    /* 답변 텍스트 크기 조정 */
+    .qa-answer p {
+        font-size: 0.95rem; /* 글자 크기 줄임 */
+    }
+    
+    /* Q&A 안내 섹션 패딩 조정 */
+    .qa-notice {
+        padding: 25px 20px; /* 여백 줄임 */
+        border-radius: 20px; /* 둥근 모서리 줄임 */
+    }
+    
+    /* 안내 텍스트 제목 크기 조정 */
+    .qa-notice .notice-text h3 {
+        font-size: 1.3rem; /* 글자 크기 조정 */
+    }
+    
+    /* 안내 텍스트 내용 크기 조정 */
+    .qa-notice .notice-text p {
+        font-size: 0.9rem; /* 글자 크기 줄임 */
+    }
+    
+    /* Q&A 버튼을 세로 배치 */
+    .qa-notice-buttons {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 가운데 정렬 */
+    }
+    
+    /* Q&A 버튼 크기 조정 */
+    .qa-call-btn, .qa-reservation-btn {
+        width: 100%; /* 전체 가로 크기 */
+        max-width: 280px; /* 최대 가로 크기 제한 */
+        padding: 12px 25px; /* 여백 조정 */
+        font-size: 0.95rem; /* 글자 크기 줄임 */
+    }
+}
+
+/* ========== Q&A 섹션 스타일 끝 ========== */
+
+/* ========== 푸터 섹션 스타일 시작 ========== */
+
+/* 푸터 전체 배경 - 고급스러운 다크 */
+.footer {
+    background: #1f1f1f; /* 심플한 다크 그레이 */
+    color: #e8e8e8; /* 부드러운 흰색 텍스트 */
+    padding: 50px 0 30px 0; /* 여백 조정 */
+    position: relative;
+}
+
+/* 푸터 컨테이너 - 반응형 중앙 정렬 */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px; /* 여백 조정 */
+}
+
+/* 푸터 메인 콘텐츠 그리드 */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3등분 */
+    gap: 50px; /* 간격 증가 */
+    margin-bottom: 40px;
+}
+
+/* 푸터 섹션 공통 스타일 */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* 간격 조정 */
+}
+
+/* 푸터 제목 스타일 - 심플하고 고급스럽게 */
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 600; /* 굵기 줄임 */
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #444; /* 얇은 회색 밑줄 */
+    position: relative;
+}
+
+/* 푸터 제목 밑줄 효과 제거 */
+.footer-title::after {
+    display: none; /* 오렌지 강조선 제거 */
+}
+
+/* 매장 정보 섹션 스타일 - 심플하게 */
+.store-info .info-item {
+    margin-bottom: 25px; /* 여백 조정 */
+}
+
+/* 정보 상세 내용 - 심플하고 고급스럽게 */
+.info-details strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff; /* 흰색으로 변경 */
+    margin-bottom: 8px;
+}
+
+.info-details p {
+    margin: 4px 0;
+    line-height: 1.6; /* 줄 간격 조정 */
+    color: #bbb; /* 부드러운 회색 */
+    font-size: 0.9rem;
+}
+
+.info-details .sub-info {
+    color: #888; /* 더 연한 회색 */
+    font-size: 0.85rem;
+}
+
+/* 전화번호 링크 스타일 - 고급스럽게 */
+.info-details a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-details a:hover {
+    color: #ccc; /* 부드러운 호버 효과 */
+}
+
+/* 네비게이션 링크 그리드 */
+.nav-links-grid {
+    display: grid; /* 그리드 레이아웃 */
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    gap: 15px; /* 간격 15px */
+}
+
+/* 네비게이션 컬럼 */
+.nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 간격 조정 */
+}
+
+/* 네비게이션 링크 스타일 - 심플하게 */
+.nav-column a {
+    color: #bbb; /* 부드러운 회색 */
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    transition: color 0.3s ease; /* 심플한 효과 */
+}
+
+.nav-column a:hover {
+    color: #ffffff; /* 호버 시 흰색 */
+}
+
+/* 푸터 예약 버튼 스타일 - 고급스럽게 */
+.footer-reservation-btn {
+    background: #333; /* 심플한 다크 그레이 */
+    color: white;
+    border: 1px solid #555; /* 얇은 테두리 */
+    padding: 12px 20px;
+    border-radius: 4px; /* 각진 모서리 */
+    font-weight: 600; /* 글자 굵기 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: all 0.3s ease; /* 부드러운 효과 */
+    font-size: 0.95rem; /* 글자 크기 */
+    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3); /* 오렌지 그림자 */
+}
+
+.footer-reservation-btn:hover {
+    transform: translateY(-2px); /* 위로 2px 올라가는 효과 */
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.5); /* 그림자 더 진하게 */
+}
+
+/* 소셜 연락처 링크 스타일 - 심플하게 */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* 간격 제거 */
+}
+
+.contact-link {
+    display: flex; /* 아이콘과 텍스트를 나란히 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 15px; /* 아이콘과 텍스트 간격 */
+    padding: 15px 0; /* 위아래 패딩만 */
+    text-decoration: none;
+    color: #bbb; /* 부드러운 회색 */
+    transition: color 0.3s ease;
+    border-bottom: 1px solid #333; /* 얇은 구분선 */
+}
+
+.contact-link:hover {
+    color: #ffffff; /* 호버 시 흰색 */
+}
+
+.contact-link:last-child {
+    border-bottom: none; /* 마지막 요소는 구분선 없음 */
+}
+
+/* 연락처 정보 텍스트 - 심플하게 */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-info strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.contact-info span {
+    font-size: 0.85rem;
+    color: #888; /* 더 차분한 회색 */
+}
+
+/* 플랫폼별 고유 아이콘 스타일 */
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    flex-shrink: 0; /* 크기 고정 */
+}
+
+/* 네이버 N 로고 */
+.naver-icon {
+    background: #03C75A;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.naver-icon::after {
+    content: 'N';
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+/* 인스타그램 카메라 아이콘 */
+.instagram-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 6px;
+    position: relative;
+}
+
+.instagram-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.instagram-icon::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* 유튜브 재생 버튼 아이콘 */
+.youtube-icon {
+    background: #FF0000;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.youtube-icon::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 8px solid white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    margin-left: 2px;
+}
+
+/* ChatGPT 채팅 버블 아이콘 */
+.chatgpt-icon {
+    background: #10A37F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chatgpt-icon::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background: white;
+    border-radius: 8px 8px 8px 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chatgpt-icon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #10A37F;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 푸터 하단 정보 - 심플하게 */
+.footer-bottom {
+    border-top: 1px solid #333; /* 상단 테두리 */
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* 사업자 정보 - 고급스럽게 */
+.business-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #888; /* 더 차분한 회색 */
+}
+
+.business-details span {
+    white-space: nowrap;
+}
+
+.business-details strong {
+    color: #bbb; /* 부드러운 흰색 */
+}
+
+/* 저작권 정보 */
+.copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888; /* 더 차분한 회색 */
+}
+
+/* 반응형 디자인 - 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+    /* 푸터 콘텐츠를 세로 배치 */
+    .footer-content {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 30px; /* 간격 줄임 */
+    }
+    
+    /* 매장 정보 아이템 간격 조정 */
+    .store-info .info-item {
+        margin-bottom: 15px; /* 여백 줄임 */
+    }
+    
+    /* 네비게이션 링크 그리드 조정 */
+    .nav-links-grid {
+        grid-template-columns: 1fr 1fr; /* 2열로 변경 */
+        gap: 12px; /* 간격 줄임 */
+    }
+    
+    /* 푸터 하단 정보를 세로 배치 */
+    .footer-bottom {
+        flex-direction: column; /* 세로 배치 */
+        text-align: center; /* 가운데 정렬 */
+        gap: 15px; /* 간격 줄임 */
+    }
+    
+    /* 사업자 정보를 세로 배치 */
+    .business-details {
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 가운데 정렬 */
+        gap: 10px; /* 간격 줄임 */
+    }
+}
+
+/* 반응형 디자인 - 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    /* 푸터 패딩 조정 */
+    .footer {
+        padding: 40px 0 15px 0; /* 여백 줄임 */
+    }
+    
+    /* 푸터 컨테이너 패딩 조정 */
+    .footer-container {
+        padding: 0 15px; /* 좌우 여백 줄임 */
+    }
+    
+    /* 푸터 제목 크기 조정 */
+    .footer-title {
+        font-size: 1.1rem; /* 글자 크기 줄임 */
+    }
+    
+    /* 네비게이션 링크 그리드를 1열로 변경 */
+    .nav-links-grid {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+    }
+    
+    /* 연락처 링크 패딩 조정 */
+    .contact-link {
+        padding: 12px 0; /* 여백 줄임 */
+        gap: 12px; /* 아이콘과 텍스트 간격 줄임 */
+    }
+    
+    /* 모바일에서 아이콘 크기 조정 */
+    .contact-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .naver-icon::after {
+        font-size: 14px;
+    }
+    
+    .instagram-icon::before {
+        width: 10px;
+        height: 10px;
+        border-width: 1.5px;
+    }
+    
+    .instagram-icon::after {
+        width: 2px;
+        height: 2px;
+        top: 4px;
+        right: 4px;
+    }
+    
+    .youtube-icon::after {
+        border-left-width: 6px;
+        border-top-width: 4px;
+        border-bottom-width: 4px;
+    }
+    
+    .chatgpt-icon::before {
+        width: 10px;
+        height: 6px;
+    }
+    
+    /* 사업자 정보 텍스트 크기 조정 */
+    .business-details {
+        font-size: 0.8rem; /* 글자 크기 더 줄임 */
+    }
+    
+    /* 저작권 정보 텍스트 크기 조정 */
+    .copyright p {
+        font-size: 0.8rem; /* 글자 크기 더 줄임 */
+    }
+}
+
+/* ========== 푸터 섹션 스타일 끝 ========== */
+
+/* ================== 챗봇 버튼 스타일 ================== */
+
+/* 챗봇 컨테이너 - 고정 위치 설정 */
+.chatbot-container {
+    position: fixed; /* 화면에 고정 */
+    bottom: 30px; /* 화면 하단에서 30px 위 */
+    right: 30px; /* 화면 우측에서 30px 안쪽 */
+    z-index: 9999; /* 다른 모든 요소보다 위에 표시 */
+}
+
+/* 챗봇 버튼 기본 스타일 */
+.chatbot-btn {
+    display: flex; /* 아이콘과 텍스트를 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 10px; /* 아이콘과 텍스트 사이 간격 */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 그라데이션 배경 */
+    color: white; /* 흰색 글자 */
+    border: none; /* 테두리 없음 */
+    border-radius: 25px; /* 둥근 모서리 */
+    padding: 12px 20px; /* 내부 여백 */
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4); /* 그림자 효과 */
+    cursor: pointer; /* 마우스 포인터 변경 */
+    transition: all 0.3s ease; /* 부드러운 애니메이션 */
+    font-family: 'Noto Sans KR', 'NanumSquare', sans-serif; /* 폰트 설정 */
+    font-weight: 500; /* 글자 두께 */
+    max-width: 200px; /* 최대 가로 크기 제한 */
+    animation: chatbotPulse 3s infinite; /* 펄스 애니메이션 */
+}
+
+/* 챗봇 버튼 호버 효과 */
+.chatbot-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%); /* 어두운 그라데이션 */
+    transform: translateY(-2px); /* 위로 살짝 이동 */
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5); /* 더 진한 그림자 */
+}
+
+/* 챗봇 아이콘 스타일 */
+.chatbot-icon {
+    display: flex; /* 아이콘 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    width: 35px; /* 아이콘 영역 가로 크기 */
+    height: 35px; /* 아이콘 영역 세로 크기 */
+    background-color: rgba(255, 255, 255, 0.2); /* 반투명 흰색 배경 */
+    border-radius: 50%; /* 원형 모양 */
+    font-size: 18px; /* 이모지 크기 */
+}
+
+/* 챗봇 텍스트 스타일 */
+.chatbot-text {
+    flex: 1; /* 남은 공간 모두 차지 */
+}
+
+/* 챗봇 라벨 텍스트 */
+.chatbot-label {
+    font-size: 13px; /* 글자 크기 */
+    line-height: 1.3; /* 줄 간격 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+/* 챗봇 펄스 애니메이션 */
+@keyframes chatbotPulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(102, 126, 234, 0.6);
+    }
+}
+
+/* 태블릿 크기에서 챗봇 버튼 스타일 조정 */
+@media (max-width: 768px) {
+    .chatbot-container {
+        bottom: 20px; /* 하단 간격 줄임 */
+        right: 20px; /* 우측 간격 줄임 */
+    }
+    
+    .chatbot-btn {
+        padding: 10px 16px; /* 여백 줄임 */
+        max-width: 180px; /* 최대 크기 줄임 */
+    }
+    
+    .chatbot-icon {
+        width: 30px; /* 아이콘 크기 줄임 */
+        height: 30px;
+        font-size: 16px; /* 이모지 크기 줄임 */
+    }
+    
+    .chatbot-label {
+        font-size: 12px; /* 글자 크기 줄임 */
+    }
+}
+
+/* 모바일 크기에서 챗봇 버튼 스타일 조정 */
+@media (max-width: 480px) {
+    .chatbot-container {
+        bottom: 15px; /* 하단 간격 더 줄임 */
+        right: 15px; /* 우측 간격 더 줄임 */
+    }
+    
+    .chatbot-btn {
+        padding: 8px 12px; /* 여백 더 줄임 */
+        max-width: 160px; /* 최대 크기 더 줄임 */
+        gap: 8px; /* 아이콘과 텍스트 간격 줄임 */
+    }
+    
+    .chatbot-icon {
+        width: 28px; /* 아이콘 크기 더 줄임 */
+        height: 28px;
+        font-size: 14px; /* 이모지 크기 더 줄임 */
+    }
+    
+    .chatbot-label {
+        font-size: 11px; /* 글자 크기 더 줄임 */
+        line-height: 1.2; /* 줄 간격 줄임 */
+    }
+}
+
+/* ========== 챗봇 버튼 스타일 끝 ========== */
