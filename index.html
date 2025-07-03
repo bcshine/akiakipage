@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아키아키 - 청주 대표 일식 오마카세</title>
     
+    <!-- PWA 메타 태그 -->
+    <meta name="description" content="청주 대표 일식 오마카세 레스토랑 아키아키. 프라이빗 룸에서 만나는 미식의 순간을 경험해보세요.">
+    <meta name="theme-color" content="#b8860b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="아키아키">
+    <meta name="msapplication-TileColor" content="#b8860b">
+    <meta name="msapplication-TileImage" content="images/logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS PWA 아이콘 -->
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/logo.png">
+    
+    <!-- 일반 파비콘 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    
     <!-- 넥슨폰트 웹폰트 불러오기 -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -1450,6 +1472,329 @@
         </button>
     </div>
     
+    <!-- PWA 설치 안내 모달 -->
+    <div id="pwaInstallModal" class="pwa-install-modal" style="display: none;">
+        <div class="pwa-modal-content">
+            <div class="pwa-modal-header">
+                <img src="images/logo.png" alt="아키아키 로고" class="pwa-modal-logo">
+                <h3>아키아키 앱 설치</h3>
+                <button class="pwa-modal-close" onclick="closePWAModal()">&times;</button>
+            </div>
+            <div class="pwa-modal-body">
+                <p>아키아키를 홈 화면에 추가하여<br>네이티브 앱처럼 사용하세요!</p>
+                <ul class="pwa-benefits">
+                    <li>🚀 빠른 접속</li>
+                    <li>📱 홈 화면 바로가기</li>
+                    <li>🔔 알림 받기</li>
+                    <li>📶 오프라인 사용</li>
+                </ul>
+            </div>
+            <div class="pwa-modal-footer">
+                <button class="pwa-install-btn" onclick="installPWA()">설치하기</button>
+                <button class="pwa-cancel-btn" onclick="closePWAModal()">나중에</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Service Worker 등록 및 설치 관련 스크립트 -->
+    <script>
+        // Service Worker 등록
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                        
+                        // 새로운 Service Worker가 활성화되면 페이지 새로고침
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // 새로운 버전 사용 가능 알림
+                                    if (confirm('새로운 버전이 사용 가능합니다. 지금 업데이트하시겠습니까?')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // PWA 설치 관련
+        let deferredPrompt;
+        let pwaInstallModal = document.getElementById('pwaInstallModal');
+
+        // PWA 설치 가능 이벤트 리스너
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('PWA install prompt triggered');
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // 첫 방문 후 3초 뒤에 설치 안내 모달 표시
+            setTimeout(() => {
+                if (!localStorage.getItem('pwaInstallPromptShown')) {
+                    showPWAModal();
+                    localStorage.setItem('pwaInstallPromptShown', 'true');
+                }
+            }, 3000);
+        });
+
+        // PWA 설치 완료 이벤트
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('PWA was installed');
+            localStorage.setItem('pwaInstalled', 'true');
+            alert('아키아키 앱이 홈 화면에 추가되었습니다! 🎉');
+        });
+
+        // PWA 모달 표시
+        function showPWAModal() {
+            if (pwaInstallModal) {
+                pwaInstallModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // PWA 모달 닫기
+        function closePWAModal() {
+            if (pwaInstallModal) {
+                pwaInstallModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // PWA 설치 실행
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the PWA install prompt');
+                    } else {
+                        console.log('User dismissed the PWA install prompt');
+                    }
+                    deferredPrompt = null;
+                    closePWAModal();
+                });
+            } else {
+                // iOS Safari의 경우 수동 설치 안내
+                if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+                    alert('Safari에서 공유 버튼을 누른 후 "홈 화면에 추가"를 선택해주세요.');
+                } else {
+                    alert('브라우저 메뉴에서 "홈 화면에 추가" 또는 "앱 설치"를 선택해주세요.');
+                }
+                closePWAModal();
+            }
+        }
+
+        // 온라인/오프라인 상태 감지
+        window.addEventListener('online', () => {
+            console.log('Online mode');
+            // 온라인 상태 UI 업데이트 (필요시)
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('Offline mode');
+            // 오프라인 상태 UI 업데이트 (필요시)
+            const offlineToast = document.createElement('div');
+            offlineToast.textContent = '오프라인 모드입니다. 일부 기능이 제한될 수 있습니다.';
+            offlineToast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #ff6b6b;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                z-index: 10000;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            document.body.appendChild(offlineToast);
+            setTimeout(() => {
+                if (offlineToast.parentNode) {
+                    offlineToast.parentNode.removeChild(offlineToast);
+                }
+            }, 5000);
+        });
+
+        // iOS 사파리에서 PWA로 실행되었는지 감지
+        if (window.navigator.standalone === true) {
+            console.log('Running as PWA on iOS');
+            // PWA 모드에서 외부 링크 처리
+            document.addEventListener('click', function(event) {
+                const target = event.target.closest('a');
+                if (target && target.hostname !== window.location.hostname) {
+                    event.preventDefault();
+                    window.open(target.href, '_blank');
+                }
+            });
+        }
+    </script>
+
+    <!-- PWA 설치 모달 스타일 -->
+    <style>
+        .pwa-install-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .pwa-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .pwa-modal-header {
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .pwa-modal-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pwa-modal-header h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .pwa-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .pwa-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pwa-modal-body {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .pwa-modal-body p {
+            margin: 0 0 20px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .pwa-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pwa-benefits li {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .pwa-modal-footer {
+            padding: 0 24px 24px 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .pwa-install-btn, .pwa-cancel-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pwa-install-btn {
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: white;
+        }
+
+        .pwa-install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        .pwa-cancel-btn {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        .pwa-cancel-btn:hover {
+            background: #e9ecef;
+        }
+
+        @media (max-width: 480px) {
+            .pwa-modal-content {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+            
+            .pwa-benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
     <!-- 자바스크립트 파일 연결 -->
     <script src="script.js"></script>
 </body>
