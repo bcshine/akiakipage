@@ -4606,3 +4606,344 @@ body {
 }
 
 /* ========== 챗봇 버튼 스타일 끝 ========== */
+
+/* ================== PWA 관련 스타일 ================== */
+
+/* PWA 설치 프롬프트 스타일 */
+.pwa-install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90%;
+    width: 400px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.pwa-install-prompt.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pwa-prompt-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pwa-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.pwa-text {
+    flex: 1;
+}
+
+.pwa-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.pwa-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.pwa-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.pwa-install-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pwa-install-btn:hover {
+    background-color: #000;
+}
+
+.pwa-dismiss-btn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pwa-dismiss-btn:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* 오프라인 상태 알림 */
+.offline-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 10000;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.offline-notification.show {
+    transform: translateY(0);
+}
+
+.offline-notification.online {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* PWA 업데이트 알림 */
+.pwa-update-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 320px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.pwa-update-toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pwa-update-text {
+    margin-right: 15px;
+}
+
+.pwa-update-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.pwa-update-description {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.pwa-update-btn {
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.pwa-update-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* 스플래시 화면 */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.splash-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    animation: pulsate 1.5s infinite alternate;
+}
+
+.splash-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.splash-loading {
+    width: 50px;
+    height: 4px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.splash-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background-color: #333;
+    border-radius: 2px;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes loading {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* 모바일 화면 최적화 */
+@media (max-width: 768px) {
+    .pwa-install-prompt {
+        width: 90%;
+        padding: 12px 15px;
+    }
+
+    .pwa-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .pwa-title {
+        font-size: 14px;
+    }
+
+    .pwa-description {
+        font-size: 12px;
+    }
+
+    .pwa-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pwa-install-btn,
+    .pwa-dismiss-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .pwa-update-toast {
+        bottom: 15px;
+        right: 15px;
+        max-width: 280px;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pwa-install-prompt {
+        bottom: 15px;
+        padding: 10px 12px;
+    }
+
+    .pwa-prompt-content {
+        gap: 10px;
+    }
+
+    .pwa-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .pwa-title {
+        font-size: 13px;
+    }
+
+    .pwa-description {
+        font-size: 11px;
+    }
+
+    .pwa-buttons {
+        margin-left: 8px;
+    }
+
+    .pwa-install-btn,
+    .pwa-dismiss-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .splash-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .splash-title {
+        font-size: 20px;
+    }
+}
