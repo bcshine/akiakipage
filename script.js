@@ -197,6 +197,9 @@ function closeMobileMenu() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('아키아키 웹페이지가 로드되었습니다!'); // 개발자 도구에서 확인용 메시지
     
+    // PWA 설치 모달 초기화
+    pwaInstallModal = document.getElementById('pwaInstallModal');
+    
     // 히어로 캐러셀 자동 슬라이드 시작
     startAutoSlide();
     
@@ -590,5 +593,319 @@ function openAkiakiChatbot() {
     // 사용자에게 간단한 안내 메시지 (선택사항)
     // alert('아키아키 전용 GPT 챗봇이 새 창에서 열립니다!');
 }
+
+/* ========== PWA 관련 추가 기능들 시작 ========== */
+
+// PWA 업데이트 알림 표시 함수
+function showUpdateNotification() {
+    const updateNotification = document.createElement('div');
+    updateNotification.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            z-index: 10001;
+            max-width: 350px;
+            font-size: 14px;
+            line-height: 1.5;
+        ">
+            <div style="font-weight: 600; margin-bottom: 8px;">🆕 새로운 업데이트</div>
+            <div style="margin-bottom: 12px;">아키아키의 새로운 기능이 준비되었습니다!</div>
+            <div style="display: flex; gap: 8px;">
+                <button onclick="location.reload()" style="
+                    background: white;
+                    color: #b8860b;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    flex: 1;
+                ">업데이트</button>
+                <button onclick="this.closest('div').remove()" style="
+                    background: rgba(255,255,255,0.2);
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    flex: 1;
+                ">나중에</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(updateNotification);
+    
+    // 10초 후 자동 제거
+    setTimeout(() => {
+        if (updateNotification.parentNode) {
+            updateNotification.parentNode.removeChild(updateNotification);
+        }
+    }, 10000);
+}
+
+// 네트워크 상태 변경 감지 및 UI 업데이트
+function initNetworkStatusMonitoring() {
+    let networkStatusIndicator = null;
+    
+    function createNetworkIndicator(isOnline) {
+        // 기존 인디케이터 제거
+        if (networkStatusIndicator) {
+            networkStatusIndicator.remove();
+        }
+        
+        if (!isOnline) {
+            networkStatusIndicator = document.createElement('div');
+            networkStatusIndicator.innerHTML = `
+                <div style="
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: #ff6b6b;
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    z-index: 10000;
+                    font-size: 14px;
+                    font-weight: 500;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                ">
+                    📶 오프라인 모드 - 일부 기능이 제한됩니다
+                </div>
+            `;
+            document.body.appendChild(networkStatusIndicator);
+        }
+    }
+    
+    // 초기 상태 확인
+    createNetworkIndicator(navigator.onLine);
+    
+    // 온라인 상태 변경 감지
+    window.addEventListener('online', () => {
+        createNetworkIndicator(true);
+        console.log('네트워크 연결됨');
+        
+        // 온라인 복구 알림
+        const onlineToast = document.createElement('div');
+        onlineToast.innerHTML = `
+            <div style="
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #28a745;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 25px;
+                z-index: 10000;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            ">
+                ✅ 인터넷 연결이 복구되었습니다
+            </div>
+        `;
+        document.body.appendChild(onlineToast);
+        setTimeout(() => {
+            if (onlineToast.parentNode) {
+                onlineToast.parentNode.removeChild(onlineToast);
+            }
+        }, 3000);
+    });
+    
+    window.addEventListener('offline', () => {
+        createNetworkIndicator(false);
+        console.log('네트워크 연결 끊김');
+    });
+}
+
+// PWA 설치 상태 확인 및 플로팅 버튼 표시
+function initPWAInstallPrompt() {
+    // 이미 PWA로 설치되었는지 확인
+    if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('PWA 모드로 실행 중');
+        return;
+    }
+    
+    // 이미 설치 안내를 봤다면 플로팅 버튼 표시
+    if (localStorage.getItem('pwaInstallPromptShown') && !localStorage.getItem('pwaInstalled')) {
+        createFloatingInstallButton();
+    }
+}
+
+// 플로팅 PWA 설치 버튼 생성
+function createFloatingInstallButton() {
+    const floatingBtn = document.createElement('div');
+    floatingBtn.innerHTML = `
+        <button onclick="showPWAModal()" style="
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            border: none;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            📱
+        </button>
+        <style>
+            @keyframes pulse {
+                0% { box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3); }
+                50% { box-shadow: 0 8px 30px rgba(184, 134, 11, 0.6); }
+                100% { box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3); }
+            }
+        </style>
+    `;
+    document.body.appendChild(floatingBtn);
+}
+
+// 사용자 행동 추적 (간단한 분석)
+function initUserAnalytics() {
+    let sessionData = {
+        startTime: Date.now(),
+        pageViews: 1,
+        sectionsViewed: new Set(),
+        menuDetailsOpened: [],
+        reservationClicks: 0
+    };
+    
+    // 스크롤로 섹션 진입 감지
+    function trackSectionView() {
+        const sections = document.querySelectorAll('section[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    sessionData.sectionsViewed.add(entry.target.id);
+                    console.log(`섹션 조회: ${entry.target.id}`);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        sections.forEach(section => observer.observe(section));
+    }
+    
+    // 예약 버튼 클릭 추적
+    document.addEventListener('click', (e) => {
+        if (e.target.textContent && e.target.textContent.includes('예약')) {
+            sessionData.reservationClicks++;
+            console.log('예약 버튼 클릭됨');
+        }
+    });
+    
+    // 세션 종료 시 데이터 저장
+    window.addEventListener('beforeunload', () => {
+        sessionData.endTime = Date.now();
+        sessionData.duration = sessionData.endTime - sessionData.startTime;
+        
+        // 로컬스토리지에 간단한 통계 저장
+        const stats = JSON.parse(localStorage.getItem('akiakiStats') || '{}');
+        stats.totalVisits = (stats.totalVisits || 0) + 1;
+        stats.totalDuration = (stats.totalDuration || 0) + sessionData.duration;
+        stats.mostViewedSections = stats.mostViewedSections || {};
+        
+        sessionData.sectionsViewed.forEach(section => {
+            stats.mostViewedSections[section] = (stats.mostViewedSections[section] || 0) + 1;
+        });
+        
+        localStorage.setItem('akiakiStats', JSON.stringify(stats));
+    });
+    
+    trackSectionView();
+}
+
+// 사용자 경험 개선 - 스마트 스크롤
+function initSmartScroll() {
+    let lastScrollTime = 0;
+    let isScrolling = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            lastScrollTime = Date.now();
+            isScrolling = true;
+            
+            // 스크롤이 멈춘 후 처리
+            setTimeout(() => {
+                if (Date.now() - lastScrollTime >= 150) {
+                    isScrolling = false;
+                    
+                    // 현재 화면에 보이는 섹션의 네비게이션 하이라이트
+                    updateActiveNavigation();
+                }
+            }, 150);
+        } else {
+            lastScrollTime = Date.now();
+        }
+    });
+}
+
+// 활성 네비게이션 업데이트
+function updateActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.menu-list a, .mobile-menu-list a');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+        }
+    });
+    
+    // 네비게이션 링크 업데이트
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// PWA 기능 초기화
+function initPWAFeatures() {
+    console.log('PWA 기능 초기화 중...');
+    
+    // 네트워크 상태 모니터링
+    initNetworkStatusMonitoring();
+    
+    // PWA 설치 안내
+    initPWAInstallPrompt();
+    
+    // 사용자 분석
+    initUserAnalytics();
+    
+    // 스마트 스크롤
+    initSmartScroll();
+    
+    console.log('PWA 기능 초기화 완료');
+}
+
+// 페이지 로드 시 PWA 기능 초기화
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPWAFeatures);
+} else {
+    initPWAFeatures();
+}
+
+/* ========== PWA 관련 추가 기능들 끝 ========== */
 
  
